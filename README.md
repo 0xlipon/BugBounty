@@ -1,2 +1,2 @@
 # BugBounty 
-All My Recon Bug Bounty Assets List.
+Just the Recon for Pentesting and Bug Bounty Hunting.
