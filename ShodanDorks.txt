@@ -1,0 +1,34 @@
+org:"http://target. com" 
+http.status:"<status_code>" 
+product:"<Product_Name>" 
+port:<Port_Number> “Service_Message” 
+port:<Port_Number> “Service_Name” 
+http.component:"<Component_Name>" 
+http.component_category:"<Component_Category> 
+http.waf:"<firewall_name>" 
+http.html:"<Name>" 
+http.title:"<Title_Name>" 
+ssl.alpn:"<Protocol>" 
+http.favicon.hash:"<Favicon_Hash>" 
+net:"<Net_Range>" (for e.g. 104.16.100.52/32) 
+http://ssl.cert.subject.cn:"<http://Domain .com>" 
+asn:"<ASnumber>" 
+hostname:"<hosthame>" 
+ip:"<IP_Address>" 
+all:"<Keyword>" 
+“Set-Cookie: phpMyAdmin” 
+“Set-Cookie: lang=" 
+“Set-Cookie: PHPSESSID" 
+“Set-Cookie: webvpn” 
+“Set-Cookie:webvpnlogin=1" 
+“Set-Cookie:webvpnLang=en” 
+“Set-Cookie: mongo-express=" 
+“Set-Cookie: user_id=" 
+“Set-Cookie: phpMyAdmin=" 
+“Set-Cookie: _gitlab_session” 
+“X-elastic-product: Elasticsearch” 
+“x-drupal-cache” 
+“access-control-allow-origin” 
+“WWW-Authenticate”  
+“X-Magento-Cache-Debug”   
+“kbn-name: kibana”
