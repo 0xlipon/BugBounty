@@ -55,5 +55,14 @@ https://github.com/gprime31/WAF-bypass-xss-payloads/tree/master
 
 https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/waf-bypass
 
-# CheatSheets
+# WAF Bypass CheatSheets
 https://github.com/0xVIC/CheatSheets/tree/master
+
+https://hacklido.com/blog/504-5-ways-i-bypassed-your-web-application-firewall-waf/2
+https://owasp.org/www-community/attacks/SQL_Injection_Bypassing_WAF
+https://pentestbook.six2dez.com/enumeration/webservices/wafs
+https://gowsundar.gitbook.io/book-of-bugbounty-tips/cross-site-scripting-xss
+https://www.pwny.cc/web-attacks/cross-site-scripting-xss/waf-bypasses
+
+403 & 401 Bypasses
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses
