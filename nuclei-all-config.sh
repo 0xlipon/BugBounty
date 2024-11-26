@@ -1,3 +1,5 @@
+git clone https://github.com/coffinxp/nuclei-templates.git
+git clone https://github.com/freelancermijan/pvt-template.git
 git clone https://github.com/projectdiscovery/nuclei-templates.git
 git clone https://github.com/geeknik/the-nuclei-templates
 git clone https://github.com/pikpikcu/my-nuclei-templates
