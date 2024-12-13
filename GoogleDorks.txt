@@ -1,3 +1,24 @@
+site:airbnb.com
+site:airbnb.com intitle:index.of
+site:airbnb.com ext:conf | ext:cnf | ext:config | ext:ini
+site:airbnb.com ext:sql | ext:db | ext:dbf | ext:mdb
+site:airbnb.com ext:log
+site:airbnb.com ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup
+site:airbnb.com ext:php | ext:jsp | ext:asp | ext:aspx | ext:js | ext:java | ext:py | ext:c | ext:cpp | ext:pl
+site:airbnb.com  ext:doc | ext:docx | ext:pdf | ext:xls | ext:xlsx | ext:ppt | ext:pptx
+site:airbnb.com intext:username | intext:password | intext:passwd
+site:airbnb.com inurl:xmlrpc.php
+site:airbnb.com inurl:admin | inurl:login | inurl:dashboard
+site:airbnb.com inurl:api | inurl:rest | inurl:graphql
+site:pro.opensea.io inurl:.git
+site:pro.opensea.io ext:env | ext:yaml | ext:json
+site:pro.opensea.io inurl:link= | inurl:url= | inurl:path= | inurl:dest= | inurl:redirect= | inurl:next= | inurl:redirectto=
+site:pro.opensea.io intext:"error" | intext:"warning" | intext:"not found" | intext:"exception"
+site:pro.opensea.io ext:php intext:"phpinfo()" | intext:"PHP Version"
+site:pro.opensea.io inurl:sessionid | inurl:JSESSIONID | inurl:PHPSESSID
+site:tesla.cn "parent directory"
+site:pro.opensea.io inurl:wp- | inurl:joomla | inurl:drupal | inurl:magento
+
 # https://www.exploit-db.com/google-hacking-database
 
 "MySQL_ROOT_PASSWORD:" "docker-compose" ext:yml
