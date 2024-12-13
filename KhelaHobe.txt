@@ -16,21 +16,17 @@ cd ~/.config/waymore/results
 gau -subs northwesternmutual.com |grep -iE '\.js'|grep -iEv '(\.jsp|\.json)' >> js.txt
 cat domains_list.txt | httpx -ports 80,443,8080,8443 -path /admin -mr "admin"
 
+urlfinder -d tesla.com
+
 uncover -q http.title:"GitLab" -silent | httpx -silent | nuclei
 uncover -q target -f ip | naabu
 echo jira | uncover -e shodan,censys -silent
 
 Xss 💰 Methodology 💯 
-
-
 1- Pick a target
-
 2- Do Full depth Subdomain enumeration using Subfinder( along API'S ) and use webcopilot or SubDomz and various subdomains finder tools in one liner and also ones perform subdomain bruteforicng and save it in a file.!! 
-
 3- subfinder -d example.com -all >> subs.txt
-
 4- cat subs.txt | httpx -o alive-subs.txt
-
 
 Method-1 ( Using Dalfox ) 
 1- katana -u alive-subs.txt -o endpoints-1.txt
@@ -61,7 +57,7 @@ cat waymore.txt | grep -E -v '\.css($|\s|\?|&|#|/|\.)|\.js($|\s|\?|&|#|/|\.)|\.j
 uro -i filtered-extensions-links.txt -o uro.txt
 subprober -f uro.txt -sc -ar -o 1337.txt -nc -mc 200 301 302 307 308 403 -c 20
 cat uro.txt | gf or
-grep "=" urls.txt | sed 's/=\(.*\)/=/'
+grep "=" uro.txt | sed 's/=\(.*\)/=/' | tee -a urls.txt
 
 
 'or 1=1 limit 1-- -
