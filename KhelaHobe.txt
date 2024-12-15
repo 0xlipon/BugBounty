@@ -2,7 +2,7 @@ https://h1.security.nathan.sx/
 
 cd /home/lipon/Hacking/tools/crlfi           ==>  crlfi -i urls.txt -o crlf.txt
 cd /home/lipon/Hacking/tools/ssti            ==>  ssti -l urls.txt -o ssti.txt
-cd /home/lipon/Hacking/tools/RedirectHunter  ==> RedirectHunter -l urls.txt -o redirect.txt
+cd /home/lipon/Hacking/tools/RedirectHunter  ==>  RedirectHunter -l urls.txt -o redirect.txt
 
 %0D%0ASet-Cookie:crlfinjection=crlfinjection
 %0d%0a%09headername:%20headervalue
