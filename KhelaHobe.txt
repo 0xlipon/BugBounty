@@ -11,7 +11,7 @@ https://sidxparab.medium.com/best-bugbounty-recon-toolebe635d3b363-ebe635d3b363
 https://vedanttekale20.medium.com/spend-more-time-doing-recon-youll-get-more-bugs-e7ffd5bf9202
 https://gowthams.gitbook.io/bughunter-handbook/list-of-vulnerabilities-bugs/recon-and-osint/recon
 
-
+AMAZON WAF: <a/+/OnMoUsEOVEr+=+(confirm)(document.domain)> 
 
 crlfi -i /home/lipon/Hacking/recon/urls.txt -o crlf.txt
 ssti -l /home/lipon/Hacking/recon/urls.txt -o ssti.txt
