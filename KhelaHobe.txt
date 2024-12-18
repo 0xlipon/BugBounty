@@ -2,6 +2,16 @@ https://h1.security.nathan.sx/
 
 0"XOR(if(now()=sysdate()%2Csleep(6)%2C0))XOR"Z
 
+Recon Methodology | Resources🔽|
+https://www.offensity.com/en/blog/just-another-recon-guide-pentesters-and-bug-bounty-hunters/
+https://book.hacktricks.xyz/generic-methodologies-and-resources/external-recon-methodology
+https://dhiyaneshgeek.github.io/bug/bounty/2020/02/06/recon-with-me/
+https://infosecwriteups.com/recon-methodology-for-bug-hunting-e623120a7ca6
+https://sidxparab.medium.com/best-bugbounty-recon-toolebe635d3b363-ebe635d3b363
+https://vedanttekale20.medium.com/spend-more-time-doing-recon-youll-get-more-bugs-e7ffd5bf9202
+https://gowthams.gitbook.io/bughunter-handbook/list-of-vulnerabilities-bugs/recon-and-osint/recon
+
+
 
 crlfi -i /home/lipon/Hacking/recon/urls.txt -o crlf.txt
 ssti -l /home/lipon/Hacking/recon/urls.txt -o ssti.txt
