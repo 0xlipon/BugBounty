@@ -583,3 +583,83 @@ window.opener.location='http://google.com'
 opener.location="https://evil.com"
 >> https://hackerone.com/reports/1145563
 
+1) wp-admin.php
+2) wp-config.php
+3) wp-content/uploads
+4) Wp-load
+5) wp-signup.php
+6) wp-json
+7) wp-includes [directory]
+8) index.php
+9) wp-login.php
+10) wp-links-opml.php
+11) wp-activate.php
+12) wp-blog-header.php
+13) wp-cron.php
+14) wp-links.php
+15) wp-mail.php
+16) xmlrpc.php
+17) wp-settings.php
+18) wp-trackback.php
+19) wp-signup.php
+20) admin-bar.php 
+
+
+
+if you do nomal scan ..wpscan dont catch plugins installed .. i have installed wordpress in my localhost..i also have some vulnnerable plugins installed ...so normal comment is not work.....dont use my token..:D try to get your own in wpscan website for free ..ok
+
+wpscan --url http://10.0.0.227/wordpress/ -e --api-token=hT0T7Lgsh878748x1jg0sQUNKbYJ60Xg712Gosv4VBAm0o --rua -v
+
+
+if you force scan using this comment ...we got it
+
+wpscan --url http://10.0.0.227/wordpress/ -e --api-token=hT0T7Lgsh5gokjvk7QUNKbYJ60Xg712Gosv4VBAm0o --rua -v --disable-tls-checks -e at -e ap -e u --enumerate ap --plugins-detection aggressive --force
+
+    -e:
+    This flag is short for --enumerate. It is used to instruct WPScan to enumerate (gather) various details about the WordPress installation such as users, plugins, themes, and more. Multiple enumerations can be specified by repeating this flag.
+
+    --api-token=hT0T7Lgsh5gox1jg0sQUNKgfgdg44bYJ60Xg712Gosv4VBAm0o:
+    WPScan uses an API to fetch the latest vulnerability data. This flag provides your WPScan API token to authenticate and access the vulnerability database.you can signup wpscan site and get it one...
+
+    --rua:
+    Stands for "Remote User-Agent". This flag helps WPScan send a custom user-agent string when making requests, which can be important for avoiding detection or for bypassing certain security measures. This is generally used to mask the scan’s real identity.
+
+    -v:
+    Stands for verbose mode. This option increases the verbosity of the scan output, providing more detailed information about the process and findings.
+
+    --disable-tls-checks:
+    Disables TLS (Transport Layer Security) checks. This could be useful in cases where SSL/TLS certificates are invalid or self-signed, allowing the scan to proceed without errors related to SSL/TLS issues.
+
+    -e at:
+    This is another enumerate flag but with a specific type of enumeration: at refers to themes. This means WPScan will attempt to list all installed themes on the target WordPress site.
+
+    -e ap:
+    Another enumerate flag, ap stands for plugins. WPScan will attempt to list all active plugins on the site.
+
+    -e u:
+    This is used to enumerate users. WPScan will try to find usernames on the site, which could be valuable information for further attacks (like brute-forcing login credentials).
+
+
+    --plugins-detection aggressive:
+    Specifies the plugin detection method to be aggressive. This means WPScan will use a more in-depth and exhaustive method to identify plugins installed on the WordPress site. This might generate more accurate results, but could also take longer.
+
+    --force:
+    Forces WPScan to continue scanning even if it encounters issues, like SSL/TLS certificate validation errors or problems connecting to the target. This is often used to bypass potential failures or interruptions.
+
+Overall Purpose:
+
+This command is running WPScan to enumerate a range of potential weaknesses in a WordPress installation hosted at http://10.0.0.227/wordpress/. Specifically, it:
+
+    Enumerates themes, plugins, and users.
+    Uses an aggressive plugin detection method.
+    Uses an API token to access updated vulnerability information.
+    Runs in verbose mode for detailed output.
+    Disables TLS checks to avoid certificate-related issues.
+    Forces the scan to run even if certain checks fail.
+
+It’s generally used by security professionals to find vulnerabilities or configuration issues in WordPress installations, or by attackers trying to gather information for potential exploitation.
+
+
+if you want brute force wordpress login ..use this one ...i used usr name as aungsanoo and passwors is aunglat as you already known..i use my test wordlist..you can use rockyou ..exanple 
+
+wpscan --url wpscan --url http://10.0.0.227/wordpress/ -e --api-token=hT0T7Lgsh5gox1jg0sQUNKbfgfYJ60Xg7dg12Gosv4VBAm0o --rua -v -U aungsanoo -P /usr/share/wordlists/rockyou.txt
