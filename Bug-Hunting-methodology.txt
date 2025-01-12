@@ -1,6 +1,9 @@
 Bug Hunting methodology For Beginner
 -----------------------------------
 
+https://github.com/amrelsagaei/Bug-Bounty-Hunting-Methodology-2025
+https://lostsec.xyz/
+
 mkdir example
 cd example
 
