@@ -1,2 +1,3 @@
 site:http://medium.com "How I found my first bug"
 site:http://medium.com "How I got my first bounty"
+"rce" OR "p1" AND "BUGCROWD" site:medium.com
