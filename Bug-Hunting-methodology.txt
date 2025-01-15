@@ -5,6 +5,7 @@ https://github.com/amrelsagaei/Bug-Bounty-Hunting-Methodology-2025
 https://lostsec.xyz/
 
 https://sm4rty.medium.com/hunting-for-bugs-in-file-upload-feature-c3b364fb01ba
+https://github.com/almandin/fuxploider
 
 mkdir example
 cd example
