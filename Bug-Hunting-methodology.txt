@@ -1,5 +1,8 @@
 Bug Hunting methodology For Beginner
 -----------------------------------
+cat square-alive.txt | nuclei -t ~/pro~nuclei/cves~all/reflected-xss-waf-bypass.yaml -c 40 -rl 200
+nuclei -l square-alive.txt -t ~/pro~nuclei/cves~all -c 50 -v -o custom_cves_results.txt
+nuclei -l square-alive.txt -t ~/pro~nuclei/nuclei~all -c 50 -v -o custom_all_results.txt
 
 https://github.com/amrelsagaei/Bug-Bounty-Hunting-Methodology-2025
 https://lostsec.xyz/
