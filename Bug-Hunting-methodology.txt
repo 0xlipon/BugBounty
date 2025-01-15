@@ -9,6 +9,11 @@ https://github.com/almandin/fuxploider
 
 https://raw.githubusercontent.com/xnl-h4ck3r/waymore/refs/heads/main/waymore/waymore.py
 
+cat httpx_report.txt | grep 302 | awk ‘{print $1}’ | anew 302_status.txt
+cat 302_status.txt | nuclei -t ~/private/zip-backup.yaml -c 40 -project armin -rl 400 -v | anew lowkey.txt
+nuclei -u https://redacted.supersecret.com/ -t ~/private/zip-backup.yaml -v -debug
+wget https://redacted.supersecret.com/uploads.zip
+
 mkdir example
 cd example
 
