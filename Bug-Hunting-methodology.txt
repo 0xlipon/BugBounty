@@ -7,6 +7,8 @@ https://lostsec.xyz/
 https://sm4rty.medium.com/hunting-for-bugs-in-file-upload-feature-c3b364fb01ba
 https://github.com/almandin/fuxploider
 
+https://raw.githubusercontent.com/xnl-h4ck3r/waymore/refs/heads/main/waymore/waymore.py
+
 mkdir example
 cd example
 
