@@ -1,3 +1,21 @@
+========================================================================================================================================
+
+https://web.archive.org/cdx/search/cdx?url=*.example.com/*&collapse=urlkey&output=text&fl=original
+Find Juicy Filetype: .pdf, .db, .rar, .csv, .tar, .key
+Oneliner: curl -G "https://web.archive.org/cdx/search/cdx" --data-urlencode "url=*.policybazaar.com/*" --data-urlencode "collapse=urlkey" --data-urlencode "output=text" --data-urlencode "fl=original" > 
+
+du -h out.txt
+
+cat out.txt | uro | grep -E '\.xls|\.xml|\.xlsx|\.json|\.pdf|\.sql|\.doc|\.docx|\.pptx|\.txt|\.zip|\.tar\.gz|\.tgz|\.bak|\.7z|\.rar|\.log|\.cache|\.secret|\.db|\.backup|\.yml|\.gz|\.config|\.csv|\.yaml|\.md|\.md5|\.exe|\.dll|\.bin|\.ini|\.bat|\.sh|\.tor|\.deb|\.rpm|\.iso|\.img|\.apk|\.msi|\.dmg|\.tmp|\.crt|\.pem|\.key|\.pub|\.asc'
+
+Crtl+Shift+F => Search manually...
+
+Look when the url archived,,, https://web.archive.org/web/20250000000000*/http://www.policybazaar.com:80/health-insurance/Information/HDFC.xls
+
+Details: Gather assets through API > https://lostsec.xyz/
+
+========================================================================================================================================
+
 payload for testing HTML/XSS/IFRAME/ATO/PHISHING
 
 HTMLi:
