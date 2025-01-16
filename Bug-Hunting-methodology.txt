@@ -30,6 +30,7 @@ cat urls.txt | xargs -I {} sh -c 'echo {} | katana -jc -f qurl -d 5 -c 50 -kf ro
 
 subfinder -d sophos.com -all  -recursive > subdomain1.txt
 subdominator -d sophos.com -o output-subdominator.txt
+echo example.com | alterx -enrich | dnsx -silent
 
 arjun -q -u sophos.com -oT arjun && cat arjun | awk -F'[?&]' '{baseUrl=$1; for(i=2; i<=NF; i++) {split($i, param, "="); print baseUrl "?" param[1] "="}}' | kxss
 
