@@ -2,7 +2,9 @@
 
 https://web.archive.org/cdx/search/cdx?url=*.example.com/*&collapse=urlkey&output=text&fl=original
 Find Juicy Filetype: .pdf, .db, .rar, .csv, .tar, .key
-Oneliner: curl -G "https://web.archive.org/cdx/search/cdx" --data-urlencode "url=*.policybazaar.com/*" --data-urlencode "collapse=urlkey" --data-urlencode "output=text" --data-urlencode "fl=original" > 
+Oneliner: 
+---------
+curl -G "https://web.archive.org/cdx/search/cdx" --data-urlencode "url=*.policybazaar.com/*" --data-urlencode "collapse=urlkey" --data-urlencode "output=text" --data-urlencode "fl=original" > out.txt
 
 du -h out.txt
 
