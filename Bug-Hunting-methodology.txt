@@ -1047,3 +1047,7 @@ Finding Exploits for public CVEs 🔍
 site:(https://patchstack.com/ | https://wpscan.com | https://wordfence.com) CVE-20xx-xxxxx
 site:(*.github.com | github.com) CVE-20xx-xxxxx
 
+https://github.com/iamunixtz/LazyXss
+
+
+
