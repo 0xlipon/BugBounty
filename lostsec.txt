@@ -1,4 +1,7 @@
 ========================================================================================================================================
+https://orwaatyat.medium.com/
+https://coffinxp.medium.com/
+
 
 https://web.archive.org/cdx/search/cdx?url=*.example.com/*&collapse=urlkey&output=text&fl=original
 Find Juicy Filetype: .pdf, .db, .rar, .csv, .tar, .key
