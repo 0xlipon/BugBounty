@@ -43,16 +43,4 @@ e%27"()%26%25<zzz><ScRiPt%20>alert(9155)</ScRiPt>
 
 
 --------------------------------------------------------------------------------------------------------------------------
-<input type="submit" value="Login"></br>
-
-My preferred fuzzing method:
-
-ffuf -w facundo.txt -u https://tesla.com/FUZZ -mc all -c -v \
--H "User-Agent: Mozilla/5.0" -H "Accept: */*" \
--X GET -r -t 100 -p 0.1-1.0 -maxtime 3600 -o results.json -of json -od results \
--mc 200,301,302,307,401,403,500 -ac -recursion -recursion-depth 2 -rate 50 \
-
-dirsearch -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bak,bkp,cache,cgi,conf,csv,html,inc,jar,js,json,jsp,jsp~,lock,log,rar,old,sql,sql.gz,sql.zip,sql.tar.gz,sql~,swp,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip,log,xml,js,json  -u https://adminblog.abc.com/
-
-subprober -f all.txt -tl -sc -sv -l -cn -ar -o output.txt -nc -mc 200 301 302 307 308 403 401 -c 20
 
