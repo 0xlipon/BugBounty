@@ -44,3 +44,4 @@ e%27"()%26%25<zzz><ScRiPt%20>alert(9155)</ScRiPt>
 
 --------------------------------------------------------------------------------------------------------------------------
 
+FUZZ: ffuf -w ~/wordlists/Bug-Bounty-Wordlists/all-files-leaked.txt -u https://nxdev.bbbbbbbt.edu.bdFUZZ
