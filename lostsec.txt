@@ -12,6 +12,12 @@ curl -G "https://web.archive.org/cdx/search/cdx" --data-urlencode "url=*.example
 
 cat out.txt | uro |  grep -E '\.xls|\.xml|\.xlsx|\.json|\.pdf|\.sql|\.doc|\.docx|\.pptx|\.txt|\.zip|\.tar\.gz|\.tgz|\.bak|\.7z|\.rar|\.log|\.cache|\.secret|\.db|\.backup|\.yml|\.gz|\.config|\.csv|\.yaml|\.md|\.md5|\.exe|\.dll|\.bin|\.ini|\.bat|\.sh|\.tar|\.deb|\.rpm|\.iso|\.img|\.apk|\.msi|\.dmg|\.tmp|\.crt|\.pem|\.key|\.pub|\.asc'
 
+https://web.archive.org/web/*/paypal.com*  -> @gmail. @hotmail, %40, pdf...
+
+curl "https://web.archive.org/cdx/search/cdx?url=*.policybazaar.com/*&collapse=urlkey&output=text&fl-original&filter=original:.*\.(xlsxml xlsx|json|pdf|q1|doc|docx|pptx|txt|git|zip|tar\.gz|tgz|bak| 7z|rar|log|cache secret|db|backup|yl|gz|config|csv|yaml|md| md5|exe dil bin ini bat|sh|tar|deb|rpm|iso|img|env|apk|mi|ng|tm|ct|pe|key|pub|asc)$" | tee output.txt
+
+cat output.txt | grep -Ea '\.pdf' | while read -r url; do curl -s "$url" | pdftotext - - | grep -Eaiq '(internal use only confidential strictly private personal & confidential private restricted internal not for distribution do not share proprietary trade secret classified sensitive bankstatement invoice salary contract|| agreement | non disclosure passport social security ssn date of birth credit card identity id number company confidential staff only management only internal only)' && echo "$url"; done
+
 ========================================================================================================================================
 
 payload for testing HTML/XSS/IFRAME/ATO/PHISHING
