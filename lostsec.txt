@@ -18,6 +18,11 @@ curl "https://web.archive.org/cdx/search/cdx?url=*.policybazaar.com/*&collapse=u
 
 cat output.txt | grep -Ea '\.pdf' | while read -r url; do curl -s "$url" | pdftotext - - | grep -Eaiq '(internal use only confidential strictly private personal & confidential private restricted internal not for distribution do not share proprietary trade secret classified sensitive bankstatement invoice salary contract|| agreement | non disclosure passport social security ssn date of birth credit card identity id number company confidential staff only management only internal only)' && echo "$url"; done
 
+https://web.archive.org/cdx/search/cdx?url=bugbountyhunter.xyz/*&output=text&fl=original&collapse=urlkey
+https://web.archive.org/cdx/search/cdx?url=*.bugbountyhunter.xyz/*&output=text&fl=original&collapse=urlkey&filter=statuscode:200
+curl -L 'https://web.archive.org/cdx/search/cdx?url=redacted.redacted.redacted.com/xxx/x/*&output=text&fl=original&collapse=urlkey&filter=statuscode:200' > output.txt
+
+
 ========================================================================================================================================
 
 payload for testing HTML/XSS/IFRAME/ATO/PHISHING
