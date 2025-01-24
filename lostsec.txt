@@ -46,6 +46,15 @@ wfuzz -c -z file,wordlist -R 3 --sc 301,200 target/FUZZ
 ffuf -w ~/wordlists/Bug-Bounty-Wordlists/all-files-leaked.txt -u https://something.edu.bdFUZZ
 ffuf -w iis.txt -u https://40.78.107.245/FUZZ -recursion
 
+GET:  gobuster dir -u https://example.com -w /path/to/wordlist.txt
+POST: gobuster dir -u https://example.com/login -c ‘username=^USER^&password=^PASS^’ -t 50 -w /path/to/payload.txt
+
+GET:  ffuf -u "https://example.com/search?q=FUZZ" -w /path/to/wordlist.txt
+POST: ffuf -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "username=FUZZ&password=FUZZ" -w /path/to/payloads.txt -u https://example.com/login
+
+GET:  wfuzz -c -z file,/path/to/payloads.txt https://example.com/search.php?search=FUZZ
+POST: wfuzz -z file,/path/to/wordlist.txt -d "username=FUZZ&password=password123" https://example.com/login
+
 ========================================================================================================================================
 
 payload for testing HTML/XSS/IFRAME/ATO/PHISHING
