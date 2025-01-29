@@ -1,5 +1,16 @@
+Cracking Commands:
+------------------
+ZIP:
+===
 zip2john Giveaway.zip > hash.txt
 john --wordlist=~/wordlist/rockyou.txt --format=pkzip hash.txt
 fcrackzip -v -u -D -p ~/wordlist/rockyou.txt Giveaway.zip
 hashcat -m 13600 -a 0 -o found.txt hash.txt ~/wordlist/rockyou.txt
+
+PDF:
+===
+pdf2john.pl protected.pdf > hash.txt
+john --wordlist=~/wordlist/rockyou.txt --format=pdf hash.txt
+hashcat -m 10500 -a 0 -o found.txt hash.txt ~/wordlist/rockyou.txt
+pdfcrack -f protected.pdf -w ~/wordlist/rockyou.txt
 
