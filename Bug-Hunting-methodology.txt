@@ -3,6 +3,46 @@ Bug Hunting methodology For Beginner
 Blind SSRF Free Server: https://requestcatcher.com/
 Blind XSS: https://xss.report/dashboard  ,   https://xss0r.com/
 
+XSS Injection:
+--------------
+Hidden Injection Points:
+------------------------
+View-Source:  hidden param
+Read & find all endpints / params
+x8/arjun tool
+passive: waybackmachine
+Bruteforce with wordlists
+
+x8-u https:.... -w params.txt
+
+Number Input Field: RFC 5341
+Email Input Field: RFC 2822
+
+UNDERSTANDING THE REFLECTION CONTEXTS & ALLOWANCES!
+
+1. Know where your payloads are landing.
+• Between HTML Tags | <h1>XSS<h1> 
+• Inside Attributes | value="XSS"
+• Inside Javascript | <script> var = 'xss'; </script>
+
+2. Know what is your limit of allowance. 
+• Does it allow all "><'()[]? 
+• Does it only allow >< but not "? 
+• Does it only allow" but not ><?
+
+check on view-source verify on Inspect(Edit as HTML)
+
+Resources:
+https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
+https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection
+https://github.com/zigoo0/JSONBee
+https://raw.githubusercontent.com/zigoo0/JSONBee/refs/heads/master/jsonp.txt
+https://csp-evaluator.withgoogle.com/
+https://book.hacktricks.wiki/en/pentesting-web/content-security-policy-csp-bypass/index.html
+https://aszx87410.github.io/beyond-xss/en/ch1/xss-introduction/
+https://github.com/bhaveshk90/Content-Security-Policy-CSP-Bypass-Techniques
+https://book.hacktricks.wiki/en/pentesting-web/content-security-policy-csp-bypass/index.html
+
 cat square-alive.txt | nuclei -t ~/pro~nuclei/cves~all/reflected-xss-waf-bypass.yaml -c 40 -rl 200
 nuclei -l square-alive.txt -t ~/pro~nuclei/cves~all -c 50 -v -o custom_cves_results.txt
 nuclei -l square-alive.txt -t ~/pro~nuclei/nuclei~all -c 50 -v -o custom_all_results.txt
