@@ -50,6 +50,11 @@ nuclei -l square-alive.txt -t ~/pro~nuclei/nuclei~all -c 50 -v -o custom_all_res
 https://github.com/amrelsagaei/Bug-Bounty-Hunting-Methodology-2025
 https://lostsec.xyz/
 
+
+cRlF:
+-----
+subfinder -d abc.xyz -all -silent | nuclei -t cRlf.yaml -c 30 -rl 50
+
 git clone --depth=1 --single-branch https://github.com/0xlipon/payloads.git
 
 ffuf -w ~/wordlists/Bug-Bounty-Wordlists/all-files-leaked.txt -u https://something.edu.bdFUZZ
