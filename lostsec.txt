@@ -13,9 +13,6 @@ https://www.virustotal.com/vtapi/v2/domain/report?apikey=982680b1787fa59701919aa
 
 https://otx.alienvault.com/api/v1/indicators/hostname/domain.com/url_list?limit=500&page=1
 
-waymore -i domain[.]com -mode U -oU waymore_urls.txt
-cat waymore_urls.txt | grep "tld:" | grep -v ":80" | grep -v ":443" | sort -u | uro > juicy.txt
-
 curl -G "https://web.archive.org/cdx/search/cdx" --data-urlencode "url=*.example.com/*" --data-urlencode "collapse=urlkey" --data-urlencode "output=text" --data-urlencode "fl=original" > out.txt
 
 cat out.txt | uro |  grep -E '\.xls|\.xml|\.xlsx|\.json|\.pdf|\.sql|\.doc|\.docx|\.pptx|\.txt|\.zip|\.tar\.gz|\.tgz|\.bak|\.7z|\.rar|\.log|\.cache|\.secret|\.db|\.backup|\.yml|\.gz|\.config|\.csv|\.yaml|\.md|\.md5|\.exe|\.dll|\.bin|\.ini|\.bat|\.sh|\.tar|\.deb|\.rpm|\.iso|\.img|\.apk|\.msi|\.dmg|\.tmp|\.crt|\.pem|\.key|\.pub|\.asc'
@@ -175,3 +172,5 @@ dirsearch -u https://<REDACTED>/ -w payloads/all_attacks.txt -e php,asp,aspx,jsp
 shodan search Ssl.cert.subject.CN:"<REDACTED>" 200 --fields ip_str | httpx-toolkit -sc -title -server -td
 ghauri -r request.txt --dbs --batch --level 3 --tech=t 
 
+waymore -i domain[.]com -mode U -oU waymore_urls.txt
+cat waymore_urls.txt | grep "tld:" | grep -v ":80" | grep -v ":443" | sort -u | uro > juicy.txt
