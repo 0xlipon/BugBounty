@@ -3,6 +3,11 @@ Bug Hunting methodology For Beginner
 Blind SSRF Free Server: https://requestcatcher.com/
 Blind XSS: https://xss.report/dashboard  ,   https://xss0r.com/
 
+https://github.com/blacklanternsecurity/bbot
+https://github.com/shmilylty/OneForAll
+https://github.com/projectdiscovery/subfinder
+https://github.com/RevoltSecurities/Subdominator
+
 XSS Injection:
 --------------
 Hidden Injection Points:
