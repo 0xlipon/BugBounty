@@ -25,6 +25,8 @@ cat output.txt | grep -Ea '\.pdf' | while read -r url; do curl -s "$url" | pdfto
 
 cat urls.txt | grep -E "\.txt/\.log/\.cache/\.secret|\.db/\.backup/\.yml/\.json/\.gz|\.rar|\.zip/|\.tar/\.sql/\.env/\.config/\.conf/\.ini/\.htaccess/\.htpasswd/\.pem/\.key/\.crt/\.cer/\.pfx/\.p12/\.swp/\.bak/\.old/\.tmp/\.temp/\.dump/\.passwd/\.shadow/\.git/\.svn/\.DS_Store/\.idea/\.vscode/\.bash_history/\.zsh_history"
 
+cat 403_sub.txt | dirsearch --stdin --exclude-status=401,404,403,429,500,503 -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bkp,cache,cgi,conf,csv,html,unc,jar,js,json,jsp,jsp~,lock,log,rar,sql.gz,http://sql.zip,sql.tar.gz,sql~,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip,.log,.xml,.js,.json --random-agent -f --threads 50 -t 10 --exclude-sizes 0B -o dir.txt
+
 https://web.archive.org/cdx/search/cdx?url=bugbountyhunter.xyz/*&output=text&fl=original&collapse=urlkey
 https://web.archive.org/cdx/search/cdx?url=*.bugbountyhunter.xyz/*&output=text&fl=original&collapse=urlkey&filter=statuscode:200
 curl -L 'https://web.archive.org/cdx/search/cdx?url=redacted.redacted.redacted.com/xxx/x/*&output=text&fl=original&collapse=urlkey&filter=statuscode:200' > output.txt
