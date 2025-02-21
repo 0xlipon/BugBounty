@@ -7,6 +7,14 @@ Blind XSS: https://xss0r.com/dashboard#payloads
 DNS: https://app.interactsh.com/#/
 Hook: https://webhook.site/
 
+$ nuclei -auth
+https://github.com/reewardius/Nuclei-AI-Prompts
+https://nucleiprompts.com/prompt.php?vuln_id=1
+
+nuclei -target https://xxxxx.com -ai "Find common XSS patterns in response bodies."
+nuclei -list unique-urls.txt -ai "Find admin login endpoints"
+
+--------------------------------------------------------------------------------------------------------------------------------------
 https://web.archive.org/cdx/search/cdx?url=*.example.com/*&collapse=urlkey&output=text&fl=original
 
 https://www.virustotal.com/vtapi/v2/domain/report?apikey=982680b1787fa59701919aa22515a025e00df1e3bb2bc4f186b8e919558d576c&domain=example.com
