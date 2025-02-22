@@ -6,6 +6,7 @@ CanaryTokens: https://canarytokens.org/nest/
 Blind XSS: https://xss0r.com/dashboard#payloads
 DNS: https://app.interactsh.com/#/
 Hook: https://webhook.site/
+https://github.com/dirtycoder0124/form_finder/tree/main
 
 $ nuclei -auth
 https://github.com/reewardius/Nuclei-AI-Prompts
