@@ -8,6 +8,8 @@ https://github.com/shmilylty/OneForAll
 https://github.com/projectdiscovery/subfinder
 https://github.com/RevoltSecurities/Subdominator
 
+>> https://github.com/Neuro0x00/NeuroPwn.git
+
 XSS Injection:
 --------------
 Hidden Injection Points:
