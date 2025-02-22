@@ -1147,5 +1147,10 @@ now we can try simple google dorking.
 https://nitinyadav00.github.io/Bug-Bounty-Search-Engine/
 -----------------
 
+Oneliner:
+=========
+read -p "Press 1 to enter a base URL or 2 to use live-urls.txt: " option && if [ "$option" -eq 1 ]; then read -p "Enter the base URL: " base_url && linkfinder -i $base_url -d -o cli | grep "\.js" | grep -v "Running against" | sort -u | while read path; do curl -s "$base_url$path" | grep -o -i -E "(aws_|aws-|-secret|_secret|-key|_key|-token|_token|bearer|authorization).{0,160}" --color=always | sed "s|^|$(echo -e '\033[38;5;220m')[$base_url$path]$(echo -e '\033[0m') |"; done; elif [ "$option" -eq 2 ]; then while read url; do linkfinder -i $url -d -o cli | grep "\.js" | grep -v "Running against" | sort -u | while read path; do curl -s "$url$path" | grep -o -i -E "(aws_|aws-|-secret|_secret|-key|_key|-token|_token|bearer|authorization).{0,160}" --color=always | sed "s|^|$(echo -e '\033[38;5;220m')[$url$path]$(echo -e '\033[0m') |"; done; done < live-urls.txt; else echo "Invalid option selected!"; fi
+
+
 
 
