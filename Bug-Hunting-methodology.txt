@@ -1,5 +1,7 @@
 Bug Hunting methodology For Beginner
 -----------------------------------
+https://raw.githubusercontent.com/abdallaabdalrhman/Wordlist-for-Bug-Bounty/refs/heads/main/great_wordlist_for_bug_bounty.txt
+
 Blind SSRF Free Server: https://requestcatcher.com/
 Blind XSS: https://xss.report/dashboard  ,   https://xss0r.com/
 
