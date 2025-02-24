@@ -16,6 +16,8 @@ https://github.com/RevoltSecurities/Subdominator
 
 XSS Injection:
 --------------
+<</div>script</div>>alert()<</div>/script</div>>
+
 Hidden Injection Points:
 ------------------------
 View-Source:  hidden param
