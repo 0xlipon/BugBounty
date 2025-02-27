@@ -1,7 +1,9 @@
 Bug Hunting methodology For Beginner
 -----------------------------------
-https://raw.githubusercontent.com/abdallaabdalrhman/Wordlist-for-Bug-Bounty/refs/heads/main/great_wordlist_for_bug_bounty.txt
+dnsbruter -d BRUT.abc.xyz -w best-dns-wordlist.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
+dnsbruter -d BRUT.abc.xyz -w subdomains-top1million-5000.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
 
+https://raw.githubusercontent.com/abdallaabdalrhman/Wordlist-for-Bug-Bounty/refs/heads/main/great_wordlist_for_bug_bounty.txt
 https://github.com/SecShiv/OneDorkForAll/tree/main/dorks/1M_dork
 
 Blind SSRF Free Server: https://requestcatcher.com/
