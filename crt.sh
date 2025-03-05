@@ -1,0 +1,1 @@
+curl -sk --insecure "https://crt.sh/?q=$1&output=json" | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u
