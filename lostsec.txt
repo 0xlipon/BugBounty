@@ -1,6 +1,7 @@
 ========================================================================================================================================
 >> https://swisskyrepo.github.io/PayloadsAllTheThings/
 >> https://lostsec.xyz/
+>> https://github.com/0xlipon/payloads
 
 CanaryTokens: https://canarytokens.org/nest/
 Blind XSS: https://xss0r.com/dashboard#payloads
