@@ -2,6 +2,7 @@
 >> https://swisskyrepo.github.io/PayloadsAllTheThings/
 >> https://lostsec.xyz/
 >> https://github.com/0xlipon/payloads
+>> https://github.com/h6nt3r/tools.git
 >> https://raw.githubusercontent.com/coffinxp/lostfuzzer/refs/heads/main/lostfuzzer.sh
 
 CanaryTokens: https://canarytokens.org/nest/
