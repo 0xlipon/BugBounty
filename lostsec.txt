@@ -385,3 +385,9 @@ ghauri -m sqli --confirm --batch --level=3  -b
 cat his | egrep -iv ".(jpg|jpeg|gif|css|tif|tiff|png|ttf|woff|icon|pdf|svg|txt|js)" | uro | qsreplace 'XSS'| httpx | anew xss.txt
 knoxnl -i xss -X BOTH 
 python3 http://lfimap.py -F lfi --use-long -a --no-stop
+
+Subversion metadata directory (.svn) , download the source code of the website and database credentials and wc.db
+https://github.com/anantshri/svn-extractor
+python3 svn_extractor.py --url
+
+
