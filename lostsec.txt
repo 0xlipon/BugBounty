@@ -379,4 +379,8 @@ echo http://site.com | gau | urldedupe -qs | gf lfi |  sed 's/=.*/=/' | qsreplac
 Subowner - A Simple python based tool to check for subdomain takeovers
 https://github.com/ifconfig-me/subowner
 
-
+Automation:
+-----------
+ghauri -m sqli --confirm --batch --level=3  -b
+knoxnl -i xss -X BOTH 
+python3 http://lfimap.py -F lfi --use-long -a --no-stop
