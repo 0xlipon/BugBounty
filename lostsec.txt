@@ -81,6 +81,12 @@ POST: wfuzz -z file,/path/to/wordlist.txt -d "username=FUZZ&password=password123
 404 Recon:
 ----------
 ffuf -w wordlists.txt:WORD -w char.txt:CHAR -u http://httpbin.org/WORD/CHAR -mc 200
+
+ffuf -w subdomains.txt:SUB -w payloads/senstivejs.txt:FILE -u https://SUB/FILE -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" -fs 0 -c -mc 200 -fr false -rate 10 -t 10
+
+for checking in burpsuite:
+ffuf -w subdomains.txt:SUB -w payloads/senstivejs.txt:FILE -u https://SUB/FILE -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" -fs 0 -c -mc 200 -fr false -rate 10 -t 10 -x http://localip:port
+and check for response size and words if its big or something unique you can check it manually also make sure cut https:// http:// protocol before ffuf by using this command cat subdomains.txt | sed 's|https\?://||g' >finalsubs.txt
 ========================================================================================================================================
 
 payload for testing HTML/XSS/IFRAME/ATO/PHISHING
