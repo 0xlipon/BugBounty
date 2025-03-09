@@ -1,0 +1,2 @@
+BruteDum utilizes Hydra, Medusa and Ncrack to bruteforce various network protocols such as SSH, FTP, Telnet, PostgreSQL, RDP and VNC.
+https://github.com/R0ckNRolla/BruteDum
