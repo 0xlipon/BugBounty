@@ -1,0 +1,2 @@
+If you encounter the default IIS Windows window, do not forget to add /haproxy and /netdata to your wordlist and scan them, if you gain unauthorized access here, you will earn a reward 💰
+
