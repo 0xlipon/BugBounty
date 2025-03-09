@@ -6,6 +6,10 @@
 >> https://raw.githubusercontent.com/coffinxp/lostfuzzer/refs/heads/main/lostfuzzer.sh
 >> https://raw.githubusercontent.com/Dheerajmadhukar/back-me-up/refs/heads/main/backmeup.sh
 
+
+>> https://github.com/Bo0oM/fuzz.txt/blob/master/fuzz.txt
+
+
 CanaryTokens: https://canarytokens.org/nest/
 Blind XSS: https://xss0r.com/dashboard#payloads
 DNS: https://app.interactsh.com/#/
