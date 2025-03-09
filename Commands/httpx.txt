@@ -1,0 +1,6 @@
+One-liner Probing Using HTTPX:
+cat target_subs | httpx -follow-redirects -status-code -vhost -threads 100 -silent | sort -u | grep "[200]" | cut -d [ -f1 | sort -u | sed ' s/[[:blank:]]*$//' | tee prober.txt
+
+
+
+
