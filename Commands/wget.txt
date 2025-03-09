@@ -1,0 +1,3 @@
+Getting all js links in command line: 
+wget -nd -rH -A js --spider DOMAIN/PAGE 2>&1 | grep '^--.*\.js' | awk '{print $3}'
+
