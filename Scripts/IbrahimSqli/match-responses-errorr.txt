@@ -1,0 +1,45 @@
+root:x:
+bin:x
+/bin/bash
+/usr/sbin
+www-data
+root:x:0:0:root:
+syslog
+mysql_fetch_assoc()
+root@
+pg_connect()
+mysql_query()
+SQLException
+You have an error in your SQL syntax
+Query failed
+MariaDB server 
+Warning: 
+at line 
+PHP Error
+Driver.* SQL
+PSQLException
+occured
+Undefineds
+/home/
+Trying to get property of non-object
+Got error
+MySQL
+Warning
+expects parameter
+mysql_
+RuntimeException
+with message
+/public_html/
+on line
+/usr/www
+database error
+A PHP Error was encountered
+Message: 
+Fatal error:
+Call to undefined function
+parser error
+/cms
+Can't
+Syntax error
+connection
+

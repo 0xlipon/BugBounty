@@ -1,0 +1,17 @@
+Tools:
+- body_error.py -f     just run the tool python body_error.py -f  / it will start in urls.txt and manual.txt payloads / check on Burp Proxy tab & HTTP history tab/  -f fast scan
+- body_time_list.py -f just run the tool python body_time_list.py -f / it will start in urls.txt and time-sql_payloads.txt / check on Burp Proxy tab & HTTP history tab/  -f fast scan
+
+ 
+                                                      #### RUN BURP SUITE BEFORE RUNNING TOOLS! ######
+
+
+└─# python ibro-error.py --urls urls.txt --payloads error-sql_payloads.txt -f
+└─# python ibro-time.py --urls urls.txt --payloads time-sql_payloads.txt -f      #uncheck testphp url from urls.txt
+
+
+└─#  python lfi.py --urls urls.txt --payloads lfi_wordlist.txt -s
+
+
+
+
