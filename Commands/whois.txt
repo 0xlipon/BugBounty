@@ -1,0 +1,3 @@
+Get IP ranges within that ASN:
+------------------------------
+whois -h target.com -- '-i origin AS714' | grep -Eo "([0-9.]+){4}/[0-9]+" | uniq
