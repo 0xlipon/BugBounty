@@ -7,7 +7,7 @@
 >> https://github.com/h6nt3r/tools.git
 >> https://raw.githubusercontent.com/coffinxp/lostfuzzer/refs/heads/main/lostfuzzer.sh
 >> https://raw.githubusercontent.com/Dheerajmadhukar/back-me-up/refs/heads/main/backmeup.sh
-
+>> https://github.com/cipher387/cheatsheets/blob/main/target_website_files.txt
 >> https://github.com/Bo0oM/fuzz.txt/blob/master/fuzz.txt
 
 
