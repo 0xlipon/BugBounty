@@ -1,4 +1,6 @@
 ========================================================================================================================================
+https://xss.js.org/#/
+
 # https://cyberlipon.xss.ht/
 
 >> https://swisskyrepo.github.io/PayloadsAllTheThings/
