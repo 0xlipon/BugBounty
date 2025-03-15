@@ -361,10 +361,20 @@ Gained a reverse shell through a PNG file using I-Espresso and Xploitra.
 https://github.com/AnonKryptiQuz/Xploitra
 https://github.com/AnonKryptiQuz/I-Espresso
 
+
 For Sqli:
 ---------
 echo http://speedway.net.au | gau | uro | grep -E ".php|.asp|.aspx|.jspx|.jsp" | grep "="
 echo http://speedway.net.au | katana -d 5 -ps -pss waybackarchive,commoncrawl,alienvault -f qurl | uro | grep -E ".php|.asp|.aspx|.jspx|.jsp" | tee output.txt
+
+Crawling URLs with Photon
+https://github.com/s0md3v/Photon
+python3 photon.py -u "https://target.com" -l 3 -t 20 -d 1 -c "SESSION=xyz" -o output_dir --only-urls --wayback --exclude "logout|admin"
+cat output_dir/urls.txt | grep -E "(\?|\=)" > sql_targets.txt
+Performing SQL Injection Testing with SQLInjector
+https://github.com/Mr-dark55/SQLInjector
+python3 SQLInjector.py -u sql_targets.txt -t 10 -d 2 --ignore-errors -o sqlendpoints.txt
+
 
 checking CORS use this simple curl command:
 -------------------------------------------
