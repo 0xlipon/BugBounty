@@ -3,6 +3,9 @@ Bug Hunting methodology For Beginner
 
 assetfinder http://example.com | gau | egrep -v '(.css|.png|.jpeg|.jpg|.svg|.gif|.wolf)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"; done
 
+💰  Find hidden params in javascript files
+assetfinder *.com | gau | egrep -v '(.css|.svg)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"
+
 dnsbruter -d BRUT.abc.xyz -w best-dns-wordlist.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
 dnsbruter -d BRUT.abc.xyz -w subdomains-top1million-5000.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
 
