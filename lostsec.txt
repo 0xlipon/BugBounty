@@ -56,6 +56,14 @@ https://nucleiprompts.com/prompt.php?vuln_id=1
 nuclei -target https://xxxxx.com -ai "Find common XSS patterns in response bodies."
 nuclei -list unique-urls.txt -ai "Find admin login endpoints"
 
+
+SQLMap from Waybackurls
+cat all_urls.txt | grep -E '\bhttps?://\S+?=\S+' | grep -E '\.php|\.asp' | sort -u | sed 's/\(=[^&]*\)/=/g' | tee urls.txt | sort -u -o urls.txt && cat urls.txt | xargs -I{} sqlmap --technique=T --batch -u "{}"
+
+Ghauri from Waybackurls
+cat all_urls.txt | grep -E '\bhttps?://\S+?=\S+' | grep -E '\.php|\.asp' | sort -u | sed 's/\(=[^&]*\)/=/g' | tee urls.txt | sort -u -o urls.txt && cat urls.txt | xargs -I{} ghauri --dbs --batch --level 3 --confirm -u "{}"
+
+
 --------------------------------------------------------------------------------------------------------------------------------------
 https://web.archive.org/cdx/search/cdx?url=*.example.com/*&collapse=urlkey&output=text&fl=original
 
