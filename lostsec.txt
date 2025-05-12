@@ -23,6 +23,9 @@ https://web-check.xyz/
 https://cyberlipon.xss.ht/
 
 
+OneDorkForAll: https://github.com/SecShiv/OneDorkForAll
+
+
 >> https://swisskyrepo.github.io/PayloadsAllTheThings/
 >> https://lostsec.xyz/
 >> https://github.com/0xlipon/payloads
