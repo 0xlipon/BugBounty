@@ -1,6 +1,7 @@
 
 [+] https://nav1n0x.gitbook.io/a-guide-to-manually-hunting-sql-injection
 [+] https://addons.mozilla.org/en-US/firefox/addon/maxs-hackbar/
+[+] https://freedium.cfd/https://infosecwriteups.com/waf-bypass-masterclass-using-sqlmap-with-proxychains-and-tamper-scripts-against-cloudflare-9d46b36bae94
 
 ===================================================================================================================
 
