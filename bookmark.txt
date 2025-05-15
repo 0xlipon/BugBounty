@@ -69,3 +69,23 @@ LinkOfCurrentPage:
 javascript:console.log('Links on this Page:\n' + Array.from(document.querySelectorAll('a')).map(link => link.href).join('\n'));
 
 
+•  Extract URL Paths or Routes via Dev Tools 
+--------------------------------------------
+Inspect Element > Console
+--------------------------
+
+(() => {
+    const paths = [...new Set([...document.querySelectorAll("a[href]")].map(a => new URL(a.href, location.href).pathname))];
+    
+    const blob = new Blob([paths.join("\n")], { type: "text/plain" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    
+    const domain = location.hostname.replace(/^www\./, ""); 
+    a.download = `${domain}.txt`;
+    
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+})();
+
