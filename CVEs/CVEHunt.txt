@@ -1,0 +1,19 @@
+CVE Hunting:
+============
+go install github.com/projectdiscovery/cvemap/cmd/cvemap@latest
+https://cloud.projectdiscovery.io/?ref=api_key
+export PDCP_API_KEY=*************
+cvemap -auth
+cvemap -limit 10 -vstatus new
+cvemap -id CVE-2024-54150 -json
+cvemap -swe CWE-918 -limit 10
+
+ChatGPT + PenTestGPT  ---> generate query
+
+shodanx -custom -cq 'http.title:"rocket.chat"' -fct ip
+nuclei -l shodanx_results.txt -t ~/nuclei-templates/http/cves/2024/CVE-2024-39713.yml
+
+SSRF with Interactsh:
+---------------------
+https://webhook.site/
+nuclei -u https://165.22.238.181 -t ~/nuclei-templates/http/cves/2024/CVE-2024-39713.yml -iserver something.oast.pro
