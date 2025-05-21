@@ -3,8 +3,21 @@ Bug Hunting methodology For Beginner
 
 assetfinder http://example.com | gau | egrep -v '(.css|.png|.jpeg|.jpg|.svg|.gif|.wolf)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"; done
 
-💰  Find hidden params in javascript files
+Find hidden params in javascript files
 assetfinder *.com | gau | egrep -v '(.css|.svg)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"
+
+https://github.dev/github/dev
+https://sidxparab.gitbook.io/subdomain-enumeration-guide/types/horizontal-enumeration
+
+CSP Bypass + XSS Fuzzing:
+========================
+https://github.com/Asperis-Security/xssFuzz
+python3 xssFuzz.py -u "https://example.com/search?q=xss" --tag script --limit 5 -t 10 --verbose -p custom.txt -V
+
+dalfox file unique_params.txt --skip-xss-scanning
+cat unique_params.txt | kxss | tee dangerous-chars-reflect.txt
+python3 xss_vibes.py -f unique_params.txt
+python3 loxs.py
 
 dnsbruter -d BRUT.abc.xyz -w best-dns-wordlist.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
 dnsbruter -d BRUT.abc.xyz -w subdomains-top1million-5000.txt -c 300 -wt 100 -o domains.txt -ws wild.txt
