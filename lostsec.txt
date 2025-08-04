@@ -4,7 +4,9 @@ Google Dork:
 ===========
 site:*.google.com -inurl:/
 
-cat urls.txt | grep "=" | grep "?" | uro | httpx -ct -silent -nc | grep -i -E "text/html|application/xhtml+xml|application/xml|text/xml|image/svg+xml|application/html|application/xml" | cut -d '[' -f 1 | anew file.txt
+Knoxnl Oneliner:
+----------------
+curl "https://web.archive.org/cdx/search/cdx?url=*.target.com/*&collapse=urlkey&output=text&fl=original" > urls.txt && cat urls.txt | grep "=" | grep "?" | uro | httpx-toolkit -ct -silent -nc | grep -i -E "text/html|application/xhtml+xml|application/xml|text/xml|image/svg+xml|application/html|application/xml" | cut -d '[' -f 1 | anew file.txt && knoxnl -i file.txt -X BOTH -o xss.txt
 
 Juicy XSS Payload:
 -------------------
