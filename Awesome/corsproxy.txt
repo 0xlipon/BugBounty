@@ -1,0 +1,6 @@
+corsproxy.io used to bypass CORS errors when fetching web resources (HTML and JavaScript files) from external URLs:
+```
+const proxyUrl = (url) => `https://corsproxy.io/?${encodeURIComponent(url)}`;
+
+ex: https://corsproxy.io/?https%3A%2F%2Fexample.com%2Fpage.html
+```
