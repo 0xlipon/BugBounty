@@ -1,6 +1,8 @@
 Unauthenticated access to sensitive data (e.g., user lists, PII, or financial info):
 ------------------------------------------------------------------------------------
 
+Shodan or Zoomeye: port:443 "swagger-ui.html"
+
 api.target.com/swagger/v1/swagger.json
 api.target.com/api/swagger/v1/swagger.json
 api.target.com/{Function}/api/swagger/v1/swagger.jsn
@@ -9,6 +11,51 @@ api.target.com/login/api/swagger/v1/swagger.json
 api.target.com/users/api/swagger/v1/swagger.json
 
 api.target.com//api/v2/Profile/User//1
+
+Toolkit:
+--------
+ffuf -u https://api.target.com/FUZZ -w swagger-wordlist.txt -fc 404 -t 100
+
+https://github.com/intruder-io/autoswagger
+>>> autoswagger scan https://target.com --output results.json
+
+>>> curl -s https://api.target.com/swagger/v1/swagger.json | jq -r '.paths | keys[]' | xargs -I {} curl -s -w "%{http_code} {}\n" https://api.target.com{}
+
+# swagger-wordlist.txt
+
+```
+swagger/v1/swagger.json
+swagger/v2/swagger.json
+api/swagger/v1/swagger.json
+api/swagger/v2/swagger.json
+api/v1/swagger.json
+api/v2/swagger.json
+swagger.json
+swagger-ui.html
+swagger/index.html
+api/swagger.json
+api-docs/swagger.json
+docs/swagger.json
+v1/swagger.json
+v2/swagger.json
+admin/swagger/v1/swagger.json
+login/swagger/v1/swagger.json
+users/swagger/v1/swagger.json
+auth/swagger/v1/swagger.json
+internal/swagger/v1/swagger.json
+dev/swagger/v1/swagger.json
+staging/swagger/v1/swagger.json
+api/admin/swagger/v1/swagger.json
+api/user/swagger/v1/swagger.json
+api/payment/swagger/v1/swagger.json
+openapi.json
+api/openapi.json
+swagger-resources/configuration/ui
+swagger-resources/configuration/security
+
+```
+
+
 
 
 
