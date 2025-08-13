@@ -61,7 +61,6 @@ Top Shodan Queries for Exposed Swagger:
 ---------------------------------------
 
 http.title:"Swagger UI" port:443 http.status:200 ssl.cert.subject.cn:"*.com"
-http.title:"Swagger UI" port:443 http.status:200 org:"Bank" OR org:"Finance"
 http.html:"swagger.json" port:443 http.status:200 -http.title:"401" -http.title:"403"
 port:443 "swagger/v1/swagger.json" OR "api/swagger/v1/swagger.json" http.status:200
 http.component:"swagger" port:443 http.status:200 vuln:"CVE-2023-XXXX" OR vuln:"CVE-2021-XXXX"
