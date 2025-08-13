@@ -1,0 +1,13 @@
+api.target.com/swagger/v1/swagger.json
+api.target.com/api/swagger/v1/swagger.json
+api.target.com/{Function}/api/swagger/v1/swagger.jsn
+api.target.com/admin/api/swagger/v1/swagger.json
+api.target.com/login/api/swagger/v1/swagger.json
+api.target.com/users/api/swagger/v1/swagger.json
+
+api.target.com//api/v2/Profile/User//1
+
+
+
+
+
