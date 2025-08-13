@@ -1,6 +1,8 @@
 Unauthenticated access to sensitive data (e.g., user lists, PII, or financial info):
 ------------------------------------------------------------------------------------
 
+On some cases the `/,../,//,\\` could help to bypass some auth api calls.
+
 Shodan or Zoomeye: port:443 "swagger-ui.html"
 
 api.target.com/swagger/v1/swagger.json
