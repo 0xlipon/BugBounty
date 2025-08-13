@@ -57,6 +57,28 @@ swagger-resources/configuration/security
 
 ```
 
+Top Shodan Queries for Exposed Swagger:
+---------------------------------------
+
+http.title:"Swagger UI" port:443 http.status:200 ssl.cert.subject.cn:"*.com"
+http.title:"Swagger UI" port:443 http.status:200 org:"Bank" OR org:"Finance"
+http.html:"swagger.json" port:443 http.status:200 -http.title:"401" -http.title:"403"
+port:443 "swagger/v1/swagger.json" OR "api/swagger/v1/swagger.json" http.status:200
+http.component:"swagger" port:443 http.status:200 vuln:"CVE-2023-XXXX" OR vuln:"CVE-2021-XXXX"
+http.title:"OpenAPI" OR http.title:"Swagger" port:443 http.status:200 -http.title:"Login" -http.title:"Authentication Required"
+port:443 "admin/swagger" OR "internal/swagger-ui.html" http.status:200 http.title:"Swagger UI"
+port:443 "swagger-ui.html" "swagger.json" http.status:200
+http.component:"swagger" port:443 http.status:200 org:"Amazon" OR org:"Google" vuln>0
+
+Refinement Filters:
+-------------------
+
+country:"US" city:"New York"
+after:2025-01-01
+http.status:200 -http.status:401
+hostname:"api." OR hostname:"dev."
+
+
 
 
 
