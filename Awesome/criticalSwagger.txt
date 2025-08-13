@@ -1,3 +1,6 @@
+Unauthenticated access to sensitive data (e.g., user lists, PII, or financial info):
+------------------------------------------------------------------------------------
+
 api.target.com/swagger/v1/swagger.json
 api.target.com/api/swagger/v1/swagger.json
 api.target.com/{Function}/api/swagger/v1/swagger.jsn
