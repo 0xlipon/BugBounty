@@ -1,10 +1,13 @@
 ========================================================================================================================================
 
-On some cases the `/,../,//,\\` could help to bypass some auth api calls.
-
 Google Dork:
 ===========
 site:*.google.com -inurl:/
+
+On some cases the `/,../,//,\\` could help to bypass some auth api calls.
+
+httpx -l live-subs.txt -path "/app/config.js" -mc 200 -sc -cl -title
+httpx -l live-subs.txt -path "swagger/index.html" -mc 200 -sc -cl -title
 
 Proxy Scraper and Checker:
 --------------------------
