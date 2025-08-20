@@ -26,7 +26,9 @@ while read host; do \
  done; \
 done | httpx -mc 200
 
-
+Juicy Subs:
+------------
+subfinder -d target.com -silent | grep -E "admin|administrator|root|sysadmin|secure|api|gateway|auth|login|sso|dev|developer|test|stage|staging|uat|beta|demo|internal|intranet|vpn|portal|dashboard|manage|management|config|control|server|db|database|backup|files|static|cdn" | httpx -silent -status-code -title -content-length
 
 Juicy XSS Payload:
 -------------------
