@@ -4,6 +4,8 @@ Google Dork:
 ===========
 site:*.google.com -inurl:/
 
+https://github.com/rix4uni/GarudRecon
+
 On some cases the `/,../,//,\\` could help to bypass some auth api calls.
 
 httpx -l live-subs.txt -path "/app/config.js" -mc 200 -sc -cl -title
