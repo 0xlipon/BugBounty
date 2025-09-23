@@ -1,0 +1,76 @@
+All Subdoamin 🌐️
+-----------------------------
+subfinder -d terget.com -o subfinder.txt
+shodanx subdomain -d target.com -ra -o shodax.txt
+amass enum -active -norecursive -noalts -d orwa.com -o amass.txt
+gobuster dns -d cengage.co.in -w /usr/share/wordlists/subdomain_megalist.txt -o gobuster.txt
+curl -s https://crt.sh/\?q\=\%.$1\&output\=json | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u | tee -a subs_domain.txt
+
+curl -s "https://otx.alienvault.com/api/v1/indicators/hostname/domain.com/passive_dns" | jq -r '.passive_dns[]?.hostname' | grep -E "^[a-zA-Z0-9.-]+\.domain\.com$" | sort -u | tee alienvault_subs.txt
+
+curl -s "https://urlscan.io/api/v1/search/?q=domain:domain.com&size=10000" | jq -r '.results[]?.page?.domain' | grep -E "^[a-zA-Z0-9.-]+\.domain\.com$" | sort -u | tee urlscan_subs.txt
+
+curl -s "http://web.archive.org/cdx/search/cdx?url=*.domain.com/*&output=json&collapse=urlkey" | jq -r '.[1:][] | .[2]' | grep -Eo '([a-zA-Z0-9._-]+\.)?domain\.com' | sort -u | tee webarcive_subs.txt
+
+Filtering live hosts with httpx🚨
+---------------------------------
+cat subs_domain.txt | httpx -td -title -sc -ip > httpx_domain.com.txt
+
+cat httpx_domain.com.txt | awk '{print $1}' > live_subs_domain.com.txt
+
+httpx -l all_subdomai.txt -ports 80,443,8080,8443,8000,8888,8081,8181,3306,5432,6379,27017,15672,10000,9090,5900 -threads 80 -o alive.txt
+
+Nmap:🛜️
+--------
+naabu --alive.txt -c 50 -nmap-cli 'nmap -sV -sC' -o naabuports.txt
+sudo nmap -sV -iL live_subs_domain.com.txt -oN scaned-port.txt --script=vuln*
+
+Nikto:🦠️
+--------
+nikto -h alive_subdomains.txt -output nikto_results.txt
+
+Subdomain Takeover:📦️
+-------------------
+subzy run --targets subdomains.txt --concurrency 100 --hide_fails --verify_ssl
+
+Broken Link Hijacking:🎡️
+----------------------
+socialhunter -f alive_subdomains.txt
+
+Screenshotting 📸
+-----------------
+eyewitness --web -f alive_subdomains.txt --threads 5 -d screenshots
+
+----------------------------------------------------------------------
+Nuclei Automated Live Subdomains Spray (with rate limit)🔨
+----------------------------------------------------------
+nuclei -l live_subs_domain.com.txt -rl 10 -bs 2 -c 2 -as -silent -s critical,high,medium
+
+Finding WAF (web application firewall)🛡️
+--------------------------------------
+cat httpx_domain.com.txt | grep 403
+
+Subdomains without WAF✅
+------------------------
+cat httpx_domain.com.txt | grep -v -i -E 'cloudfront|imperva|cloudflare' > nowaf_subs_domain.com.txt
+
+Visit All Non-WAF Subdomains Manually🧱️
+-------------------------------------
+cat nowaf_subs_domain.com.txt | grep 403 | awk '{print $1}'
+
+Prepare the List of 403 Subdomains for Fuzzing🎲️
+----------------------------------------------
+cat nowaf_subs_domain.com.txt | grep 403 | awk '{print $1}' > 403_subs_domain.com.txt
+
+403 Fuzzing🔍
+-------------
+Default Wordlist Fuzzing
+dirsearch -u https://sub.domain.com -x 403,404,500,400,502,503,429 --random-agent
+
+Extension based Fuzzing
+dirsearch -u https://sub.domain.com -e xml,json,sql,db,log,yml,yaml,bak,txt,tar.gz,zip -x 403,404,500,400,502,503,429 --random-agent
+
+🧠️Next step
+JavaScript analysis 🔎️
+Google Dorking 🔮
+GitHub Recon 💻

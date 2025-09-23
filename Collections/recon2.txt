@@ -1,0 +1,56 @@
+-Reconasisane
+subfinder -d "tsp.gov" -silent -all -o url1.txt
+assetfinder -subs-only tsp.gov > url2.txt
+crtsh -d tsp.gov -r > url3.txt
+
+-Using waybackmesin
+echo "bpkad.jatengprov.go.id" | gau --subs --fc 200 > urls1.txt
+echo "bpkad.jatengprov.go.id" | waybackurls | httpx -silent -mc 200 > urls2.txt
+paramspider -d bpkad.jatengprov.go.id
+katana -u bpkad.jatengprov.go.id
+
+-Hakrawler recon
+echo "https://bpkad.jatengprov.go.id" | hakrawler -subs -u
+
+-Recon nuclei
+echo "testphp.vulnweb.com" | gau --fc 200 | nuclei -t ~/nuclei-templates/dast/vulnerabilities -dast -silent
+
+-Shodan.io
+
+-Other OSINT Recon bug bonti
+ZoomEy
+Censys
+VirusTotal
+
+-Directory & file Recon
+dirsearch -u "https://bpkad.jatengprov.go.id" -e php,sql,txt,bak -x 404,501
+dirsearch -u "https://bpkad.jatengprov.go.id" -e *
+dirhunt
+ffuf
+gobuster
+
+-Url filter dan cehck
+urldedupe
+gf
+qsreplace
+bhedak
+
+-Alive URL Check
+httpx
+
+-Remove duplicate
+cat file1 file2 | anew > final_file.txt
+
+-Exer cise
+echo "testphp.vulnweb.com" | waybackurls | urldedupe -s -qs -ne | gf xss | qsreplace '"><img src=x onerror=alert(1)>' | freq | egrep -v 'Not'
+
+echo "testphp.vulnweb.com" | gau --fc 200 | urldedupe -s -qs | gf lfi redirect sql-error sqli ssrf ssti xss xxe | qsreplace FUZZ | nuclei -silent -t ~/nuclei-templates/dast/vulnerabilities -dast
+
+
+
+ cat subdomains.txt | waybackurls | sort -u >> waybackdata | gf ssrf | tee -a ssfrparams.txt
+ cat waybackdata | gf redirect | tee -a redirect.txt
+ 
+ cat live_subdomain.txt | aquatone
+ 
+ httpx -silent -status-code -title -tech-detect < live_subdmian.txt

@@ -1,0 +1,15 @@
+Automated JS Endpoint Extraction and Verification with HTTPX and GAU
+
+katana -u target.com -d 5 -jc | grep '\.js' | tee alljs.txt
+
+cat alljs.txt | uro | sort -u | httpx -mc 200 -o target_name.com
+
+cat alljs.txt | jsleak -s -l -k
+
+cat alljs.txt | nuclei -t /nuclei-templates/http/exposures -c 30
+
+cat target_name.com | grep -r -E 'aws access key | aws secret key | api key | passwd | pwd | heroku | slack | firebase | 
+swagger | aws_secret_key | aws key | password | ftp passwd | jdbe | db | sql | secret jet | config | admin | pwd | json | gcp 
+| htaccess | .env | ssh key | .get | access key | secret token | oauth token | oauth token secret'
+
+cat alljs.txt| xargs -I{} bash -c "echo -e '\ntarget : {}\n' && python3 lazyegg.py '{}' --js_urls --domains --ips --leaked_creds --local_storage"

@@ -1,0 +1,9 @@
+Bug - Information disclosure on restricted subdomain
+
+Steps: 
+
+subfinder -d target | httpx -mc 403 -o 403_sub.txt
+{subfinder with API-KEYS}
+
+cat 403_sub.txt | dirsearch --stdin --exclude-status=401,404,403,429,500,503 -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bkp,cache,cgi,conf,csv,html,unc,jar,js,json,jsp,jsp~,lock,log,rar,sql.gz,http://sql.zip,sql.tar.gz,sql~,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip,.log,.xml,.js,.json --random-agent -f --threads 50 -t 10 --exclude-sizes 0B -o dir.txt
+

@@ -1,0 +1,7 @@
+Automated JS Endpoint Extraction and Verification with HTTPX and Gau
+
+echo "target.com" | gau --blacklist jpg,jpeg,gif,css,tif,tiff,png,ttf,woff,woff2,ico,pdf,svg \
+| grep -E "\.js($|\?.*)" \
+| httpx -er "(?:(https?|ftp|git|ssh|telnet|smtp|imap|pop3|ldap|sftp|smb|nfs|rtmp|rtsp|ws|wss|irc|news|gopher|rsync|data):\/\/|\/)[^\s\"'\*\(\){};\\\^\$\&<>/\\?#]+(?:\?[^\s\"'<>/\\?#]+)?(?:\/[^\s\"'<>/\\?#]+)*" \
+-json -mr "application/javascript|text/javascript" \
+| jq -r '.extracts[]' | tr -d '[],'
