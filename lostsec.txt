@@ -493,4 +493,10 @@ Subversion metadata directory (.svn) , download the source code of the website a
 https://github.com/anantshri/svn-extractor
 python3 svn_extractor.py --url
 
+OpenRedirect Oneliner:
+----------------------
+cat urls.txt | sed -E 's#(redirect=|url=|next=|return=|dest=|destination=|continue=|goto=|redirecturl=)[^&]*#\1https://evil.com#gI' | httpx -silent -mc 301,302,307,308 -location
+
+
+
 
