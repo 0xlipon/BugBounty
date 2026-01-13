@@ -49,23 +49,6 @@ FREEDIUM: javascript:window.location="https://freedium.cfd/"+encodeURIComponent(
 --------------------------------------
 Leaked Creds: https://github.com/h4x0r-dz/Leaked-Credentials/
 
-
-
-// Extract all IPs from Shodan search results
-var ipElements = document.querySelectorAll("strong");
-var ips = [];
-
-ipElements.forEach(function (e) {
-    ips.push(e.innerHTML.replace(/["']/g, ""));
-});
-
-var ipsString = ips.join("\n");
-var a = document.createElement("a");
-a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(ipsString);
-a.download = "ip.txt";
-document.body.appendChild(a);
-a.click();
-
 LinkFinder:
 -----------
 javascript:void(function(){let e=document.createElement('div');e.style.cssText='position:fixed;bottom:0;left:0;width:100%;height:300px;background:#1a1a1a;color:#00ff00;z-index:999999;padding:20px;overflow:auto;font-family:monospace;';e.innerHTML='<h3%20style="color:#00ff00">%F0%9F%94%8D%20BlackLine%20Scanner</h3><div%20id="results">Scanning...</div>';document.body.appendChild(e);let%20currentDomain=window.location.hostname;let%20foundUrls=new%20Set();function%20findUrls(){let%20urls=[];let%20sources=[...document.getElementsByTagName('a'),...document.getElementsByTagName('script'),...document.getElementsByTagName('img'),...document.getElementsByTagName('link'),...document.getElementsByTagName('form')];sources.forEach(element=>{if(element.href)urls.push(element.href);if(element.src)urls.push(element.src);if(element.action)urls.push(element.action);});let%20content=document.documentElement.innerHTML;let%20urlPattern=/(?:url\(|href="|src="|action="|url:|endpoint:|path:|route:)\s*['"]?([^'"\)\s>]+)/gi;let%20match;while((match=urlPattern.exec(content))!==null){if(match[1]&&!match[1].startsWith('data:'))urls.push(match[1]);}let%20scriptPattern=/"[^"]*"|'[^']*'/g;let%20scripts=document.documentElement.innerHTML.match(scriptPattern)||[];scripts.forEach(script=>{let%20urlMatches=script.match(/(?:\/[a-zA-Z0-9_-]+)+(?:\.[a-zA-Z0-9]+)?/g)||[];urlMatches.forEach(url=>urls.push(url));});performance.getEntriesByType('resource').forEach(entry=>urls.push(entry.name));return[...new%20Set(urls)];}let%20allUrls=findUrls();allUrls.sort();document.getElementById('results').innerHTML=`%20<div%20style="margin:10px%200;color:#00ff00">%E2%9C%85%20Found%20${allUrls.length}%20URLs%20&%20Endpoints%20on%20${currentDomain}</div>%20<div%20style="background:#2a2a2a;padding:10px;border-radius:5px">%20${allUrls.map(url=>`<div%20style="color:white;margin:5px%200;padding:5px;background:#333;border-radius:3px;word-break:break-all">${url}</div>`).join('')}%20</div>`;})();
@@ -107,5 +90,29 @@ YWH Blog:
 =========
 
 javascript:(function(){var scripts=document.getElementsByTagName("script"),regex=/(?<=(\"|\'|\`))\/[a-zA-Z0–9_?&=\/\-\#\.]*(?=(\"|\'|\`))/g;const results=new Set;for(var i=0;i<scripts.length;i++){var t=scripts[i].src;""!=t&&fetch(t).then(function(t){return t.text()}).then(function(t){var e=t.matchAll(regex);for(let r of e)results.add(r[0])}).catch(function(t){console.log("An error occurred: ",t)})}var pageContent=document.documentElement.outerHTML,matches=pageContent.matchAll(regex);for(const match of matches)results.add(match[0]);function writeResults(){results.forEach(function(t){document.write(t+"<br>")})}setTimeout(writeResults,3e3);})();
+
+
+Shodan Domain Extract:
+======================
+javascript:(function(){var ipElements=document.querySelectorAll('strong');var ips=[];ipElements.forEach(function(e){ips.push(e.innerHTML.replace(/["']/g,'').trim())});var ipsString=ips.join('\n');var a=document.createElement('a');a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(ipsString);a.download='ShoDam.txt';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(a.href);})();
+
+
+Extract IPs from Shodan Using Console:
+======================================
+// Extract all IPs from Shodan search results
+var ipElements = document.querySelectorAll("strong");
+var ips = [];
+
+ipElements.forEach(function (e) {
+    ips.push(e.innerHTML.replace(/["']/g, ""));
+});
+
+var ipsString = ips.join("\n");
+var a = document.createElement("a");
+a.href = "data:text/plain;charset=utf-8," + encodeURIComponent(ipsString);
+a.download = "ip.txt";
+document.body.appendChild(a);
+a.click();
+
 
 
