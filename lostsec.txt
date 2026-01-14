@@ -109,13 +109,16 @@ cat all_urls.txt | grep -E '\bhttps?://\S+?=\S+' | grep -E '\.php|\.asp' | sort 
 
 
 --------------------------------------------------------------------------------------------------------------------------------------
+// Don't abuse :)
+
 https://web.archive.org/cdx/search/cdx?url=*.apple.com/*&collapse=urlkey&output=text&fl=original
 
-https://www.virustotal.com/vtapi/v2/domain/report?apikey=a7795a7790e63750b700fc7a127b67b404da086adab79729a1933afddbfd93c9&domain=tesla.com
+https://www.virustotal.com/vtapi/v2/domain/report?domain=siilo.com&apikey=a7795a7790e63750b700fc7a127b67b404da086adab79729a1933afddbfd93c9
 
 https://otx.alienvault.com/api/v1/indicators/hostname/microsoft.com/url_list?limit=500&page=1
 
 curl -G "https://web.archive.org/cdx/search/cdx" --data-urlencode "url=*.example.com/*" --data-urlencode "collapse=urlkey" --data-urlencode "output=text" --data-urlencode "fl=original" > out.txt
+
 
 cat out.txt | uro |  grep -E '\.xls|\.xml|\.xlsx|\.json|\.pdf|\.sql|\.doc|\.docx|\.pptx|\.txt|\.zip|\.tar\.gz|\.tgz|\.bak|\.7z|\.rar|\.log|\.cache|\.secret|\.db|\.backup|\.yml|\.gz|\.config|\.csv|\.yaml|\.md|\.md5|\.exe|\.dll|\.bin|\.ini|\.bat|\.sh|\.tar|\.deb|\.rpm|\.iso|\.img|\.apk|\.msi|\.dmg|\.tmp|\.crt|\.pem|\.key|\.pub|\.asc'
 
