@@ -1,5 +1,10 @@
 ========================================================================================================================================
 
+NextJS Console:
+
+javascript:(()=>{let m=window.__BUILD_MANIFEST;if(m?.sortedPages)console.log(m.sortedPages.join("\n"));else console.log([...document.links].map(a=>a.href).filter(h=>h&&!h.startsWith("javascript:")).filter((v,i,a)=>a.indexOf(v)==i).join("\n"));})();
+
+
 shodan search "org:IBM" --fields hostnames
 
 Google Dork:
