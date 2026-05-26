@@ -1,2 +1,2 @@
 # BugBounty 
-Recon for Pentesting and Bug Bounty Hunting 🕵️
+PenTest and BugBounty 🕵️
