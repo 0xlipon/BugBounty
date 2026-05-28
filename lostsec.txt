@@ -1,5 +1,11 @@
 ========================================================================================================================================
 
+My password wordlists:
+Basic: https://raw.githubusercontent.com/danielmiessler/SecLists/refs/heads/master/Passwords/Default-Credentials/default-passwords.txt
+Advance: https://raw.githubusercontent.com/mrtc0/honeylog2016/refs/heads/master/cowrie/02/password.txt
+Usernames wordlist: https://raw.githubusercontent.com/jeanphorn/wordlist/refs/heads/master/usernames.txt
+
+
 NextJS Console:
 
 javascript:(()=>{let m=window.__BUILD_MANIFEST;if(m?.sortedPages)console.log(m.sortedPages.join("\n"));else console.log([...document.links].map(a=>a.href).filter(h=>h&&!h.startsWith("javascript:")).filter((v,i,a)=>a.indexOf(v)==i).join("\n"));})();
