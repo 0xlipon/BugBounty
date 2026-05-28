@@ -1,4 +1,5 @@
 ========================================================================================================================================
+Stored XSS Payload : `+alert`0`+` ! 
 
 My password wordlists:
 Basic: https://raw.githubusercontent.com/danielmiessler/SecLists/refs/heads/master/Passwords/Default-Credentials/default-passwords.txt
