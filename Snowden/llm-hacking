@@ -1,0 +1,32 @@
+LLM Testing: https://github.com/danielmiessler/SecLists/tree/master/Ai/LLM_Testing
+
+A list of Inputs to test 
+
+       1. Bias Testing 
+       https://github.com/danielmiessler/SecLists/tree/master/Ai/LLM_Testing/Bias_Testing
+
+       2. Data Leak
+       https://github.com/danielmiessler/SecLists/tree/master/Ai/LLM_Testing/Data_Leakage
+
+       3. Divergence Attack
+       https://github.com/danielmiessler/SecLists/tree/master/Ai/LLM_Testing/Divergence_attack
+
+       4. Sesion recall 
+       https://github.com/danielmiessler/SecLists/tree/master/Ai/LLM_Testing/Memory_Recall_Testing
+
+Learn more: 
+1. https://portswigger.net/web-security/llm-attacks (Labs)
+2. https://genai.owasp.org/llm-top-10/ (Owasp Top 10)
+
+
+Blogs : 
+1. https://medium.com/@austin-stubbs/llm-security-types-of-prompt-injection-d7ad8d7d75a3
+2. https://cyberw1ng.medium.com/26-1-lab-exploiting-llm-apis-with-excessive-agency-bb94aa506893
+3. https://infosecwriteups.com/my-llm-bug-bounty-journey-on-hugging-face-hub-via-protect-ai-9f3a1bc72c2e
+4. https://medium.com/@jeetpal2007/how-i-bypass-safegurads-of-meta-ai-llama-d735b521da2b
+5. https://medium.com/@360Security/perform-a-command-injection-attack-in-large-language-models-llms-86cd7db5e528
+6. https://medium.com/@austin-stubbs/llm-security-types-of-prompt-injection-d7ad8d7d75a3
+7. https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/
+8. https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/0_1_vulns/ 
+9. https://github.com/sinanw/llm-security-prompt-injection
+10. https://github.com/greshake/llm-security
