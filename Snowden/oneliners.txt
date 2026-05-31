@@ -1,0 +1,50 @@
+1st 
+
+ subfinder -d domain.com -silent  | \
+while read host; do \
+  for path in /config.js /config.json /app/config.js /settings.json /database.json /firebase.json /.env /.env.production /api_keys.json /credentials.json /secrets.json /google-services.json /package.json /package-lock.json /composer.json /pom.xml /docker-compose.yml /manifest.json /service-worker.js; do \
+    echo "$host$path"; \
+  done; \
+done | httpx -mc 200
+
+
+
+2nd 
+
+cat waybacks.txt | \ 
+sed -E 's#(redirect=|url=|next=|return=|dest=|destination=|continue=|goto=|redirecturl=)[^&]*#\1https://evil.com#gI' | \
+httpx -silent -mc 301,302,307,308 -location
+
+
+3rd 
+
+cat jsfiles.txt | xargs -I% curl -s "%" | \
+grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*|/[-a-zA-Z0-9@:%_+.~#?&//=]*" | sort -u
+
+
+
+4th
+
+while read -r url; do curl -sL --max-time 10 "$url" 2>/dev/null | grep -Eo 'https?://[A-Za-z0-9._-]+\.firebaseio\.com|https?://[A-Za-z0-9._-]+\.firebasedatabase\.app|https?://[A-Za-z0-9._-]+\.s3\.amazonaws\.com|mongodb://[^[:space:]]+|redis://[^[:space:]]+|postgresql?://[^[:space:]]+|[Pp]assword[[:space:]]*[:=][[:space:]]*[^[:space:]]{6,128}|AIza[0-9A-Za-z_-]{35}' | sort -u | sed "s|^|$url -> |" | grep -vE '(\.env|config\.json|\.php|settings\.py|application\.yml)$'; done < jsf
+
+
+
+
+5th
+
+cat waybackurls \
+  | grep -Eoi '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' \
+  | tr '[:upper:]' '[:lower:]' \
+  | grep -vE '\.(png|jpg|jpeg|svg|gif)$' \
+  | grep -vE '^(donot.?reply|no-?reply|noreply|no_reply|webmaster|postmaster|admin|support|abuse|bounce|mailer-daemon|contact|help)@' \
+  | grep -vE '^[0-9]+@' \
+  | sort -u
+
+6th
+
+cat sub.txt | while read host; do for endpoint in "" "/api" "/api/v1" "/api/v2" "/api/v3" "/api/rest" "/rest" "/rest/v1" "/rest/v2" "/graphql" "/graphiql" "/playground" "/search" "/s" "/q" "/query" "/find" "/lookup" "/get" "/fetch" "/post" "/view" "/show" "/display" "/ajax" "/json" "/xml" "/rss" "/feed" "/webhook" "/callback" "/upload" "/uploads" "/download" "/exports" "/import" "/backup" "/backups" "/restore" "/admin" "/administrator" "/user" "/users" "/profile" "/profiles" "/account" "/accounts" "/settings" "/config" "/configuration" "/debug" "/debugger" "/test" "/tests" "/health" "/healthcheck" "/status" "/ping" "/echo" "/reflect" "/mirror" "/api/swagger" "/swagger" "/swagger-ui" "/docs" "/api-docs" "/redoc" "/openapi" "/api/websocket" "/ws" "/socket" "/socket.io" "/live" "/stream" "/events" "/subscribe" "/notifications" "/alert" "/web" "/app" "/mobile" "/desktop" "/widget" "/embed" "/iframe" "/cms" "/wp-admin" "/wp-json" "/wp-content" "/api/wp-json" "/index" "/home" "/main" "/default" "/start" "/landing" "/portal" "/dashboard" "/console" "/control" "/manage" "/administration" "/system" "/server" "/node" "/service" "/services" "/api/service" "/v1/service" "/v2/service" "/rpc" "/api/rpc" "/grpc" "/api/grpc" "/soap" "/api/soap" "/xmlrpc" "/xmlrpc.php" "/api/xmlrpc" "/api/restful" "/api/rest-api" "/api/v1/rest" "/api/v2/rest" "/api/search" "/api/query" "/api/find" "/api/lookup" "/api/get" "/api/fetch" "/api/post" "/api/create" "/api/update" "/api/delete" "/api/remove" "/api/edit" "/api/modify" "/api/save" "/api/publish" "/api/unpublish" "/api/archive" "/api/export" "/api/import" "/api/backup" "/api/restore" "/api/migrate" "/api/sync" "/api/webhook" "/api/callback" "/api/upload" "/api/download" "/api/media" "/api/file" "/api/files" "/api/image" "/api/images" "/api/photo" "/api/photos" "/api/video" "/api/videos" "/api/audio" "/api/document" "/api/documents" "/api/pdf" "/api/csv" "/api/excel" "/api/export/csv" "/api/export/pdf" "/api/export/excel" "/api/report" "/api/reports" "/api/analytics" "/api/stats" "/api/metrics" "/api/logs" "/api/trace" "/api/debug" "/api/test" "/api/health" "/api/status" "/api/info" "/api/version" "/api/config" "/api/settings" "/api/preferences" "/api/user/profile" "/api/user/settings" "/api/users/list" "/api/users/search" "/api/account" "/api/auth" "/api/login" "/api/logout" "/api/signup" "/api/register" "/api/verify" "/api/validate" "/api/confirm" "/api/reset" "/api/forgot" "/api/password" "/api/token" "/api/session" "/api/oauth" "/api/oauth2" "/api/sso" "/api/saml" "/api/ldap" "/api/2fa" "/api/mfa" "/api/captcha" "/api/recaptcha" "/api/antibot" "/api/ratelimit" "/api/throttle" "/api/cache" "/api/redis" "/api/memcache" "/api/database" "/api/db" "/api/sql" "/api/nosql" "/api/mongodb" "/api/postgres" "/api/mysql" "/api/elastic" "/api/elasticsearch" "/api/solr" "/api/redis" "/api/mq" "/api/queue" "/api/job" "/api/task" "/api/cron" "/api/scheduler" "/api/worker" "/api/process" "/api/thread" "/api/async" "/api/sync" "/api/realtime" "/api/live" "/api/stream" "/api/push" "/api/notification" "/api/email" "/api/sms" "/api/twilio" "/api/sendgrid" "/api/mailgun" "/api/payment" "/api/stripe" "/api/paypal" "/api/braintree" "/api/invoice" "/api/billing" "/api/subscription" "/api/plan" "/api/webhook/payment" "/api/webhook/stripe" "/api/webhook/paypal" "/api/cdn" "/api/cloudfront" "/api/s3" "/api/storage" "/api/upload/s3" "/api/upload/azure" "/api/upload/gcp" "/api/upload/firebase" "/api/firebase" "/api/firestore" "/api/realtime-db" "/api/functions" "/api/serverless" "/api/lambda" "/api/cloudfunction" "/api/azure-function"; do for param in q query search s keyword term text find lookup get id uid user username email mail phone mobile zip city state country lang language locale redirect url return next goto view file filename path dir folder document pdf image img avatar profile callback json xml output format sort order filter limit offset page start from to date datetime timestamp version api_key token auth session cookie hash code pin otp secret password passwd pwd admin debug test trace log error warn info status ping echo param input data payload value var config setting option mode action method do func function command cmd exec run system upload download export import backup restore migrate sync update delete create add edit save publish unpublish archive enable disable activate deactivate approve reject cancel submit validate verify confirm register login logout authenticate authorize permission role group team org project task issue bug report review comment feedback rating vote share post article news blog story product item price cost currency amount quantity total discount coupon code redeem payment pay order cart checkout; do echo "https://$host$endpoint?$param=REFLECTTEST"; done; done; done | httpx -sc -fr -cl   -stats  -match-string "REFLECTTEST" 
+
+
+
+7th
+subfinder -d target.com -silent | httpx -silent -tech-detect -json | jq -r 'select(.tech | contains("WordPress")) | .url' | while read url; do for endpoint in "/wp-admin" "/wp-json" "/wp-content" "/wp-includes" "/graphql" "/api" "/admin" "/backup" "/backups" "/backup.zip" "/backup.tar.gz" "/backup.sql" "/db-backup" "/database" "/mysql" "/wp-config.php" "/wp-config.php.bak" "/wp-config.old" "/wp-config.save" "/wp-config-backup" "/config.php" "/config.ini" "/config.yml" "/configuration.php" "/.env" "/.env.backup" "/.env.old" "/.env.save" "/.git/config" "/.git/HEAD" "/.git/logs/HEAD" "/.svn/entries" "/.htaccess" "/.htaccess.bak" "/.htpasswd" "/nginx.conf" "/httpd.conf" "/php.ini" "/phpinfo.php" "/info.php" "/debug.php" "/test.php" "/backdoor.php" "/shell.php" "/cmd.php" "/xmlrpc.php" "/wp-login.php" "/wp-admin/admin-ajax.php" "/wp-admin/admin-post.php" "/wp-content/debug.log" "/wp-content/uploads" "/wp-content/backup-db" "/wp-content/backup" "/wp-content/mysql.sql" "/wp-content/database.sql" "/wp-content/wp-config.php" "/wp-includes/wp-config.php" "/wp-config-sample.php" "/readme.html" "/license.txt" "/robots.txt" "/sitemap.xml" "/sitemap.xml.gz" "/wp-content/themes/twentytwentyone/style.css" "/wp-content/plugins" "/wp-content/mu-plugins" "/wp-content/ai1wm-backups" "/wp-content/backup-*" "/wp-content/uploads/2023" "/wp-content/uploads/2024" "/wp-content/uploads/2025" "/wp-content/updraft" "/wp-content/updraft/backup" "/backup.sql.gz" "/db.sql" "/database.sql" "/dump.sql" "/export.sql" "/sql.sql" "/wp-content/wp-backup" "/old" "/backup_old" "/backup_2024" "/backup_2025" "/old-site" "/backup-site" "/wp-admin/backup" "/wp-admin/backups" "/api/backup" "/api/v1/backup" "/v1/backup" "/restore" "/restore.php" "/migration" "/migrate" "/export" "/import" "/wp-content/backwpup-*" "/wp-content/backwpup-backups" "/wp-content/updraft/backups" "/wp-content/ai1wm-backups" "/wp-content/plugins/backup" "/wp-content/plugins/wp-backup" "/wp-content/plugins/backuply" "/wp-content/plugins/backupbuddy" "/wp-content/plugins/updraftplus" "/wp-content/plugins/all-in-one-wp-migration" "/wp-content/plugins/backwpup" "/wp-content/plugins/wpvivid-backuprestore" "/wp-content/plugins/jetpack-backup" "/wp-content/plugins/blogvault-backup" "/config-backup" "/conf-backup" "/settings-backup" "/data-backup" "/db-backup" "/database-backup" "/mysql-backup" "/backup-mysql" "/wp-backup" "/wordpress-backup" "/site-backup" "/backup-site" "/backup-wordpress" "/backup_website" "/backup_files" "/backup_db" "/backup_database" "/full-backup" "/complete-backup" "/emergency-backup" "/wp-content/uploads/backup" "/wp-content/uploads/backups" "/wp-content/uploads/db-backup" "/wp-content/uploads/database-backup" "/wp-content/uploads/wp-backup" "/wp-content/uploads/wordpress-backup" "/wp-admin/backup.php" "/wp-admin/export.php" "/wp-admin/import.php" "/wp-admin/maint/repair.php" "/wp-admin/setup-config.php" "/wp-admin/install.php" "/wp-admin/upgrade.php"; do echo "$url$endpoint"; done; done | httpx -sc -fr -cl -t 100 -rl 20 -o wordpress_high_impact.txt
