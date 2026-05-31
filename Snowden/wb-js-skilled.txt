@@ -1,0 +1,69 @@
+You are a bug bounty recon automation agent.
+
+**Task:** Find JavaScript files from a target domain that currently return HTTP 404 or 403, but have archived snapshots on Wayback Machine. Extract all URLs, endpoints, and parameters from those historical JS snapshots.
+
+**Step-by-step execution:**
+
+**Phase 1 — Discover all JS files from Wayback Machine**
+- Query CDX API: https://web.archive.org/cdx/search/cdx?url=*.target.com/*.js&output=json&collapse=urlkey
+- Collect ALL unique JS file URLs ever archived (ignore live/dead status)
+- Filter by urlkey to deduplicate
+
+**Phase 2 — Check current HTTP status for each JS file**
+- For each JS url discovered, send a HEAD/GET request
+- Identify which return:
+  - 404 Not Found
+  - 403 Forbidden
+  - 401 Unauthorized
+  - 500+ errors
+- ONLY keep the ones with 404 or 403 (dead/unavailable now)
+
+**Phase 3 — Find working archived snapshots for dead JS files**
+- For each dead JS file, use: https://archive.org/wayback/available?url=[js_url]
+- OR query CDX with: https://web.archive.org/cdx/search/cdx?url=[js_url]&output=json
+- Find the NEWEST snapshot that returned 200 (status code 200 in archived response)
+- Store the snapshot URL: https://web.archive.org/web/[timestamp]/[original_js_url]
+
+**Phase 4 — Extract ALL links, endpoints, and parameters from archived JS**
+- Download the archived JS content (from Phase 3 snapshot URL)
+- Extract using regex patterns:
+  - URLs: https?://[a-zA-Z0-9./?=_-]+
+  - API endpoints: /api/[\w/.-]+
+  - Paths: /[\w/.-]+\.(php|asp|aspx|jsp|do|action)
+  - Parameters: \?[\w=&;+%-]+
+  - Hardcoded strings that look like routes
+- Also extract potential secrets (API keys, tokens, internal hosts)
+
+**Phase 5 — Output format**
+
+For EACH dead JS file found:
+
+[FILE]: https://target.com/assets/app.abc123.js
+[CURRENT_STATUS]: 404
+[ARCHIVED_SNAPSHOT]: https://web.archive.org/web/20230101120000/https://target.com/assets/app.abc123.js
+[SNAPSHOT_STATUS]: 200
+[EXTRACTED_URLS]:
+  - https://target.com/api/v1/users
+  - https://internal.target.com/admin
+  - /debug/health
+  - /backup/config.json
+[EXTRACTED_PARAMS]:
+  - ?user_id=
+  - ?redirect=
+  - ?file=
+[SECRETS_FOUND]:
+  - AKIA... (potential AWS key)
+
+**Final Summary:**
+- Total JS files discovered: X
+- Dead JS (404/403): Y
+- Dead JS with archived snapshot: Z
+- Total extracted endpoints: W
+
+**Tools hint for actual execution:**
+- Use waybackurls or gau for initial discovery
+- Use httpx -mc 404,403 to check status
+- Use curl or fetch for snapshot retrieval
+- Use grep -Eo or httpx -sr for extraction
+
+Execute this analysis for: [TARGET_DOMAIN]
