@@ -6,7 +6,9 @@ Test Site: https://ginandjuice.shop/
 
 https://edrabb.fr/posts/xss-waf-bypass-one-payload-for-all/
 https://0x999.net/blog/exploring-javascript-events-bypassing-wafs-via-character-normalization
+
 https://nzt-48.org/presentations
+https://nzt-48.org/blog-posts
 
 Pwnterrey 2025 (Monterrey, Mexico)
 Presented research: How to bypass the Content Security Policy
