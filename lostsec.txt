@@ -1,5 +1,52 @@
 ========================================================================================================================================
+
+[+] https://waf-bypass.dev/
+
 Test Site: https://ginandjuice.shop/
+
+https://edrabb.fr/posts/xss-waf-bypass-one-payload-for-all/
+https://0x999.net/blog/exploring-javascript-events-bypassing-wafs-via-character-normalization
+https://nzt-48.org/presentations
+
+Pwnterrey 2025 (Monterrey, Mexico)
+Presented research: How to bypass the Content Security Policy
+Slides (spanish): https://nzt-48.org/slides/content-security-policy-bypass_es.pdf
+
+Hack Space Con 2025 (Florida)
+Presented research: Breaking Security Defenses: How to bypass the Content Security Policy
+Slides: https://nzt-48.org/slides/how-to-bypass-the-Content-Security-Policy.pdf
+
+BSides Seattle 2025
+Presented research: Breaking Security Defenses: How to bypass the Content Security Policy
+Slides: https://nzt-48.org/slides/how-to-bypass-the-Content-Security-Policy.pdf
+
+Radware Attack Forum 2025
+Presented research: How I bypassed Radware's Web Application Firewall (and 15 other WAFs)
+
+BugCON Security Conferences 2024 Mexico City
+Presented research: Breaking Security Defenses: SQL injections that are not detected by filters
+
+The 28th Colloquium for Information Systems Security Education at the Universiy of Tampa, Florida
+Presented research: Breaking Security Defenses: SQL injections that are not detected by filters
+
+BSides Berlin 2024
+Presented research: Breaking Security Defenses: SQL injections that are not detected by filters
+
+Speaker at DragonJAR Security Conference 2021
+Presented research: Extreme optimization methods for performing high speed blind SQL injections.
+Slides (english version): https://nzt-48.org/slides/high-speed-methods-for-blind-sql-injections.pdf
+
+BugCON Security Conference 2021
+Presented research: Extreme optimization methods for performing high speed blind SQL injections.
+Slides (english version): https://nzt-48.org/slides/high-speed-methods-for-blind-sql-injections.pdf
+
+Hackfest Quebec 2020
+Presented research: Lightspeed SQL injections
+Slides (updated version): https://nzt-48.org/slides/high-speed-methods-for-blind-sql-injections.pdf
+
+BSides Philly 2020
+Presented research: High Speed Methods For Blind SQL Injections
+Slides (updated version): https://nzt-48.org/slides/high-speed-methods-for-blind-sql-injections.pdf
 
 Stored XSS Payload : `+alert`0`+` ! 
 
@@ -7,7 +54,6 @@ My password wordlists:
 Basic: https://raw.githubusercontent.com/danielmiessler/SecLists/refs/heads/master/Passwords/Default-Credentials/default-passwords.txt
 Advance: https://raw.githubusercontent.com/mrtc0/honeylog2016/refs/heads/master/cowrie/02/password.txt
 Usernames wordlist: https://raw.githubusercontent.com/jeanphorn/wordlist/refs/heads/master/usernames.txt
-
 
 NextJS Console:
 
