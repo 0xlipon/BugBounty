@@ -16,6 +16,10 @@ Blind XSS
 
 [+] "><img/src/onerror=.1|alert`1` class=d>
 
+SQLi:
+[+] https://nzt-48.org/slides/high-speed-methods-for-blind-sql-injections.pdf
+
+
 
 
 
